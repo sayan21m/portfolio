@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Case study: Temperature Predictor — Machine Learning weather prediction and EDA dashboard by Sayan Garai.">
+  <title>Temperature Predictor Case Study | Sayan Garai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/icons.css">
+  <link rel="stylesheet" href="../css/case-study.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+</head>
+<body class="case-study-page">
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="header header--scrolled" role="banner">
+    <nav class="nav container" aria-label="Case study navigation">
+      <a href="../index.html" class="nav__logo" aria-label="Back to portfolio home">
+        <span class="nav__logo-bracket">&lt;</span>SG<span class="nav__logo-bracket">/&gt;</span>
+      </a>
+      <a href="../index.html#projects" class="nav__link nav__link--cta">
+        <span data-icon="arrow-left" class="icon icon--sm"></span>
+        Portfolio
+      </a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section class="case-hero" aria-labelledby="case-title">
+      <div class="container">
+        <div class="case-hero__content reveal">
+          <span class="case-hero__tag">Project Case Study</span>
+          <h1 class="case-hero__title" id="case-title">Temperature Predictor</h1>
+          <p class="case-hero__subtitle">Machine Learning Based Weather Prediction &amp; Exploratory Data Analysis Dashboard</p>
+          <div class="case-hero__actions">
+            <a href="https://github.com/sayan21m/temperature_predictor.git" class="btn btn--primary btn--sm ripple" target="_blank" rel="noopener noreferrer" aria-label="View source code on GitHub">
+              <span data-icon="github" class="icon icon--sm"></span>
+              GitHub
+            </a>
+            <a href="https://sayan21m.github.io/temperature_predictor/" class="btn btn--secondary btn--sm ripple" target="_blank" rel="noopener noreferrer" aria-label="Open live demo">
+              <span data-icon="external-link" class="icon icon--sm"></span>
+              Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="case-section" aria-labelledby="overview-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="overview-title">Overview</h2>
+        <p class="case-section__text reveal">
+          Temperature Predictor is a full-stack machine learning project that forecasts temperature
+          based on weather data while providing an interactive exploratory data analysis (EDA) dashboard.
+          It combines data preprocessing, feature engineering, predictive modeling, and data visualization
+          into a single cohesive web application built with Python and Flask.
+        </p>
+      </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section class="case-section case-section--alt" aria-labelledby="problem-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="problem-title">Problem Statement</h2>
+        <p class="case-section__text reveal">
+          Weather data contains valuable patterns, but raw datasets are difficult to interpret without
+          proper exploration and modeling. The challenge was to build a practical tool that not only
+          predicts temperature from weather features but also helps users understand the underlying data
+          through interactive visualizations and statistical insights.
+        </p>
+      </div>
+    </section>
+
+    <!-- Solution Approach -->
+    <section class="case-section" aria-labelledby="solution-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="solution-title">Solution Approach</h2>
+        <p class="case-section__text reveal">
+          I approached the problem in stages: first cleaning and exploring the dataset, then engineering
+          meaningful features for prediction. A Scikit-learn regression model was trained on preprocessed
+          weather data, while Plotly and Matplotlib powered the visualization layer. Flask serves as the
+          backend, delivering predictions and chart data to a responsive HTML/CSS/JavaScript frontend.
+        </p>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="case-section case-section--alt" aria-labelledby="features-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="features-title">Features</h2>
+        <ul class="case-list reveal">
+          <li>Weather data preprocessing and cleaning</li>
+          <li>Feature engineering for predictive modeling</li>
+          <li>Temperature prediction using machine learning</li>
+          <li>Interactive Plotly charts for data exploration</li>
+          <li>Statistical insights and data visualization</li>
+          <li>Forecast generation from trained models</li>
+          <li>Responsive dashboard accessible on all devices</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="case-section" aria-labelledby="tech-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="tech-title">Technology Stack</h2>
+        <div class="case-tags reveal">
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">Plotly</span>
+          <span class="tag">Matplotlib</span>
+          <span class="tag">Flask</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Workflow -->
+    <section class="case-section case-section--alt" aria-labelledby="workflow-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="workflow-title">Project Workflow</h2>
+        <div class="case-workflow">
+          <div class="case-workflow__step glass reveal">
+            <span class="case-workflow__num" aria-hidden="true">01</span>
+            <div class="case-workflow__body">
+              <h3 class="case-section__subtitle">Data Collection</h3>
+              <p class="case-section__text">Gathered and imported weather dataset for analysis.</p>
+            </div>
+          </div>
+          <div class="case-workflow__step glass reveal">
+            <span class="case-workflow__num" aria-hidden="true">02</span>
+            <div class="case-workflow__body">
+              <h3 class="case-section__subtitle">EDA &amp; Preprocessing</h3>
+              <p class="case-section__text">Explored patterns, handled missing values, and engineered features.</p>
+            </div>
+          </div>
+          <div class="case-workflow__step glass reveal">
+            <span class="case-workflow__num" aria-hidden="true">03</span>
+            <div class="case-workflow__body">
+              <h3 class="case-section__subtitle">Model Training</h3>
+              <p class="case-section__text">Trained and evaluated regression models with Scikit-learn.</p>
+            </div>
+          </div>
+          <div class="case-workflow__step glass reveal">
+            <span class="case-workflow__num" aria-hidden="true">04</span>
+            <div class="case-workflow__body">
+              <h3 class="case-section__subtitle">Dashboard Development</h3>
+              <p class="case-section__text">Built interactive visualizations and prediction interface.</p>
+            </div>
+          </div>
+          <div class="case-workflow__step glass reveal">
+            <span class="case-workflow__num" aria-hidden="true">05</span>
+            <div class="case-workflow__body">
+              <h3 class="case-section__subtitle">Deployment</h3>
+              <p class="case-section__text">Deployed the application via GitHub Pages for public access.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- System Architecture -->
+    <section class="case-section" aria-labelledby="arch-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="arch-title">System Architecture</h2>
+        <div class="architecture glass reveal" role="img" aria-label="System architecture: Frontend connects to Flask server, which connects to ML pipeline, supported by a data layer below">
+          <div class="architecture__flow">
+            <div class="architecture__node">
+              <div class="architecture__node-icon" aria-hidden="true">
+                <span data-icon="monitor" class="icon"></span>
+              </div>
+              <p class="architecture__node-title">Frontend</p>
+              <p class="architecture__node-desc">HTML · CSS · JS<br>Plotly Charts</p>
+            </div>
+            <div class="architecture__connector" aria-hidden="true">
+              <span data-icon="chevron-right" class="icon"></span>
+            </div>
+            <div class="architecture__node">
+              <div class="architecture__node-icon" aria-hidden="true">
+                <span data-icon="server" class="icon"></span>
+              </div>
+              <p class="architecture__node-title">Flask Server</p>
+              <p class="architecture__node-desc">Routes · API<br>Request Handling</p>
+            </div>
+            <div class="architecture__connector" aria-hidden="true">
+              <span data-icon="chevron-right" class="icon"></span>
+            </div>
+            <div class="architecture__node">
+              <div class="architecture__node-icon" aria-hidden="true">
+                <span data-icon="brain" class="icon"></span>
+              </div>
+              <p class="architecture__node-title">ML Pipeline</p>
+              <p class="architecture__node-desc">Scikit-learn<br>Prediction Engine</p>
+            </div>
+          </div>
+          <div class="architecture__layer">
+            <div class="architecture__node">
+              <div class="architecture__node-icon" aria-hidden="true">
+                <span data-icon="database" class="icon"></span>
+              </div>
+              <p class="architecture__node-title">Data Layer</p>
+              <p class="architecture__node-desc">Pandas · NumPy · Weather Dataset</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Challenges -->
+    <section class="case-section case-section--alt" aria-labelledby="challenges-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="challenges-title">Challenges Faced</h2>
+        <ul class="case-list reveal">
+          <li>Handling inconsistent and missing values in weather datasets</li>
+          <li>Selecting relevant features that improve prediction accuracy</li>
+          <li>Integrating interactive visualizations with backend predictions</li>
+          <li>Designing a responsive dashboard that works across screen sizes</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Lessons Learned -->
+    <section class="case-section" aria-labelledby="lessons-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="lessons-title">Lessons Learned</h2>
+        <p class="case-section__text reveal">
+          This project taught me that effective ML applications require more than just model accuracy —
+          data exploration and clear visualization are equally important. I learned to structure a project
+          end-to-end, from raw data to a deployed web interface, and gained hands-on experience with the
+          full Python data science stack.
+        </p>
+      </div>
+    </section>
+
+    <!-- Future Improvements -->
+    <section class="case-section case-section--alt" aria-labelledby="future-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="future-title">Future Improvements</h2>
+        <ul class="case-list reveal">
+          <li>Add more advanced ML models and ensemble techniques</li>
+          <li>Integrate real-time weather API data</li>
+          <li>Improve model evaluation metrics and comparison views</li>
+          <li>Add user authentication and saved prediction history</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="case-section" aria-labelledby="gallery-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="gallery-title">Project Gallery</h2>
+        <div class="case-gallery reveal">
+          <figure class="case-gallery__item">
+            <img src="../assets/images/temp_pred_img_1.png" alt="Dashboard overview and prediction interface" width="1280" height="720" loading="lazy" decoding="async">
+          </figure>
+          <figure class="case-gallery__item">
+            <img src="../assets/images/temp_pred_img_2.png" alt="Exploratory data analysis charts" width="1280" height="720" loading="lazy" decoding="async">
+          </figure>
+          <figure class="case-gallery__item">
+            <img src="../assets/images/temp_pred_img_3.png" alt="Weather data visualization" width="1280" height="720" loading="lazy" decoding="async">
+          </figure>
+          <figure class="case-gallery__item">
+            <img src="../assets/images/temp_pred_img_4.png" alt="Forecast and statistical insights" width="1280" height="720" loading="lazy" decoding="async">
+          </figure>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <p class="footer__copyright">&copy; <span id="footer-year"></span> Sayan Garai — Temperature Predictor Case Study</p>
+      <a href="../index.html" class="btn btn--ghost btn--sm ripple">
+        <span data-icon="arrow-left" class="icon icon--sm"></span>
+        Back to Portfolio
+      </a>
+    </div>
+  </footer>
+
+  <script src="../js/icons.js" defer></script>
+  <script src="../js/script.js" defer></script>
+</body>
+</html>
