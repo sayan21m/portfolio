@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sayan Garai — IT Engineering Student specializing in Machine Learning and Backend Development. Portfolio showcasing projects in data science and software engineering.">
+  <meta name="keywords" content="Sayan Garai, Machine Learning, Backend Developer, Python, Flask, Portfolio">
+  <meta name="author" content="Sayan Garai">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sayan Garai | ML & Backend Developer">
+  <meta property="og:description" content="IT Engineering Student building practical software powered by data.">
+  <meta property="og:type" content="website">
+
+  <title>Sayan Garai | ML & Backend Developer</title>
+
+  <!-- Preconnect for faster font loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/icons.css">
+  <link rel="stylesheet" href="css/features.css">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+</head>
+<body>
+
+  <!-- Skip to main content — accessibility -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress" id="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Page scroll progress">
+    <div class="scroll-progress__bar" id="scroll-progress-bar"></div>
+  </div>
+
+  <!-- ==================== NAVBAR ==================== -->
+  <header class="header" id="header" role="banner">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a href="#hero" class="nav__logo" aria-label="Sayan Garai — Home">
+        <span class="nav__logo-bracket">&lt;</span>SG<span class="nav__logo-bracket">/&gt;</span>
+      </a>
+
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+        <span class="nav__toggle-bar"></span>
+      </button>
+
+      <ul class="nav__menu" id="nav-menu" role="menubar">
+        <li role="none"><a href="#about" class="nav__link" role="menuitem">About</a></li>
+        <li role="none"><a href="#skills" class="nav__link" role="menuitem">Skills</a></li>
+        <li role="none"><a href="#projects" class="nav__link" role="menuitem">Projects</a></li>
+        <li role="none"><a href="#focus" class="nav__link" role="menuitem">Focus</a></li>
+        <li role="none"><a href="#journey" class="nav__link" role="menuitem">Journey</a></li>
+        <li role="none"><a href="#education" class="nav__link" role="menuitem">Education</a></li>
+        <li role="none"><a href="pages/resume.html" class="nav__link" role="menuitem">Resume</a></li>
+        <li role="none"><a href="#contact" class="nav__link nav__link--cta" role="menuitem">Contact</a></li>
+      </ul>
+
+      <div class="nav__tools" role="group" aria-label="Portfolio tools">
+        <button
+          type="button"
+          class="nav__launcher nav__launcher--pill"
+          id="open-command-palette"
+          aria-label="Open command palette"
+          aria-keyshortcuts="Control+K Meta+K"
+        >
+          <span data-icon="search" class="icon" aria-hidden="true"></span>
+          <span class="nav__launcher-label">Search</span>
+          <span class="nav__launcher-kbd" data-palette-kbd>Ctrl K</span>
+        </button>
+        <button
+          type="button"
+          class="nav__launcher nav__launcher--icon"
+          id="open-terminal"
+          aria-label="Open developer terminal"
+          title="Developer terminal"
+        >
+          <span data-icon="code" class="icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <main id="main">
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" id="hero" aria-label="Introduction">
+      <canvas class="hero__particles" id="particles-canvas" aria-hidden="true"></canvas>
+      <div class="hero__gradient" aria-hidden="true"></div>
+      <div class="hero__glow" id="hero-glow" aria-hidden="true"></div>
+
+      <div class="hero__content container">
+        <p class="hero__greeting reveal hero__float" style="--float-delay: 0s">Hi, I'm</p>
+        <h1 class="hero__name reveal hero__float" style="--float-delay: 0.1s">Sayan Garai</h1>
+        <div class="hero__title-wrap reveal hero__float" style="--float-delay: 0.2s">
+          <p class="hero__title" id="typing-text" aria-live="polite" aria-label="IT Engineering Student, Machine Learning and Backend Developer">
+            <span class="hero__cursor" aria-hidden="true">|</span>
+          </p>
+        </div>
+        <p class="hero__description reveal hero__float" style="--float-delay: 0.3s">
+          I enjoy building practical software powered by data. My interests include
+          machine learning, backend development, and data visualization.
+        </p>
+        <div class="hero__actions reveal hero__float" style="--float-delay: 0.4s">
+          <a href="#projects" class="btn btn--primary ripple">
+            <span data-icon="folder" class="icon icon--sm"></span>
+            View Projects
+          </a>
+          <a href="pages/resume.html" class="btn btn--secondary ripple" aria-label="View embedded resume">
+            <span data-icon="file-text" class="icon icon--sm"></span>
+            View Resume
+          </a>
+          <a href="#contact" class="btn btn--ghost ripple">
+            <span data-icon="mail" class="icon icon--sm"></span>
+            Contact Me
+          </a>
+        </div>
+      </div>
+
+      <a href="#about" class="hero__scroll" aria-label="Scroll to about section">
+        <span class="hero__scroll-mouse" aria-hidden="true">
+          <span class="hero__scroll-wheel"></span>
+        </span>
+        <span class="hero__scroll-text">Scroll down</span>
+        <span class="hero__scroll-line"></span>
+      </a>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section class="section about" id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">About Me</span>
+          <h2 class="section__title" id="about-heading">Who I Am</h2>
+        </div>
+
+        <div class="about__grid">
+          <div class="about__visual reveal">
+            <div class="about__avatar glass">
+              <span class="about__initials" aria-hidden="true">SG</span>
+              <div class="about__avatar-ring"></div>
+            </div>
+          </div>
+          <div class="about__content reveal">
+            <p>
+              I am a <strong>B.Tech Information Technology</strong> student with a strong passion
+              for turning data into meaningful software solutions. My primary interests lie in
+              <strong>machine learning</strong>, <strong>backend development</strong>, and
+              <strong>data analysis</strong> — areas where I enjoy combining analytical thinking
+              with hands-on engineering.
+            </p>
+            <p>
+              I focus on building practical, real-world applications rather than theoretical
+              exercises. Whether it's training predictive models, designing RESTful APIs, or
+              creating interactive data visualizations, I aim to deliver software that solves
+              actual problems. I believe in writing clean, maintainable code and documenting
+              my work thoroughly.
+            </p>
+            <p>
+              Technology moves fast, and I embrace that pace. I'm always learning new tools,
+              frameworks, and techniques to sharpen my skills and stay current with industry
+              practices. I'm actively seeking internship opportunities where I can contribute,
+              grow, and learn from experienced engineers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FEATURED METRICS ==================== -->
+    <section class="section metrics" id="metrics" aria-labelledby="metrics-heading">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">At a Glance</span>
+          <h2 class="section__title" id="metrics-heading">Featured Metrics</h2>
+        </div>
+        <div class="metrics__grid">
+          <div class="metric-card glass reveal">
+            <span class="metric-card__icon" aria-hidden="true">
+              <span data-icon="folder" class="icon icon--lg"></span>
+            </span>
+            <span class="metric-card__value" data-counter="1" data-counter-suffix="">0</span>
+            <span class="metric-card__label">Projects Completed</span>
+          </div>
+          <div class="metric-card glass reveal">
+            <span class="metric-card__icon" aria-hidden="true">
+              <span data-icon="brain" class="icon icon--lg"></span>
+            </span>
+            <span class="metric-card__value metric-card__value--text">Machine Learning</span>
+            <span class="metric-card__label">Primary Domain</span>
+          </div>
+          <div class="metric-card glass reveal">
+            <span class="metric-card__icon" aria-hidden="true">
+              <span data-icon="server" class="icon icon--lg"></span>
+            </span>
+            <span class="metric-card__value metric-card__value--text">Flask</span>
+            <span class="metric-card__label">Backend</span>
+          </div>
+          <div class="metric-card glass reveal">
+            <span class="metric-card__icon" aria-hidden="true">
+              <span data-icon="thermometer" class="icon icon--lg"></span>
+            </span>
+            <span class="metric-card__value metric-card__value--text">Weather Forecasting</span>
+            <span class="metric-card__label">Current Focus</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SKILLS ==================== -->
+    <section class="section skills" id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Skills</span>
+          <h2 class="section__title" id="skills-heading">Technologies I Use</h2>
+          <p class="section__subtitle">Skills demonstrated through completed projects</p>
+        </div>
+
+        <div class="skills__grid" id="skills-grid">
+          <!-- Programming -->
+          <div class="skill-category glass reveal">
+            <h3 class="skill-category__title">
+              <span class="skill-category__icon" aria-hidden="true">
+                <span data-icon="code" class="icon"></span>
+              </span>
+              Programming
+            </h3>
+            <div class="skill-category__cards">
+              <div class="skill-card" tabindex="0" data-tooltip="Core language for ML pipelines and data processing" data-used-in="Temperature Predictor">
+                <span class="skill-card__icon skill-card__icon--python" aria-hidden="true">
+                  <span data-icon="python" class="icon"></span>
+                </span>
+                <div class="skill-card__info">
+                  <span class="skill-card__name">Python</span>
+                  <span class="skill-card__used-in">Used in Temperature Predictor</span>
+                </div>
+              </div>
+              <div class="skill-card" tabindex="0" data-tooltip="Interactive dashboard logic and client-side features" data-used-in="Temperature Predictor">
+                <span class="skill-card__icon skill-card__icon--js" aria-hidden="true">
+                  <span data-icon="javascript" class="icon"></span>
+                </span>
+                <div class="skill-card__info">
+                  <span class="skill-card__name">JavaScript</span>
+                  <span class="skill-card__used-in">Used in Temperature Predictor</span>
+                </div>
+              </div>
+              <div class="skill-card" tabindex="0" data-tooltip="Semantic structure for the project dashboard" data-used-in="Temperature Predictor">
+                <span class="skill-card__icon skill-card__icon--html" aria-hidden="true">
+                  <span data-icon="html" class="icon"></span>
+                </span>
+                <div class="skill-card__info">
+                  <span class="skill-card__name">HTML</span>
+                  <span class="skill-card__used-in">Used in Temperature Predictor</span>
+                </div>
+              </div>
+              <div class="skill-card" tabindex="0" data-tooltip="Responsive styling for the dashboard UI" data-used-in="Temperature Predictor">
+                <span class="skill-card__icon skill-card__icon--css" aria-hidden="true">
+                  <span data-icon="css" class="icon"></span>
+                </span>
+                <div class="skill-card__info">
+                  <span class="skill-card__name">CSS</span>
+                  <span class="skill-card__used-in">Used in Temperature Predictor</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Machine Learning -->
+          <div class="skill-category glass reveal">
+            <h3 class="skill-category__title">
+              <span class="skill-category__icon" aria-hidden="true">
+                <span data-icon="brain" class="icon"></span>
+              </span>
+              Machine Learning
+            </h3>
+            <div class="skill-category__cards">
+              <div class="skill-card" tabindex="0" data-tooltip="Data manipulation, cleaning, and feature engineering" data-used-in="Temperature Predictor">
+                <span class="skill-card__icon skill-card__icon--pandas" aria-hidden="true">
+                  <span data-icon="pandas" class="icon"></span>
+                </span>
+                <div class="skill-card__info">
+                  <span class="skill-card__name">Pandas</span>
+                  <span class="skill-card__used-in">Used in Temperature Predictor</span>
+                </div>
+              </div>
+              <div class="skill-card" tabindex="0" data-tooltip="Numerical computing for model training" data-used-in="Temperature Predictor">
+                <span class="skill-card__icon skill-card__icon--numpy" aria-hidden="true">
+                  <span data-icon="numpy" class="icon"></span>
+                </span>
+                <div class="skill-card__info">
+                  <span class="skill-card__name">NumPy</span>
+                  <span class="skill-card__used-in">Used in Temperature Predictor</span>
+                </div>
+              </div>
+              <div class="skill-card" tabindex="0" data-tooltip="Regression models for temperature prediction" data-used-in="Temperature Predictor">
+                <span class="skill-card__icon skill-card__icon--sklearn" aria-hidden="true">
+                  <span data-icon="sklearn" class="icon"></span>
+                </span>
+                <div class="skill-card__info">
+                  <span class="skill-card__name">Scikit-learn</span>
+                  <span class="skill-card__used-in">Used in Temperature Predictor</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visualization -->
+          <div class="skill-category glass reveal">
+            <h3 class="skill-category__title">
+              <span class="skill-category__icon" aria-hidden="true">
+                <span data-icon="bar-chart" class="icon"></span>
+              </span>
+              Visualization
+            </h3>
+            <div class="skill-category__cards">
+              <div class="skill-card" tabindex="0" data-tooltip="Interactive charts and EDA visualizations" data-used-in="Temperature Predictor">
+                <span class="skill-card__icon skill-card__icon--plotly" aria-hidden="true">
+                  <span data-icon="plotly" class="icon"></span>
+                </span>
+                <div class="skill-card__info">
+                  <span class="skill-card__name">Plotly</span>
+                  <span class="skill-card__used-in">Used in Temperature Predictor</span>
+                </div>
+              </div>
+              <div class="skill-card" tabindex="0" data-tooltip="Static plots for data exploration" data-used-in="Temperature Predictor">
+                <span class="skill-card__icon skill-card__icon--matplotlib" aria-hidden="true">
+                  <span data-icon="matplotlib" class="icon"></span>
+                </span>
+                <div class="skill-card__info">
+                  <span class="skill-card__name">Matplotlib</span>
+                  <span class="skill-card__used-in">Used in Temperature Predictor</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Backend -->
+          <div class="skill-category glass reveal">
+            <h3 class="skill-category__title">
+              <span class="skill-category__icon" aria-hidden="true">
+                <span data-icon="server" class="icon"></span>
+              </span>
+              Backend
+            </h3>
+            <div class="skill-category__cards">
+              <div class="skill-card" tabindex="0" data-tooltip="Web server and API for the prediction dashboard" data-used-in="Temperature Predictor">
+                <span class="skill-card__icon skill-card__icon--flask" aria-hidden="true">
+                  <span data-icon="flask" class="icon"></span>
+                </span>
+                <div class="skill-card__info">
+                  <span class="skill-card__name">Flask</span>
+                  <span class="skill-card__used-in">Used in Temperature Predictor</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Version Control -->
+          <div class="skill-category glass reveal">
+            <h3 class="skill-category__title">
+              <span class="skill-category__icon" aria-hidden="true">
+                <span data-icon="git-branch" class="icon"></span>
+              </span>
+              Version Control
+            </h3>
+            <div class="skill-category__cards">
+              <div class="skill-card" tabindex="0" data-tooltip="Version control for project development" data-used-in="Temperature Predictor">
+                <span class="skill-card__icon skill-card__icon--git" aria-hidden="true">
+                  <span data-icon="git" class="icon"></span>
+                </span>
+                <div class="skill-card__info">
+                  <span class="skill-card__name">Git</span>
+                  <span class="skill-card__used-in">Used in Temperature Predictor</span>
+                </div>
+              </div>
+              <div class="skill-card" tabindex="0" data-tooltip="Project hosting and collaboration" data-used-in="Temperature Predictor">
+                <span class="skill-card__icon skill-card__icon--github" aria-hidden="true">
+                  <span data-icon="github" class="icon"></span>
+                </span>
+                <div class="skill-card__info">
+                  <span class="skill-card__name">GitHub</span>
+                  <span class="skill-card__used-in">Used in Temperature Predictor</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PROJECTS ==================== -->
+    <section class="section projects" id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Projects</span>
+          <h2 class="section__title" id="projects-heading">Featured Work</h2>
+          <p class="section__subtitle">Real projects built with purpose</p>
+        </div>
+
+        <div class="projects__grid">
+
+          <!-- Temperature Predictor — Featured Project -->
+          <article class="project-card project-card--featured glass reveal" aria-labelledby="project-temp-title">
+            <div class="project-card__image-wrap project-card__image-wrap--premium">
+              <div class="project-carousel" id="temp-pred-carousel" aria-label="Temperature Predictor screenshots" aria-roledescription="carousel" tabindex="0">
+                <div class="project-carousel__track">
+                  <figure class="project-carousel__slide is-active">
+                    <img src="assets/images/temp_pred_img_1.png" alt="Temperature Predictor dashboard — overview and prediction interface" width="1280" height="720" loading="eager">
+                  </figure>
+                  <figure class="project-carousel__slide">
+                    <img data-src="assets/images/temp_pred_img_2.png" alt="Temperature Predictor — exploratory data analysis charts" width="1280" height="720" loading="lazy">
+                  </figure>
+                  <figure class="project-carousel__slide">
+                    <img data-src="assets/images/temp_pred_img_3.png" alt="Temperature Predictor — weather data visualization" width="1280" height="720" loading="lazy">
+                  </figure>
+                  <figure class="project-carousel__slide">
+                    <img data-src="assets/images/temp_pred_img_4.png" alt="Temperature Predictor — forecast and statistical insights" width="1280" height="720" loading="lazy">
+                  </figure>
+                </div>
+                <button type="button" class="project-carousel__btn project-carousel__btn--prev" aria-label="Previous screenshot">
+                  <span data-icon="chevron-left" class="icon"></span>
+                </button>
+                <button type="button" class="project-carousel__btn project-carousel__btn--next" aria-label="Next screenshot">
+                  <span data-icon="chevron-right" class="icon"></span>
+                </button>
+                <div class="project-carousel__dots" role="tablist" aria-label="Screenshot navigation">
+                  <button type="button" class="project-carousel__dot is-active" role="tab" aria-selected="true" aria-label="Screenshot 1 of 4" data-slide="0"></button>
+                  <button type="button" class="project-carousel__dot" role="tab" aria-selected="false" aria-label="Screenshot 2 of 4" data-slide="1"></button>
+                  <button type="button" class="project-carousel__dot" role="tab" aria-selected="false" aria-label="Screenshot 3 of 4" data-slide="2"></button>
+                  <button type="button" class="project-carousel__dot" role="tab" aria-selected="false" aria-label="Screenshot 4 of 4" data-slide="3"></button>
+                </div>
+              </div>
+              <div class="project-card__badges" aria-label="Project status">
+                <span class="project-card__badge project-card__badge--featured">Featured</span>
+                <span class="project-card__badge project-card__badge--status">Completed</span>
+                <span class="project-card__badge project-card__badge--updated">Updated Jul 2026</span>
+              </div>
+            </div>
+
+            <div class="project-card__body">
+              <h3 class="project-card__title" id="project-temp-title">Temperature Predictor</h3>
+              <p class="project-card__subtitle">Machine Learning Based Weather Prediction &amp; EDA Dashboard</p>
+
+              <div class="project-card__feature-badges" aria-label="Key features">
+                <span class="feature-badge">ML Prediction</span>
+                <span class="feature-badge">EDA Dashboard</span>
+                <span class="feature-badge">Interactive Charts</span>
+                <span class="feature-badge">Flask API</span>
+              </div>
+
+              <div class="project-card__section">
+                <h4 class="project-card__section-title">Overview</h4>
+                <p class="project-card__text">
+                  A weather prediction project that combines machine learning with an interactive
+                  exploratory data analysis dashboard.
+                </p>
+              </div>
+
+              <div class="project-card__section">
+                <h4 class="project-card__section-title">Features</h4>
+                <ul class="project-card__features">
+                  <li>Weather data preprocessing</li>
+                  <li>Feature engineering</li>
+                  <li>Temperature prediction</li>
+                  <li>Interactive charts</li>
+                  <li>Data visualization</li>
+                  <li>Statistical insights</li>
+                  <li>Forecast generation</li>
+                  <li>Responsive dashboard</li>
+                </ul>
+              </div>
+
+              <div class="project-card__section">
+                <h4 class="project-card__section-title">Technologies</h4>
+                <div class="project-card__tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">Pandas</span>
+                  <span class="tag">NumPy</span>
+                  <span class="tag">Scikit-learn</span>
+                  <span class="tag">Plotly</span>
+                  <span class="tag">HTML</span>
+                  <span class="tag">CSS</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">Flask</span>
+                </div>
+              </div>
+
+              <div class="project-card__actions">
+                <a href="https://github.com/sayan21m/temperature_predictor.git" class="btn btn--primary btn--sm ripple" target="_blank" rel="noopener noreferrer" aria-label="View Temperature Predictor on GitHub">
+                  <span data-icon="github" class="icon icon--sm"></span>
+                  GitHub
+                </a>
+                <a href="https://sayan21m.github.io/temperature_predictor/" class="btn btn--secondary btn--sm ripple" target="_blank" rel="noopener noreferrer" aria-label="View Temperature Predictor live demo">
+                  <span data-icon="external-link" class="icon icon--sm"></span>
+                  Live Demo
+                </a>
+                <a href="pages/temperature-predictor.html" class="btn btn--ghost btn--sm ripple" aria-label="Read Temperature Predictor case study">
+                  <span data-icon="file-text" class="icon icon--sm"></span>
+                  Read Case Study
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Placeholder for future projects -->
+          <article class="project-card project-card--placeholder glass reveal" aria-label="Future project placeholder">
+            <div class="project-card__placeholder-full">
+              <span data-icon="plus" class="icon icon--xl"></span>
+              <p>More projects coming soon</p>
+              <span class="project-card__placeholder-hint">Future work will appear here</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CURRENTLY LEARNING ==================== -->
+    <section class="section focus" id="focus" aria-labelledby="focus-heading">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Current Focus</span>
+          <h2 class="section__title" id="focus-heading">Currently Learning</h2>
+          <p class="section__subtitle">Learning goals — not completed skills or professional experience</p>
+        </div>
+
+        <div class="roadmap__grid">
+          <article class="roadmap-card glass reveal">
+            <span class="roadmap-card__tag">Learning Goal</span>
+            <h3 class="roadmap-card__title">Backend Development</h3>
+            <p class="roadmap-card__text">Deepening server-side architecture, REST APIs, and database design patterns.</p>
+          </article>
+          <article class="roadmap-card glass reveal">
+            <span class="roadmap-card__tag">Learning Goal</span>
+            <h3 class="roadmap-card__title">Advanced Machine Learning</h3>
+            <p class="roadmap-card__text">Exploring ensemble methods, model optimization, and production ML workflows.</p>
+          </article>
+          <article class="roadmap-card glass reveal">
+            <span class="roadmap-card__tag">Learning Goal</span>
+            <h3 class="roadmap-card__title">Data Engineering</h3>
+            <p class="roadmap-card__text">Studying data pipelines, ETL processes, and large-scale data processing.</p>
+          </article>
+          <article class="roadmap-card glass reveal">
+            <span class="roadmap-card__tag">Learning Goal</span>
+            <h3 class="roadmap-card__title">Software Engineering Best Practices</h3>
+            <p class="roadmap-card__text">Improving code quality, testing strategies, and maintainable architecture.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== LEARNING JOURNEY ==================== -->
+    <section class="section journey" id="journey" aria-labelledby="journey-heading">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Learning Journey</span>
+          <h2 class="section__title" id="journey-heading">My Path So Far</h2>
+          <p class="section__subtitle">A timeline of skills and milestones leading to my first project</p>
+        </div>
+
+        <div class="journey-timeline" role="list">
+          <div class="journey-timeline__item reveal" role="listitem">
+            <div class="journey-timeline__marker" aria-hidden="true"><span class="journey-timeline__dot"></span></div>
+            <div class="journey-timeline__content glass">
+              <span class="journey-timeline__step">Step 1</span>
+              <h3 class="journey-timeline__title">Started Programming</h3>
+              <p class="journey-timeline__text">Began learning programming fundamentals and problem-solving through code.</p>
+            </div>
+          </div>
+          <div class="journey-timeline__item reveal" role="listitem">
+            <div class="journey-timeline__marker" aria-hidden="true"><span class="journey-timeline__dot"></span></div>
+            <div class="journey-timeline__content glass">
+              <span class="journey-timeline__step">Step 2</span>
+              <h3 class="journey-timeline__title">Python</h3>
+              <p class="journey-timeline__text">Adopted Python as my primary language for data work and application development.</p>
+            </div>
+          </div>
+          <div class="journey-timeline__item reveal" role="listitem">
+            <div class="journey-timeline__marker" aria-hidden="true"><span class="journey-timeline__dot"></span></div>
+            <div class="journey-timeline__content glass">
+              <span class="journey-timeline__step">Step 3</span>
+              <h3 class="journey-timeline__title">Data Analysis</h3>
+              <p class="journey-timeline__text">Learned to explore, clean, and visualize datasets using Pandas and Matplotlib.</p>
+            </div>
+          </div>
+          <div class="journey-timeline__item reveal" role="listitem">
+            <div class="journey-timeline__marker" aria-hidden="true"><span class="journey-timeline__dot"></span></div>
+            <div class="journey-timeline__content glass">
+              <span class="journey-timeline__step">Step 4</span>
+              <h3 class="journey-timeline__title">Machine Learning</h3>
+              <p class="journey-timeline__text">Built predictive models with Scikit-learn, focusing on regression and evaluation.</p>
+            </div>
+          </div>
+          <div class="journey-timeline__item reveal journey-timeline__item--milestone" role="listitem">
+            <div class="journey-timeline__marker" aria-hidden="true"><span class="journey-timeline__dot"></span></div>
+            <div class="journey-timeline__content glass">
+              <span class="journey-timeline__step">Milestone</span>
+              <h3 class="journey-timeline__title">Temperature Predictor</h3>
+              <p class="journey-timeline__text">Completed my first full-stack ML project — weather prediction with an EDA dashboard.</p>
+            </div>
+          </div>
+          <div class="journey-timeline__item reveal journey-timeline__item--current" role="listitem">
+            <div class="journey-timeline__marker" aria-hidden="true"><span class="journey-timeline__dot journey-timeline__dot--pulse"></span></div>
+            <div class="journey-timeline__content glass">
+              <span class="journey-timeline__step">Now</span>
+              <h3 class="journey-timeline__title">Currently Learning Backend Development</h3>
+              <p class="journey-timeline__text">Expanding beyond Flask basics into deeper backend engineering concepts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== EDUCATION ==================== -->
+    <section class="section education" id="education" aria-labelledby="education-heading">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Education</span>
+          <h2 class="section__title" id="education-heading">Academic Background</h2>
+        </div>
+
+        <div class="education__card glass reveal">
+          <div class="education__icon" aria-hidden="true">
+            <span data-icon="graduation-cap" class="icon icon--xl"></span>
+          </div>
+          <div class="education__content">
+            <h3 class="education__degree">B.Tech in Information Technology</h3>
+            <p class="education__detail">Pursuing undergraduate degree focused on software engineering, data systems, and emerging technologies.</p>
+          </div>
+          <div class="education__timeline-marker" aria-hidden="true">
+            <span class="education__dot"></span>
+            <span class="education__line"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section class="section contact" id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section__header reveal">
+          <span class="section__label">Contact</span>
+          <h2 class="section__title" id="contact-heading">Get In Touch</h2>
+          <p class="section__subtitle">Open to internship opportunities and collaborations</p>
+        </div>
+
+        <div class="contact__grid">
+          <!-- Contact Info -->
+          <div class="contact__info reveal">
+            <div class="contact__info-item glass">
+              <span class="contact__info-icon" aria-hidden="true">
+                <span data-icon="mail" class="icon"></span>
+              </span>
+              <div class="contact__info-content">
+                <span class="contact__info-label">Email</span>
+                <div class="contact__info-row">
+                  <a href="mailto:rebagarai83@gmail.com" class="contact__info-value" id="contact-email">rebagarai83@gmail.com</a>
+                  <button type="button" class="contact__copy-btn" id="copy-email-btn" aria-label="Copy email to clipboard" data-copy="rebagarai83@gmail.com">
+                    <span data-icon="copy" class="icon icon--sm"></span>
+                    <span class="contact__copy-feedback" aria-live="polite"></span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="contact__info-item glass">
+              <span class="contact__info-icon" aria-hidden="true">
+                <span data-icon="github" class="icon"></span>
+              </span>
+              <div>
+                <span class="contact__info-label">GitHub</span>
+                <a href="https://github.com/sayan21m" class="contact__info-value" target="_blank" rel="noopener noreferrer">github.com/sayan21m</a>
+              </div>
+            </div>
+            <div class="contact__info-item glass">
+              <span class="contact__info-icon" aria-hidden="true">
+                <span data-icon="linkedin" class="icon"></span>
+              </span>
+              <div>
+                <span class="contact__info-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/sayan-garai-8b6246370" class="contact__info-value" target="_blank" rel="noopener noreferrer">linkedin.com/in/sayan-garai-8b6246370</a>
+              </div>
+            </div>
+            <div class="contact__info-item glass">
+              <span class="contact__info-icon" aria-hidden="true">
+                <span data-icon="map-pin" class="icon"></span>
+              </span>
+              <div>
+                <span class="contact__info-label">Location</span>
+                <span class="contact__info-value">West Bengal, India</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <form class="contact__form glass reveal" id="contact-form" novalidate aria-label="Contact form">
+            <div class="form__group">
+              <label for="name" class="form__label">Name</label>
+              <input type="text" id="name" name="name" class="form__input" placeholder="Your name" required autocomplete="name" aria-describedby="name-error">
+              <span class="form__error" id="name-error" role="alert"></span>
+            </div>
+            <div class="form__group">
+              <label for="email" class="form__label">Email</label>
+              <input type="email" id="email" name="email" class="form__input" placeholder="your.email@example.com" required autocomplete="email" aria-describedby="email-error">
+              <span class="form__error" id="email-error" role="alert"></span>
+            </div>
+            <div class="form__group">
+              <label for="message" class="form__label">Message</label>
+              <textarea id="message" name="message" class="form__input form__textarea" placeholder="Your message..." rows="5" required aria-describedby="message-error"></textarea>
+              <span class="form__error" id="message-error" role="alert"></span>
+            </div>
+            <button type="submit" class="btn btn--primary btn--full ripple">
+              <span data-icon="send" class="icon icon--sm"></span>
+              Send Message
+            </button>
+            <p class="form__success" id="form-success" role="status" hidden>Thank you! Your message has been validated successfully.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#hero" class="footer__logo" aria-label="Back to top">
+          <span class="nav__logo-bracket">&lt;</span>SG<span class="nav__logo-bracket">/&gt;</span>
+        </a>
+        <p class="footer__tagline">Building software powered by data.</p>
+      </div>
+
+      <div class="footer__social" aria-label="Social links">
+        <a href="https://github.com/sayan21m" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <span data-icon="github" class="icon"></span>
+        </a>
+        <a href="https://www.linkedin.com/in/sayan-garai-8b6246370" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <span data-icon="linkedin" class="icon"></span>
+        </a>
+        <a href="mailto:rebagarai83@gmail.com" class="footer__social-link" aria-label="Email">
+          <span data-icon="mail" class="icon"></span>
+        </a>
+      </div>
+
+      <p class="footer__copyright">
+        &copy; <span id="footer-year"></span> Sayan Garai. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button with scroll progress ring -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" hidden>
+    <svg class="back-to-top__ring" viewBox="0 0 52 52" aria-hidden="true">
+      <circle class="back-to-top__ring-bg" cx="26" cy="26" r="22" fill="none" stroke-width="3"/>
+      <circle class="back-to-top__ring-progress" id="back-to-top-progress" cx="26" cy="26" r="22" fill="none" stroke-width="3" stroke-linecap="round" transform="rotate(-90 26 26)"/>
+    </svg>
+    <span data-icon="chevron-up" class="icon back-to-top__icon"></span>
+  </button>
+
+  <script src="js/loader.js"></script>
+  <script src="js/paths.js"></script>
+  <script src="js/icons.js" defer></script>
+  <script src="js/features.js" defer></script>
+  <script src="js/script.js" defer></script>
+</body>
+</html>
