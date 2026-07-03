@@ -9,45 +9,59 @@
  * on top of this file. This module only owns the base site behaviour.
  */
 (function () {
-  'use strict';
+  "use strict";
 
   /* =========================================================================
      Cached DOM references — resolved once at module load
      ========================================================================= */
   const $ = (id) => document.getElementById(id);
-  const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const REDUCED_MOTION = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
 
   const dom = {
-    header: $('header'),
-    navToggle: $('nav-toggle'),
-    navMenu: $('nav-menu'),
-    navLinks: document.querySelectorAll('.nav__link'),
-    backToTop: $('back-to-top'),
-    backToTopProgress: $('back-to-top-progress'),
-    contactForm: $('contact-form'),
-    footerYear: $('footer-year'),
-    typingElement: $('typing-text'),
-    particlesCanvas: $('particles-canvas'),
-    heroGlow: $('hero-glow'),
-    heroSection: $('hero'),
-    scrollProgress: $('scroll-progress'),
-    scrollProgressBar: $('scroll-progress-bar'),
-    navOverlay: $('nav-overlay')
+    header: $("header"),
+    navToggle: $("nav-toggle"),
+    navMenu: $("nav-menu"),
+    navLinks: document.querySelectorAll(".nav__link"),
+    backToTop: $("back-to-top"),
+    backToTopProgress: $("back-to-top-progress"),
+    contactForm: $("contact-form"),
+    footerYear: $("footer-year"),
+    typingElement: $("typing-text"),
+    particlesCanvas: $("particles-canvas"),
+    heroGlow: $("hero-glow"),
+    heroSection: $("hero"),
+    scrollProgress: $("scroll-progress"),
+    scrollProgressBar: $("scroll-progress-bar"),
+    navOverlay: $("nav-overlay"),
   };
 
   /* Legacy aliases for backward-compat within this file */
   const {
-    header, navToggle, navMenu, navLinks, backToTop, contactForm, footerYear,
-    typingElement, particlesCanvas, heroGlow, heroSection, scrollProgressBar,
-    scrollProgress, backToTopProgress, navOverlay
+    header,
+    navToggle,
+    navMenu,
+    navLinks,
+    backToTop,
+    contactForm,
+    footerYear,
+    typingElement,
+    particlesCanvas,
+    heroGlow,
+    heroSection,
+    scrollProgressBar,
+    scrollProgress,
+    backToTopProgress,
+    navOverlay,
   } = dom;
 
   /* =========================================================================
      Typing Animation — Hero Title
      ========================================================================= */
   const typingPhrases = [
-    'IT Engineering Student',
-    'Machine Learning & Backend Developer'
+    "IT Engineering Student",
+    "Machine Learning & Backend Developer",
   ];
 
   let phraseIndex = 0;
@@ -59,19 +73,28 @@
     if (!typingElement) return;
 
     const currentPhrase = typingPhrases[phraseIndex];
-    const cursor = typingElement.querySelector('.hero__cursor');
+    const cursor = typingElement.querySelector(".hero__cursor");
 
     if (isDeleting) {
       // Remove characters
-      typingElement.childNodes[0].textContent = currentPhrase.substring(0, charIndex - 1);
+      typingElement.childNodes[0].textContent = currentPhrase.substring(
+        0,
+        charIndex - 1,
+      );
       charIndex--;
       typingSpeed = 40;
     } else {
       // Add characters
-      if (!typingElement.childNodes[0] || typingElement.childNodes[0].nodeType !== Node.TEXT_NODE) {
-        typingElement.insertBefore(document.createTextNode(''), cursor);
+      if (
+        !typingElement.childNodes[0] ||
+        typingElement.childNodes[0].nodeType !== Node.TEXT_NODE
+      ) {
+        typingElement.insertBefore(document.createTextNode(""), cursor);
       }
-      typingElement.childNodes[0].textContent = currentPhrase.substring(0, charIndex + 1);
+      typingElement.childNodes[0].textContent = currentPhrase.substring(
+        0,
+        charIndex + 1,
+      );
       charIndex++;
       typingSpeed = 80;
     }
@@ -89,7 +112,7 @@
     if (!REDUCED_MOTION) {
       setTimeout(typeEffect, typingSpeed);
     } else {
-      typingElement.childNodes[0].textContent = typingPhrases.join(' | ');
+      typingElement.childNodes[0].textContent = typingPhrases.join(" | ");
     }
   }
 
@@ -101,7 +124,7 @@
       this.canvas = canvas;
       if (!this.canvas) return;
 
-      this.ctx = this.canvas.getContext('2d');
+      this.ctx = this.canvas.getContext("2d");
       this.particles = [];
       this.particleCount = 60;
       this.mouse = { x: null, y: null, radius: 120 };
@@ -133,25 +156,25 @@
           size: Math.random() * 2 + 0.5,
           speedX: (Math.random() - 0.5) * 0.4,
           speedY: (Math.random() - 0.5) * 0.4,
-          opacity: Math.random() * 0.5 + 0.1
+          opacity: Math.random() * 0.5 + 0.1,
         });
       }
     }
 
     bindEvents() {
-      window.addEventListener('resize', () => {
+      window.addEventListener("resize", () => {
         this.resize();
         this.createParticles();
       });
 
       // Subtle mouse interaction
-      this.canvas.addEventListener('mousemove', (e) => {
+      this.canvas.addEventListener("mousemove", (e) => {
         const rect = this.canvas.getBoundingClientRect();
         this.mouse.x = e.clientX - rect.left;
         this.mouse.y = e.clientY - rect.top;
       });
 
-      this.canvas.addEventListener('mouseleave', () => {
+      this.canvas.addEventListener("mouseleave", () => {
         this.mouse.x = null;
         this.mouse.y = null;
       });
@@ -229,7 +252,7 @@
     if (!heroGlow || !heroSection || REDUCED_MOTION) return;
 
     let rafId = null;
-    heroSection.addEventListener('mousemove', (e) => {
+    heroSection.addEventListener("mousemove", (e) => {
       if (rafId) return;
       rafId = requestAnimationFrame(() => {
         const rect = heroSection.getBoundingClientRect();
@@ -244,12 +267,12 @@
      Animated Metric Counters
      ========================================================================= */
   function initMetricCounters() {
-    const counters = document.querySelectorAll('[data-counter]');
+    const counters = document.querySelectorAll("[data-counter]");
     if (!counters.length) return;
 
     const animateCounter = (el) => {
       const target = parseInt(el.dataset.counter, 10);
-      const suffix = el.dataset.counterSuffix || '';
+      const suffix = el.dataset.counterSuffix || "";
       const duration = 1500;
       const start = performance.now();
 
@@ -264,14 +287,17 @@
       requestAnimationFrame(update);
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
 
     counters.forEach((counter) => observer.observe(counter));
   }
@@ -283,7 +309,8 @@
 
   function updateScrollProgress() {
     const scrollY = window.scrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const docHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? scrollY / docHeight : 0;
     const percent = Math.min(progress * 100, 100);
 
@@ -291,10 +318,11 @@
       scrollProgressBar.style.width = `${percent}%`;
     }
     if (scrollProgress) {
-      scrollProgress.setAttribute('aria-valuenow', Math.round(percent));
+      scrollProgress.setAttribute("aria-valuenow", Math.round(percent));
     }
     if (backToTopProgress) {
-      backToTopProgress.style.strokeDashoffset = PROGRESS_CIRCUMFERENCE * (1 - progress);
+      backToTopProgress.style.strokeDashoffset =
+        PROGRESS_CIRCUMFERENCE * (1 - progress);
     }
   }
 
@@ -302,17 +330,20 @@
      Journey Timeline Line Animation
      ========================================================================= */
   function initJourneyTimeline() {
-    const timeline = document.querySelector('.journey-timeline');
+    const timeline = document.querySelector(".journey-timeline");
     if (!timeline) return;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          timeline.classList.add('journey-timeline--animated');
-          observer.unobserve(timeline);
-        }
-      });
-    }, { threshold: 0.2 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            timeline.classList.add("journey-timeline--animated");
+            observer.unobserve(timeline);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
 
     observer.observe(timeline);
   }
@@ -321,24 +352,24 @@
      Copy Email to Clipboard
      ========================================================================= */
   function initCopyEmail() {
-    const copyBtn = document.getElementById('copy-email-btn');
+    const copyBtn = document.getElementById("copy-email-btn");
     if (!copyBtn) return;
 
-    copyBtn.addEventListener('click', async () => {
+    copyBtn.addEventListener("click", async () => {
       const text = copyBtn.dataset.copy;
       try {
         await navigator.clipboard.writeText(text);
-        copyBtn.classList.add('contact__copy-btn--copied');
-        const feedback = copyBtn.querySelector('.contact__copy-feedback');
-        if (feedback) feedback.textContent = 'Copied!';
+        copyBtn.classList.add("contact__copy-btn--copied");
+        const feedback = copyBtn.querySelector(".contact__copy-feedback");
+        if (feedback) feedback.textContent = "Copied!";
 
         setTimeout(() => {
-          copyBtn.classList.remove('contact__copy-btn--copied');
-          if (feedback) feedback.textContent = '';
+          copyBtn.classList.remove("contact__copy-btn--copied");
+          if (feedback) feedback.textContent = "";
         }, 2000);
       } catch {
-        const feedback = copyBtn.querySelector('.contact__copy-feedback');
-        if (feedback) feedback.textContent = 'Failed';
+        const feedback = copyBtn.querySelector(".contact__copy-feedback");
+        if (feedback) feedback.textContent = "Failed";
       }
     });
   }
@@ -347,18 +378,18 @@
      Intersection Observer — Scroll Reveal Animations
      ========================================================================= */
   function initScrollReveal() {
-    const revealElements = document.querySelectorAll('.reveal');
+    const revealElements = document.querySelectorAll(".reveal");
 
     const observerOptions = {
       root: null,
-      rootMargin: '0px 0px -60px 0px',
-      threshold: 0.1
+      rootMargin: "0px 0px -60px 0px",
+      threshold: 0.1,
     };
 
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
+          entry.target.classList.add("revealed");
           revealObserver.unobserve(entry.target);
         }
       });
@@ -376,11 +407,13 @@
     /* Only track sections that have a nav link pointing at them */
     const trackedIds = new Set();
     navLinks.forEach((link) => {
-      const href = link.getAttribute('href') || '';
-      if (href.startsWith('#') && href.length > 1) trackedIds.add(href.slice(1));
+      const href = link.getAttribute("href") || "";
+      if (href.startsWith("#") && href.length > 1)
+        trackedIds.add(href.slice(1));
     });
-    const sections = Array.from(document.querySelectorAll('section[id]'))
-      .filter((s) => trackedIds.has(s.id));
+    const sections = Array.from(
+      document.querySelectorAll("section[id]"),
+    ).filter((s) => trackedIds.has(s.id));
 
     function updateActiveLink(scrollY) {
       for (const section of sections) {
@@ -389,8 +422,8 @@
           const id = section.id;
           navLinks.forEach((link) => {
             link.classList.toggle(
-              'nav__link--active',
-              link.getAttribute('href') === `#${id}`
+              "nav__link--active",
+              link.getAttribute("href") === `#${id}`,
             );
           });
           return;
@@ -401,13 +434,13 @@
     function handleScroll() {
       const scrollY = window.scrollY;
 
-      header.classList.toggle('header--scrolled', scrollY > 50);
+      header.classList.toggle("header--scrolled", scrollY > 50);
 
       if (backToTop) {
         const shouldShow = scrollY > 400;
-        backToTop.classList.toggle('back-to-top--visible', shouldShow);
-        if (shouldShow) backToTop.removeAttribute('hidden');
-        else backToTop.setAttribute('hidden', '');
+        backToTop.classList.toggle("back-to-top--visible", shouldShow);
+        if (shouldShow) backToTop.removeAttribute("hidden");
+        else backToTop.setAttribute("hidden", "");
       }
 
       updateScrollProgress();
@@ -415,15 +448,19 @@
     }
 
     let ticking = false;
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          handleScroll();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            handleScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      },
+      { passive: true },
+    );
 
     handleScroll();
   }
@@ -434,38 +471,38 @@
   function initMobileNav() {
     if (!navToggle || !navMenu) return;
 
-    navToggle.addEventListener('click', () => {
-      const isOpen = navMenu.classList.toggle('nav__menu--open');
-      navToggle.setAttribute('aria-expanded', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+    navToggle.addEventListener("click", () => {
+      const isOpen = navMenu.classList.toggle("nav__menu--open");
+      navToggle.setAttribute("aria-expanded", isOpen);
+      document.body.style.overflow = isOpen ? "hidden" : "";
       if (navOverlay) {
-        navOverlay.classList.toggle('nav-overlay--visible', isOpen);
-        navOverlay.setAttribute('aria-hidden', !isOpen);
+        navOverlay.classList.toggle("nav-overlay--visible", isOpen);
+        navOverlay.setAttribute("aria-hidden", !isOpen);
       }
     });
 
     const closeMenu = () => {
-      navMenu.classList.remove('nav__menu--open');
-      navToggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+      navMenu.classList.remove("nav__menu--open");
+      navToggle.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
       if (navOverlay) {
-        navOverlay.classList.remove('nav-overlay--visible');
-        navOverlay.setAttribute('aria-hidden', 'true');
+        navOverlay.classList.remove("nav-overlay--visible");
+        navOverlay.setAttribute("aria-hidden", "true");
       }
     };
 
     // Close menu on link click
     navLinks.forEach((link) => {
-      link.addEventListener('click', closeMenu);
+      link.addEventListener("click", closeMenu);
     });
 
     if (navOverlay) {
-      navOverlay.addEventListener('click', closeMenu);
+      navOverlay.addEventListener("click", closeMenu);
     }
 
     // Close on escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && navMenu.classList.contains('nav__menu--open')) {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && navMenu.classList.contains("nav__menu--open")) {
         closeMenu();
         navToggle.focus();
       }
@@ -476,24 +513,24 @@
      Button Ripple Effect
      ========================================================================= */
   function initRippleEffect() {
-    const rippleButtons = document.querySelectorAll('.ripple');
+    const rippleButtons = document.querySelectorAll(".ripple");
 
     rippleButtons.forEach((button) => {
-      button.addEventListener('click', function (e) {
+      button.addEventListener("click", function (e) {
         const rect = this.getBoundingClientRect();
         const size = Math.max(rect.width, rect.height);
         const x = e.clientX - rect.left - size / 2;
         const y = e.clientY - rect.top - size / 2;
 
-        const ripple = document.createElement('span');
-        ripple.classList.add('ripple__effect');
+        const ripple = document.createElement("span");
+        ripple.classList.add("ripple__effect");
         ripple.style.width = ripple.style.height = `${size}px`;
         ripple.style.left = `${x}px`;
         ripple.style.top = `${y}px`;
 
         this.appendChild(ripple);
 
-        ripple.addEventListener('animationend', () => ripple.remove());
+        ripple.addEventListener("animationend", () => ripple.remove());
       });
     });
   }
@@ -504,86 +541,151 @@
   function initBackToTop() {
     if (!backToTop) return;
 
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 
   /* =========================================================================
-     Contact Form — Frontend Validation
+     Contact Form — FormSubmit.co AJAX
      ========================================================================= */
+  let formStatusTimer = null;
+
+  function setFormStatus(el, text, type) {
+    if (!el) return;
+
+    el.textContent = text;
+    el.classList.remove('success', 'error', 'pending');
+
+    if (type) {
+      el.classList.add(type);
+    }
+
+    if (type === 'success' || type === 'error') {
+      clearTimeout(formStatusTimer);
+      formStatusTimer = setTimeout(() => {
+        el.textContent = '';
+        el.classList.remove('success', 'error', 'pending');
+      }, 8000);
+    }
+  }
+
+  let contactFormBound = false;
+
   function initContactForm() {
-    if (!contactForm) return;
+    const form = document.getElementById('contact-form');
+    if (!form || contactFormBound) return;
+    contactFormBound = true;
 
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const messageInput = document.getElementById('message');
-    const formSuccess = document.getElementById('form-success');
+    const formSubmitEmail =
+      window.CONTACT_CONFIG?.formSubmitEmail?.trim() ||
+      form.dataset.formEmail?.trim() ||
+      '';
 
-    // Validation rules
-    const validators = {
-      name: (value) => {
-        if (!value.trim()) return 'Name is required.';
-        if (value.trim().length < 2) return 'Name must be at least 2 characters.';
-        return '';
-      },
-      email: (value) => {
-        if (!value.trim()) return 'Email is required.';
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(value)) return 'Please enter a valid email address.';
-        return '';
-      },
-      message: (value) => {
-        if (!value.trim()) return 'Message is required.';
-        if (value.trim().length < 10) return 'Message must be at least 10 characters.';
-        return '';
-      }
-    };
+    const nameInput = form.elements.namedItem('name');
+    const emailInput = form.elements.namedItem('email');
+    const messageInput = form.elements.namedItem('message');
 
-    function showError(input, message) {
-      const errorEl = document.getElementById(`${input.id}-error`);
-      input.classList.toggle('form__input--error', !!message);
-      input.setAttribute('aria-invalid', message ? 'true' : 'false');
-      if (errorEl) errorEl.textContent = message;
-    }
-
-    function validateField(input) {
-      const error = validators[input.name](input.value);
-      showError(input, error);
-      return !error;
-    }
-
-    // Real-time validation on blur
     [nameInput, emailInput, messageInput].forEach((input) => {
-      input.addEventListener('blur', () => validateField(input));
-      input.addEventListener('input', () => {
-        if (input.classList.contains('form__input--error')) {
-          validateField(input);
+      if (!input) return;
+      input.addEventListener('blur', () => {
+        if (input.value.trim() && input.classList.contains('form__input--error')) {
+          input.classList.remove('form__input--error');
+          input.setAttribute('aria-invalid', 'false');
+          const errorEl = document.getElementById(`${input.id}-error`);
+          if (errorEl) errorEl.textContent = '';
         }
       });
     });
 
-    // Form submission
-    contactForm.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
+      e.stopPropagation();
 
-      const isNameValid = validateField(nameInput);
-      const isEmailValid = validateField(emailInput);
-      const isMessageValid = validateField(messageInput);
+      const status = document.getElementById('form-status');
+      const submitBtn = form.querySelector('#contact-submit-btn') || form.querySelector('button[type="submit"]');
+      const btnLabel = submitBtn?.querySelector('.btn__label');
+      const honeypot = form.querySelector('[name="_honey"]');
 
-      if (isNameValid && isEmailValid && isMessageValid) {
-        // Frontend-only validation — show success message
-        formSuccess.hidden = false;
-        contactForm.reset();
+      if (!formSubmitEmail) {
+        setFormStatus(status, 'Contact form is not configured yet. Please try again later.', 'error');
+        return;
+      }
 
-        // Hide success after 5 seconds
-        setTimeout(() => {
-          formSuccess.hidden = true;
-        }, 5000);
-      } else {
-        // Focus first invalid field
-        const firstInvalid = contactForm.querySelector('.form__input--error');
-        if (firstInvalid) firstInvalid.focus();
+      if (window.location.protocol === 'file:') {
+        setFormStatus(
+          status,
+          'Open this site through GitHub Pages or a local server (not as a file) to send messages.',
+          'error'
+        );
+        return;
+      }
+
+      const name = nameInput?.value.trim() || '';
+      const email = emailInput?.value.trim() || '';
+      const message = messageInput?.value.trim() || '';
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!name || !email || !message) {
+        setFormStatus(status, 'Please fill in all fields.', 'error');
+        return;
+      }
+
+      if (!emailPattern.test(email)) {
+        setFormStatus(status, 'Please enter a valid email address.', 'error');
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.classList.add('btn--loading');
+      }
+      if (btnLabel) btnLabel.textContent = 'Sending...';
+      setFormStatus(status, 'Sending your message...', 'pending');
+
+      const formData = new FormData();
+      formData.append('name', name);
+      formData.append('email', email);
+      formData.append('message', message);
+      formData.append('_subject', `Portfolio message from ${name} — Sayan Garai portfolio`);
+      formData.append('_captcha', 'false');
+      formData.append('_template', 'table');
+      if (honeypot?.value) {
+        formData.append('_honey', honeypot.value);
+      }
+
+      try {
+        const response = await fetch(
+          `https://formsubmit.co/ajax/${encodeURIComponent(formSubmitEmail)}`,
+          {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: formData
+          }
+        );
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.message || 'Submission failed');
+        }
+
+        form.reset();
+        setFormStatus(status, "Message sent successfully! I'll get back to you soon.", 'success');
+      } catch (err) {
+        setFormStatus(
+          status,
+          err?.message?.includes('activate')
+            ? 'Please activate FormSubmit for this email (check srtechfly85@gmail.com inbox), then try again.'
+            : 'Could not send your message. Please try again in a moment.',
+          'error'
+        );
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('btn--loading');
+        }
+        if (btnLabel) btnLabel.textContent = 'Send Message';
       }
     });
   }
@@ -592,20 +694,20 @@
      Project Image Carousel
      ========================================================================= */
   function initProjectCarousel() {
-    const carousel = document.getElementById('temp-pred-carousel');
+    const carousel = document.getElementById("temp-pred-carousel");
     if (!carousel) return;
 
-    const slides = carousel.querySelectorAll('.project-carousel__slide');
-    const dots = carousel.querySelectorAll('.project-carousel__dot');
-    const prevBtn = carousel.querySelector('.project-carousel__btn--prev');
-    const nextBtn = carousel.querySelector('.project-carousel__btn--next');
+    const slides = carousel.querySelectorAll(".project-carousel__slide");
+    const dots = carousel.querySelectorAll(".project-carousel__dot");
+    const prevBtn = carousel.querySelector(".project-carousel__btn--prev");
+    const nextBtn = carousel.querySelector(".project-carousel__btn--next");
     let currentIndex = 0;
 
     function loadSlideImage(slide) {
-      const img = slide.querySelector('img[data-src]');
+      const img = slide.querySelector("img[data-src]");
       if (img && !img.src) {
         img.src = img.dataset.src;
-        img.removeAttribute('data-src');
+        img.removeAttribute("data-src");
       }
     }
 
@@ -613,33 +715,33 @@
       currentIndex = (index + slides.length) % slides.length;
 
       slides.forEach((slide, i) => {
-        slide.classList.toggle('is-active', i === currentIndex);
+        slide.classList.toggle("is-active", i === currentIndex);
       });
 
       dots.forEach((dot, i) => {
         const isActive = i === currentIndex;
-        dot.classList.toggle('is-active', isActive);
-        dot.setAttribute('aria-selected', isActive);
+        dot.classList.toggle("is-active", isActive);
+        dot.setAttribute("aria-selected", isActive);
       });
 
       loadSlideImage(slides[currentIndex]);
     }
 
-    prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-    nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+    prevBtn.addEventListener("click", () => goToSlide(currentIndex - 1));
+    nextBtn.addEventListener("click", () => goToSlide(currentIndex + 1));
 
     dots.forEach((dot) => {
-      dot.addEventListener('click', () => {
+      dot.addEventListener("click", () => {
         goToSlide(Number(dot.dataset.slide));
       });
     });
 
     // Keyboard navigation when carousel is focused
-    carousel.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') {
+    carousel.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") {
         e.preventDefault();
         goToSlide(currentIndex - 1);
-      } else if (e.key === 'ArrowRight') {
+      } else if (e.key === "ArrowRight") {
         e.preventDefault();
         goToSlide(currentIndex + 1);
       }
@@ -654,27 +756,30 @@
      Lazy Loading Images
      ========================================================================= */
   function initLazyLoading() {
-    const lazyImages = document.querySelectorAll('img[data-src]');
+    const lazyImages = document.querySelectorAll("img[data-src]");
 
-    if ('IntersectionObserver' in window) {
-      const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const img = entry.target;
-            img.src = img.dataset.src;
-            img.removeAttribute('data-src');
-            img.classList.add('loaded');
-            imageObserver.unobserve(img);
-          }
-        });
-      }, { rootMargin: '100px' });
+    if ("IntersectionObserver" in window) {
+      const imageObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src;
+              img.removeAttribute("data-src");
+              img.classList.add("loaded");
+              imageObserver.unobserve(img);
+            }
+          });
+        },
+        { rootMargin: "100px" },
+      );
 
       lazyImages.forEach((img) => imageObserver.observe(img));
     } else {
       // Fallback for older browsers
       lazyImages.forEach((img) => {
         img.src = img.dataset.src;
-        img.removeAttribute('data-src');
+        img.removeAttribute("data-src");
       });
     }
   }
@@ -684,16 +789,16 @@
      ========================================================================= */
   function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener('click', (e) => {
-        const targetId = anchor.getAttribute('href');
-        if (targetId === '#') return;
+      anchor.addEventListener("click", (e) => {
+        const targetId = anchor.getAttribute("href");
+        if (targetId === "#") return;
 
         const target = document.querySelector(targetId);
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth' });
+          target.scrollIntoView({ behavior: "smooth" });
           // Update URL without jumping
-          history.pushState(null, '', targetId);
+          history.pushState(null, "", targetId);
         }
       });
     });
@@ -712,13 +817,13 @@
      Initialize Everything
      ========================================================================= */
   function init() {
+    initContactForm();
     initFooter();
     initScrollReveal();
     initNavbar();
     initMobileNav();
     initRippleEffect();
     initBackToTop();
-    initContactForm();
     initProjectCarousel();
     initLazyLoading();
     initSmoothScroll();
@@ -731,8 +836,8 @@
     // Start typing animation
     if (typingElement) {
       // Initialize text node for typing
-      const cursor = typingElement.querySelector('.hero__cursor');
-      typingElement.insertBefore(document.createTextNode(''), cursor);
+      const cursor = typingElement.querySelector(".hero__cursor");
+      typingElement.insertBefore(document.createTextNode(""), cursor);
       typeEffect();
     }
 
@@ -742,8 +847,8 @@
   }
 
   // Run when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
   } else {
     init();
   }
