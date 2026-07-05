@@ -8,7 +8,9 @@ SUMMARY
 B.Tech Information Technology student and software engineer focused on machine learning, Android development, and backend engineering. Built two completed flagship projects: Temperature Predictor (ML web application) and MessWise (Android mess management app).
 
 EDUCATION
-B.Tech in Information Technology — Pursuing
+MCKV Institute of Engineering
+Bachelor of Technology (Information Technology)
+Semester 1: 8.76 | Semester 2: 9.22 | Year 1 YGPA: 8.97 | Semester 3: 9.78
 
 TECHNICAL SKILLS
 Programming: Python, Java, JavaScript, HTML, CSS
