@@ -322,7 +322,16 @@
       section: 'Links',
       keywords: ['messwise', 'android', 'mess', 'hostel', 'project'],
       icon: 'external-link',
-      run: () => openExternal('https://github.com/sayan21m/messwise')
+      run: () => openExternal('https://github.com/sayan21m/mess-wise')
+    },
+    {
+      id: 'link.demo.messwise',
+      name: 'Open MessWise Live Demo',
+      hint: 'mess-wise.web.app',
+      section: 'Links',
+      keywords: ['messwise', 'demo', 'live', 'web', 'app'],
+      icon: 'external-link',
+      run: () => openExternal('https://mess-wise.web.app')
     },
     {
       id: 'link.case.temp',

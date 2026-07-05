@@ -3073,31 +3073,27 @@ a.contact__info-value:hover {
 }
 
 /* --------------------------------------------------------------------------
-   Responsive — Mobile
+   Responsive — Compact navigation (prevent logo/link overlap)
    -------------------------------------------------------------------------- */
-@media (max-width: 768px) {
-  :root {
-    --section-padding: var(--space-2xl);
-    --header-height: 64px;
-    --header-height-scrolled: 56px;
+@media (max-width: 1180px) {
+  .nav {
+    gap: var(--space-sm);
   }
 
-  .container {
-    padding-inline: var(--space-lg);
-  }
-
-  .section__title {
-    font-size: var(--text-3xl);
-  }
-
-  /* Mobile navigation */
   .nav__actions {
     display: contents;
   }
 
   .nav__toggle {
     display: flex;
+    order: 3;
+    flex-shrink: 0;
+  }
+
+  .nav__tools {
+    order: 2;
     margin-left: auto;
+    margin-right: 0;
   }
 
   .nav__menu {
@@ -3121,6 +3117,7 @@ a.contact__info-value:hover {
       opacity 0.3s ease;
     gap: var(--space-xs);
     opacity: 0;
+    z-index: 1000;
   }
 
   .nav__menu > li {
@@ -3167,6 +3164,47 @@ a.contact__info-value:hover {
     margin-top: var(--space-md);
     justify-content: center;
     text-align: center;
+  }
+}
+
+@media (min-width: 1181px) {
+  .nav__logo {
+    margin-right: var(--space-md);
+  }
+
+  .nav__actions {
+    flex: 1 1 auto;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+
+  .nav__menu {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .nav__menu::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Responsive — Mobile
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: var(--space-2xl);
+    --header-height: 64px;
+    --header-height-scrolled: 56px;
+  }
+
+  .container {
+    padding-inline: var(--space-lg);
+  }
+
+  .section__title {
+    font-size: var(--text-3xl);
   }
 
   /* Hero */

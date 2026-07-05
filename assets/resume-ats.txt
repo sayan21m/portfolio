@@ -28,7 +28,8 @@ GitHub: github.com/sayan21m/temperature_predictor
 MessWise
 Android application for student mess and hostel management with real-time Firebase sync.
 Technologies: Java, Android XML, Material Design 3, Firebase, MPAndroidChart, Lottie, Android Security Crypto
-GitHub: github.com/sayan21m/messwise
+GitHub: github.com/sayan21m/mess-wise
+Live: mess-wise.web.app
 
 CURRENTLY LEARNING
 Advanced Machine Learning, Deep Learning, Large Language Models, Retrieval-Augmented Generation

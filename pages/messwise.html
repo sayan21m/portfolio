@@ -14,13 +14,13 @@
   <link rel="stylesheet" href="../css/features.css">
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
 </head>
-<body class="case-study-page" data-portfolio-home="../docs/index.html">
+<body class="case-study-page">
 
   <a href="#main" class="skip-link">Skip to main content</a>
 
   <header class="header header--scrolled" role="banner">
     <nav class="nav container" aria-label="Case study navigation">
-      <a href="../docs/index.html" class="nav__logo" aria-label="Back to portfolio home">
+      <a href="../index.html" class="nav__logo" aria-label="Back to portfolio home">
         <span class="nav__logo-bracket">&lt;</span>SG<span class="nav__logo-bracket">/&gt;</span>
       </a>
 
@@ -46,7 +46,7 @@
         </button>
       </div>
 
-      <a href="../docs/index.html#projects" class="nav__link nav__link--cta">
+      <a href="../index.html#projects" class="nav__link nav__link--cta">
         <span data-icon="arrow-left" class="icon icon--sm"></span>
         Portfolio
       </a>
@@ -73,19 +73,19 @@
           </div>
 
           <div class="case-hero__actions">
-            <a href="https://github.com/sayan21m/messwise" class="btn btn--primary btn--sm ripple" target="_blank" rel="noopener noreferrer" aria-label="View source code on GitHub">
+            <a href="https://github.com/sayan21m/mess-wise" class="btn btn--primary btn--sm ripple" target="_blank" rel="noopener noreferrer" aria-label="View source code on GitHub">
               <span data-icon="github" class="icon icon--sm"></span>
               GitHub
             </a>
-            <a href="https://github.com/sayan21m/messwise#readme" class="btn btn--secondary btn--sm ripple" target="_blank" rel="noopener noreferrer" aria-label="Open live demo">
+            <a href="https://mess-wise.web.app" class="btn btn--secondary btn--sm ripple" target="_blank" rel="noopener noreferrer" aria-label="Open live demo">
               <span data-icon="external-link" class="icon icon--sm"></span>
               Live Demo
             </a>
-            <a href="https://github.com/sayan21m/messwise/releases/latest" class="btn btn--secondary btn--sm ripple" target="_blank" rel="noopener noreferrer" aria-label="Download APK">
+            <button type="button" class="btn btn--secondary btn--sm ripple" data-download-messwise-apk aria-label="Download APK">
               <span data-icon="download" class="icon icon--sm"></span>
               Download APK
-            </a>
-            <a href="../docs/index.html#projects" class="btn btn--ghost btn--sm ripple" aria-label="Back to portfolio projects">
+            </button>
+            <a href="../index.html#projects" class="btn btn--ghost btn--sm ripple" aria-label="Back to portfolio projects">
               <span data-icon="arrow-left" class="icon icon--sm"></span>
               Back to Portfolio
             </a>
@@ -650,17 +650,27 @@
   <footer class="footer" role="contentinfo">
     <div class="container footer__inner">
       <p class="footer__copyright">&copy; <span id="footer-year"></span> Sayan Garai — MessWise Case Study</p>
-      <a href="../docs/index.html" class="btn btn--ghost btn--sm ripple">
+      <a href="../index.html" class="btn btn--ghost btn--sm ripple">
         <span data-icon="arrow-left" class="icon icon--sm"></span>
         Back to Portfolio
       </a>
     </div>
   </footer>
 
+  <div
+    id="download-toast"
+    class="download-toast"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+  >
+    Download started — check your browser downloads.
+  </div>
+
   <script src="../js/loader.js"></script>
   <script src="../js/paths.js"></script>
   <script src="../js/icons.js" defer></script>
-  <script src="../js/features.js" defer></script>
-  <script src="../js/script.js" defer></script>
+  <script src="../js/features.js?v=2" defer></script>
+  <script src="../js/script.js?v=7" defer></script>
 </body>
 </html>

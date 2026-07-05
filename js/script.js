@@ -904,6 +904,47 @@
   }
 
   /* =========================================================================
+     MessWise APK download
+     ========================================================================= */
+  const MESSWISE_APK_URL =
+    "https://github.com/sayan21m/mess-wise/raw/main/app/release/MessWise.apk";
+
+  function downloadMessWiseApk() {
+    window.open(MESSWISE_APK_URL, "_blank", "noopener,noreferrer");
+
+    const toast = document.getElementById("download-toast");
+    if (!toast) return;
+
+    toast.classList.add("is-visible");
+    toast.style.opacity = "1";
+
+    if (window.matchMedia("(min-width: 640px)").matches) {
+      toast.style.transform = "translate(-50%, 0)";
+    } else {
+      toast.style.transform = "translateY(0)";
+    }
+
+    window.setTimeout(() => {
+      toast.classList.remove("is-visible");
+      toast.style.opacity = "0";
+
+      if (window.matchMedia("(min-width: 640px)").matches) {
+        toast.style.transform = "translate(-50%, 16px)";
+      } else {
+        toast.style.transform = "translateY(1rem)";
+      }
+    }, 3500);
+  }
+
+  function initMessWiseDownload() {
+    document
+      .querySelectorAll("[data-download-messwise-apk]")
+      .forEach((btn) => {
+        btn.addEventListener("click", downloadMessWiseApk);
+      });
+  }
+
+  /* =========================================================================
      Smooth Scroll for Anchor Links
      ========================================================================= */
   function initSmoothScroll() {
@@ -945,6 +986,7 @@
     initBackToTop();
     initProjectCarousel();
     initProjectsSlider();
+    initMessWiseDownload();
     initLazyLoading();
     initSmoothScroll();
     initHeroGlow();

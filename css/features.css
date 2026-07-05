@@ -218,6 +218,44 @@ html.is-loading body {
 }
 
 /* --------------------------------------------------------------------------
+   Download toast (MessWise APK)
+   -------------------------------------------------------------------------- */
+.download-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 1.25rem;
+  z-index: 12000;
+  max-width: min(92vw, 420px);
+  padding: var(--space-md) var(--space-lg);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text);
+  text-align: center;
+  background: rgba(10, 11, 15, 0.92);
+  border: 1px solid rgba(108, 140, 255, 0.25);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  transform: translate(-50%, 16px);
+  pointer-events: none;
+  transition:
+    opacity var(--transition-base),
+    transform var(--transition-base);
+}
+
+.download-toast.is-visible {
+  pointer-events: auto;
+}
+
+@media (max-width: 639px) {
+  .download-toast {
+    left: var(--space-md);
+    right: var(--space-md);
+    transform: translateY(1rem);
+  }
+}
+
+/* --------------------------------------------------------------------------
    Command Palette
    -------------------------------------------------------------------------- */
 .cmd-palette {
@@ -1127,7 +1165,7 @@ html[data-theme="light"] .term__panel {
 /* --------------------------------------------------------------------------
    Responsive tweaks
    -------------------------------------------------------------------------- */
-@media (max-width: 900px) {
+@media (max-width: 1180px) {
   .nav__tools {
     display: none;
   }
