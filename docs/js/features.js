@@ -32,12 +32,14 @@
     home: 'index.html',
     resumePage: 'pages/resume.html',
     resumePdf: 'assets/resume.pdf',
-    caseStudyPage: 'pages/temperature-predictor.html'
+    caseStudyPage: 'pages/temperature-predictor.html',
+    techStackPage: 'pages/tech-stack.html'
   };
   const HOME = P.home;
   const RESUME_PAGE = P.resumePage;
   const RESUME_PDF = P.resumePdf;
   const CASE_STUDY_PAGE = P.caseStudyPage;
+  const TECH_STACK_PAGE = P.techStackPage || 'pages/tech-stack.html';
   const isSubpage = P.inPages;
 
   /** True when the user is typing inside an editable element. */
@@ -88,6 +90,47 @@
     applyTheme(current === 'light' ? 'dark' : 'light');
   }
 
+  /** Keep body scroll lock in sync when palette/terminal modals close. */
+  let modalLockOwners = 0;
+
+  function acquireModalLock() {
+    modalLockOwners += 1;
+    document.body.classList.add('has-modal-open');
+  }
+
+  function releaseModalLock() {
+    modalLockOwners = Math.max(0, modalLockOwners - 1);
+    if (modalLockOwners === 0) {
+      document.body.classList.remove('has-modal-open');
+    }
+  }
+
+  function resetModalLock() {
+    modalLockOwners = 0;
+    document.body.classList.remove('has-modal-open');
+  }
+
+  function restoreFocus(lastFocused, overlay) {
+    if (overlay?.contains(document.activeElement)) {
+      document.activeElement?.blur?.();
+    }
+
+    if (
+      lastFocused &&
+      document.contains(lastFocused) &&
+      !overlay?.contains(lastFocused) &&
+      typeof lastFocused.focus === 'function'
+    ) {
+      lastFocused.focus();
+      return;
+    }
+
+    const termBtn = document.getElementById('open-terminal');
+    if (termBtn && typeof termBtn.focus === 'function') {
+      termBtn.focus();
+    }
+  }
+
   /* =========================================================================
      Command registry — single source of truth for palette + terminal
      ========================================================================= */
@@ -115,9 +158,20 @@
       name: 'Go to Skills',
       hint: 'Technologies I use',
       section: 'Navigation',
-      keywords: ['skills', 'stack', 'tech', 'tools'],
+      keywords: ['skills', 'technologies'],
       icon: 'code',
       run: () => goToHash('#skills')
+    },
+    {
+      id: 'nav.techstack',
+      name: 'Open Tech Stack',
+      hint: 'Full technology breakdown',
+      section: 'Navigation',
+      keywords: ['tech', 'stack', 'tools', 'technologies', 'tech stack'],
+      icon: 'layers',
+      run: () => {
+        window.location.href = isSubpage ? 'tech-stack.html' : TECH_STACK_PAGE;
+      }
     },
     {
       id: 'nav.projects',
@@ -138,6 +192,15 @@
       run: () => goToHash('#focus')
     },
     {
+      id: 'nav.status',
+      name: 'Go to Current Status',
+      hint: 'What I\'m building now',
+      section: 'Navigation',
+      keywords: ['status', 'building', 'live', 'log', 'current'],
+      icon: 'zap',
+      run: () => goToHash('#status')
+    },
+    {
       id: 'nav.journey',
       name: 'Go to Learning Journey',
       hint: 'My path so far',
@@ -145,6 +208,15 @@
       keywords: ['journey', 'timeline', 'history', 'path'],
       icon: 'git-branch',
       run: () => goToHash('#journey')
+    },
+    {
+      id: 'nav.experience',
+      name: 'Go to Experience',
+      hint: 'Projects and academic work',
+      section: 'Navigation',
+      keywords: ['experience', 'work', 'log', 'jobs', 'projects'],
+      icon: 'award',
+      run: () => goToHash('#experience')
     },
     {
       id: 'nav.education',
@@ -231,6 +303,26 @@
       keywords: ['temperature', 'predictor', 'demo', 'project'],
       icon: 'external-link',
       run: () => openExternal('https://sayan21m.github.io/temperature_predictor/')
+    },
+    {
+      id: 'link.case.messwise',
+      name: 'Read MessWise Case Study',
+      hint: 'Android mess management write-up',
+      section: 'Links',
+      keywords: ['case', 'study', 'messwise', 'android', 'mess'],
+      icon: 'file-text',
+      run: () => {
+        window.location.href = isSubpage ? 'messwise.html' : 'pages/messwise.html';
+      }
+    },
+    {
+      id: 'link.project.messwise',
+      name: 'Open MessWise (GitHub)',
+      hint: 'Android mess management app',
+      section: 'Links',
+      keywords: ['messwise', 'android', 'mess', 'hostel', 'project'],
+      icon: 'external-link',
+      run: () => openExternal('https://github.com/sayan21m/messwise')
     },
     {
       id: 'link.case.temp',
@@ -499,7 +591,8 @@
       lastFocused = document.activeElement;
       filter('');
       overlay.hidden = false;
-      document.body.classList.add('has-modal-open');
+      overlay.removeAttribute('inert');
+      acquireModalLock();
       requestAnimationFrame(() => {
         overlay.classList.add('is-open');
         input.value = '';
@@ -511,12 +604,14 @@
       if (!isOpen || !overlay) return;
       isOpen = false;
       overlay.classList.remove('is-open');
-      document.body.classList.remove('has-modal-open');
+      overlay.setAttribute('inert', '');
+      releaseModalLock();
+      input?.blur?.();
+
       setTimeout(() => {
+        if (isOpen) return;
         overlay.hidden = true;
-        if (lastFocused && typeof lastFocused.focus === 'function') {
-          lastFocused.focus();
-        }
+        restoreFocus(lastFocused, overlay);
       }, 200);
     }
 
@@ -540,21 +635,35 @@
       help: () => renderHelp(),
       about: () => printBlock([
         { label: 'Sayan Garai', class: 'term-line--title' },
-        { text: 'IT Engineering student — Machine Learning & Backend Developer' },
-        { text: 'Based in West Bengal, India' }
+        { text: 'Software Engineer — Machine Learning | Android | Backend' },
+        { text: 'B.Tech IT student · West Bengal, India' }
       ]),
       skills: () => printBlock([
         { label: 'Skills', class: 'term-line--title' },
-        { text: '• Programming: Python, JavaScript, HTML, CSS' },
+        { text: '• Programming: Python, Java, JavaScript, HTML, CSS' },
         { text: '• Machine Learning: Pandas, NumPy, Scikit-learn' },
-        { text: '• Visualization: Plotly, Matplotlib' },
-        { text: '• Backend: Flask' },
-        { text: '• Tools: Git, GitHub' }
+        { text: '• Android: XML, Material Design 3, Firebase' },
+        { text: '• Backend: Flask, Firebase Realtime Database' },
+        { text: '• Tools: Git, GitHub, Android Studio, VS Code' },
+        { text: 'Type "stack" for the full tech stack page.' }
       ]),
+      stack: () => {
+        printBlock([
+          { label: 'Tech Stack', class: 'term-line--title' },
+          { text: 'Opening technology breakdown…' }
+        ]);
+        setTimeout(() => {
+          close();
+          window.location.href = isSubpage ? 'tech-stack.html' : TECH_STACK_PAGE;
+        }, 400);
+      },
+      tech: () => HANDLERS.stack(),
+      tools: () => HANDLERS.stack(),
       projects: () => {
         printBlock([
           { label: 'Projects', class: 'term-line--title' },
           { text: '1. Temperature Predictor — ML weather forecasting & EDA dashboard' },
+          { text: '2. MessWise — Android mess management with Firebase sync' },
           { text: '   → Navigating to project section…' }
         ]);
         setTimeout(() => { close(); goToHash('#projects'); }, 500);
@@ -653,6 +762,8 @@
         });
       }
 
+      overlay.querySelector('.term__dot--red')?.addEventListener('click', close);
+
       overlay.addEventListener('click', (e) => {
         if (e.target.closest('[data-close]')) close();
       });
@@ -721,6 +832,9 @@
         { text: '  help       Show this help text' },
         { text: '  about      About Sayan Garai' },
         { text: '  skills     List technical skills' },
+        { text: '  stack      Open Tech Stack page' },
+        { text: '  tech       Open Tech Stack page' },
+        { text: '  tools      Open Tech Stack page' },
         { text: '  projects   Jump to Projects section' },
         { text: '  resume     Open embedded resume viewer' },
         { text: '  contact    Show contact info' },
@@ -800,7 +914,8 @@
       isOpen = true;
       lastFocused = document.activeElement;
       overlay.hidden = false;
-      document.body.classList.add('has-modal-open');
+      overlay.removeAttribute('inert');
+      acquireModalLock();
       requestAnimationFrame(() => {
         overlay.classList.add('is-open');
         showBanner();
@@ -812,12 +927,14 @@
       if (!isOpen || !overlay) return;
       isOpen = false;
       overlay.classList.remove('is-open');
-      document.body.classList.remove('has-modal-open');
+      overlay.setAttribute('inert', '');
+      releaseModalLock();
+      input?.blur?.();
+
       setTimeout(() => {
+        if (isOpen) return;
         overlay.hidden = true;
-        if (lastFocused && typeof lastFocused.focus === 'function') {
-          lastFocused.focus();
-        }
+        restoreFocus(lastFocused, overlay);
       }, 200);
     }
 
@@ -842,8 +959,16 @@
 
       /* Global ESC — close any open modal (palette / terminal / mobile nav) */
       if (e.key === 'Escape') {
-        if (Palette.isOpen()) { Palette.close(); return; }
-        if (Terminal.isOpen()) { Terminal.close(); return; }
+        if (Palette.isOpen()) {
+          e.preventDefault();
+          Palette.close();
+          return;
+        }
+        if (Terminal.isOpen()) {
+          e.preventDefault();
+          Terminal.close();
+          return;
+        }
       }
 
       /* Bare single-key shortcuts — skip if user is typing or a modal is open */

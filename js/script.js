@@ -60,8 +60,10 @@
      Typing Animation — Hero Title
      ========================================================================= */
   const typingPhrases = [
-    "IT Engineering Student",
-    "Machine Learning & Backend Developer",
+    "Software Engineer",
+    "Machine Learning Developer",
+    "Android Developer",
+    "Backend Developer",
   ];
 
   let phraseIndex = 0;
@@ -271,7 +273,10 @@
     if (!counters.length) return;
 
     const animateCounter = (el) => {
-      const target = parseInt(el.dataset.counter, 10);
+      const target = parseFloat(el.dataset.counter);
+      if (Number.isNaN(target)) return;
+
+      const decimals = parseInt(el.dataset.counterDecimals || "0", 10);
       const suffix = el.dataset.counterSuffix || "";
       const duration = 1500;
       const start = performance.now();
@@ -280,7 +285,13 @@
         const elapsed = now - start;
         const progress = Math.min(elapsed / duration, 1);
         const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.floor(eased * target) + suffix;
+        const value = eased * target;
+
+        el.textContent =
+          decimals > 0
+            ? value.toFixed(decimals) + suffix
+            : Math.floor(value) + suffix;
+
         if (progress < 1) requestAnimationFrame(update);
       }
 
@@ -647,7 +658,7 @@
       formData.append('name', name);
       formData.append('email', email);
       formData.append('message', message);
-      formData.append('_subject', `Portfolio message from ${name} — Sayan Garai portfolio`);
+      formData.append('_subject', `Portfolio message from ${name} — Sayan Garai`);
       formData.append('_captcha', 'false');
       formData.append('_template', 'table');
       if (honeypot?.value) {
@@ -690,66 +701,174 @@
     });
   }
 
+  function initProjectsSlider() {
+    const slider = document.getElementById("projects-slider");
+    if (!slider) return;
+
+    const viewport = slider.querySelector(".projects-slider__viewport");
+    const track = slider.querySelector(".projects-slider__track");
+    const cards = [...slider.querySelectorAll(".projects-slider__track .project-card")];
+    const dots = [...slider.querySelectorAll(".projects-slider__dot")];
+    const prevBtn = slider.querySelector(".projects-slider__btn--prev");
+    const nextBtn = slider.querySelector(".projects-slider__btn--next");
+    if (!viewport || !track || !cards.length || !prevBtn || !nextBtn) return;
+
+    let currentIndex = 0;
+    let touchStartX = 0;
+
+    function goTo(index) {
+      currentIndex = Math.max(0, Math.min(index, cards.length - 1));
+      const offset = cards[currentIndex].offsetLeft;
+      track.style.transform = `translateX(-${offset}px)`;
+
+      cards.forEach((card, i) => {
+        card.classList.toggle("is-active", i === currentIndex);
+      });
+
+      dots.forEach((dot, i) => {
+        const active = i === currentIndex;
+        dot.classList.toggle("is-active", active);
+        dot.setAttribute("aria-selected", active);
+      });
+
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === cards.length - 1;
+    }
+
+    prevBtn.addEventListener("click", () => goTo(currentIndex - 1));
+    nextBtn.addEventListener("click", () => goTo(currentIndex + 1));
+
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => goTo(Number(dot.dataset.slide)));
+    });
+
+    viewport.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        goTo(currentIndex - 1);
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        goTo(currentIndex + 1);
+      }
+    });
+
+    viewport.addEventListener(
+      "touchstart",
+      (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      },
+      { passive: true }
+    );
+
+    viewport.addEventListener(
+      "touchend",
+      (e) => {
+        const diff = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(diff) < 50) return;
+        goTo(diff > 0 ? currentIndex - 1 : currentIndex + 1);
+      },
+      { passive: true }
+    );
+
+    window.addEventListener("resize", () => goTo(currentIndex));
+
+    goTo(0);
+  }
+
   /* =========================================================================
      Project Image Carousel
      ========================================================================= */
   function initProjectCarousel() {
-    const carousel = document.getElementById("temp-pred-carousel");
-    if (!carousel) return;
+    document.querySelectorAll(".project-carousel").forEach((carousel) => {
+      const track = carousel.querySelector(".project-carousel__track");
+      const slides = carousel.querySelectorAll(".project-carousel__slide");
+      const dots = carousel.querySelectorAll(".project-carousel__dot");
+      const prevBtn = carousel.querySelector(".project-carousel__btn--prev");
+      const nextBtn = carousel.querySelector(".project-carousel__btn--next");
+      const label = carousel.querySelector(".project-carousel__label");
+      const isSlide = carousel.classList.contains("project-carousel--slide");
+      if (!slides.length || !prevBtn || !nextBtn) return;
 
-    const slides = carousel.querySelectorAll(".project-carousel__slide");
-    const dots = carousel.querySelectorAll(".project-carousel__dot");
-    const prevBtn = carousel.querySelector(".project-carousel__btn--prev");
-    const nextBtn = carousel.querySelector(".project-carousel__btn--next");
-    let currentIndex = 0;
+      let currentIndex = 0;
+      let touchStartX = 0;
 
-    function loadSlideImage(slide) {
-      const img = slide.querySelector("img[data-src]");
-      if (img && !img.src) {
-        img.src = img.dataset.src;
-        img.removeAttribute("data-src");
+      function loadSlideImage(slide) {
+        const img = slide.querySelector("img[data-src]");
+        if (img && !img.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute("data-src");
+        }
       }
-    }
 
-    function goToSlide(index) {
-      currentIndex = (index + slides.length) % slides.length;
+      function goToSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
 
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("is-active", i === currentIndex);
-      });
+        slides.forEach((slide, i) => {
+          slide.classList.toggle("is-active", i === currentIndex);
+        });
 
-      dots.forEach((dot, i) => {
-        const isActive = i === currentIndex;
-        dot.classList.toggle("is-active", isActive);
-        dot.setAttribute("aria-selected", isActive);
-      });
+        dots.forEach((dot, i) => {
+          const isActive = i === currentIndex;
+          dot.classList.toggle("is-active", isActive);
+          dot.setAttribute("aria-selected", isActive);
+        });
 
-      loadSlideImage(slides[currentIndex]);
-    }
+        if (isSlide && track) {
+          track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
 
-    prevBtn.addEventListener("click", () => goToSlide(currentIndex - 1));
-    nextBtn.addEventListener("click", () => goToSlide(currentIndex + 1));
+        if (label) {
+          label.textContent =
+            slides[currentIndex].dataset.label || `Screenshot ${currentIndex + 1}`;
+        }
 
-    dots.forEach((dot) => {
-      dot.addEventListener("click", () => {
-        goToSlide(Number(dot.dataset.slide));
-      });
-    });
-
-    // Keyboard navigation when carousel is focused
-    carousel.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowLeft") {
-        e.preventDefault();
-        goToSlide(currentIndex - 1);
-      } else if (e.key === "ArrowRight") {
-        e.preventDefault();
-        goToSlide(currentIndex + 1);
+        loadSlideImage(slides[currentIndex]);
+        if (slides[currentIndex + 1]) loadSlideImage(slides[currentIndex + 1]);
+        if (slides[currentIndex - 1]) loadSlideImage(slides[currentIndex - 1]);
       }
-    });
 
-    // Preload adjacent slide
-    loadSlideImage(slides[0]);
-    loadSlideImage(slides[1]);
+      prevBtn.addEventListener("click", () => goToSlide(currentIndex - 1));
+      nextBtn.addEventListener("click", () => goToSlide(currentIndex + 1));
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          goToSlide(Number(dot.dataset.slide));
+        });
+      });
+
+      carousel.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          goToSlide(currentIndex - 1);
+        } else if (e.key === "ArrowRight") {
+          e.preventDefault();
+          goToSlide(currentIndex + 1);
+        }
+      });
+
+      const swipeTarget = track || carousel;
+      swipeTarget.addEventListener(
+        "touchstart",
+        (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        },
+        { passive: true }
+      );
+
+      swipeTarget.addEventListener(
+        "touchend",
+        (e) => {
+          const diff = e.changedTouches[0].screenX - touchStartX;
+          if (Math.abs(diff) < 50) return;
+          goToSlide(diff > 0 ? currentIndex - 1 : currentIndex + 1);
+        },
+        { passive: true }
+      );
+
+      loadSlideImage(slides[0]);
+      if (slides[1]) loadSlideImage(slides[1]);
+      goToSlide(0);
+    });
   }
 
   /* =========================================================================
@@ -825,6 +944,7 @@
     initRippleEffect();
     initBackToTop();
     initProjectCarousel();
+    initProjectsSlider();
     initLazyLoading();
     initSmoothScroll();
     initHeroGlow();

@@ -1,0 +1,34 @@
+SAYAN GARAI
+West Bengal, India
+Email: rebagarai83@gmail.com
+GitHub: github.com/sayan21m
+LinkedIn: linkedin.com/in/sayan-garai-8b6246370
+
+SUMMARY
+B.Tech Information Technology student and software engineer focused on machine learning, Android development, and backend engineering. Built two completed flagship projects: Temperature Predictor (ML web application) and MessWise (Android mess management app).
+
+EDUCATION
+B.Tech in Information Technology — Pursuing
+
+TECHNICAL SKILLS
+Programming: Python, Java, JavaScript, HTML, CSS
+Machine Learning: Pandas, NumPy, Scikit-learn
+Backend: Flask, Firebase Realtime Database, Firebase Authentication
+Android: Android XML, Material Design 3, Jetpack Compose (partial), Android Security Crypto, R8
+Visualization: Plotly, Matplotlib, MPAndroidChart
+Tools: Git, GitHub, Android Studio, VS Code
+
+PROJECTS
+
+Temperature Predictor
+Machine learning weather prediction and exploratory data analysis dashboard.
+Technologies: Python, Pandas, NumPy, Scikit-learn, Flask, Plotly, HTML, CSS, JavaScript
+GitHub: github.com/sayan21m/temperature_predictor
+
+MessWise
+Android application for student mess and hostel management with real-time Firebase sync.
+Technologies: Java, Android XML, Material Design 3, Firebase, MPAndroidChart, Lottie, Android Security Crypto
+GitHub: github.com/sayan21m/messwise
+
+CURRENTLY LEARNING
+Advanced Machine Learning, Deep Learning, Large Language Models, Retrieval-Augmented Generation

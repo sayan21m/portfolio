@@ -62,33 +62,126 @@
         <span class="case-hero__tag">Resume</span>
         <h1 class="resume-page__title" id="resume-title">Sayan Garai — Resume</h1>
         <p class="resume-page__subtitle">
-          IT Engineering student focused on Machine Learning and Backend Development.
-          Download, print, or view the full PDF below.
+          Machine Learning | Android | Backend Developer — B.Tech IT student.
+          View, download, or print the PDF below.
         </p>
 
         <div class="resume-page__toolbar" role="toolbar" aria-label="Resume actions">
-          <a href="../assets/resume.pdf" class="btn btn--primary btn--sm ripple" id="resume-download" download="Sayan-Garai-Resume.pdf">
+          <a href="../assets/resume.pdf" class="btn btn--primary btn--sm ripple" id="resume-view-pdf" target="_blank" rel="noopener noreferrer">
+            <span data-icon="file-text" class="icon icon--sm"></span>
+            View PDF
+          </a>
+          <a href="../assets/resume.pdf" class="btn btn--secondary btn--sm ripple" id="resume-download" download="Sayan-Garai-Resume.pdf">
             <span data-icon="download" class="icon icon--sm"></span>
-            Download
+            Download PDF
           </a>
           <button type="button" class="btn btn--secondary btn--sm ripple" id="resume-print">
             <span data-icon="file-text" class="icon icon--sm"></span>
-            Print
+            Print Resume
           </button>
-          <button type="button" class="btn btn--secondary btn--sm ripple" id="resume-fullscreen">
+          <a href="../assets/resume.pdf" class="btn btn--ghost btn--sm ripple" target="_blank" rel="noopener noreferrer" aria-label="Open resume in new tab">
             <span data-icon="external-link" class="icon icon--sm"></span>
-            Fullscreen
-          </button>
-          <a href="../assets/resume.pdf" class="btn btn--ghost btn--sm ripple" target="_blank" rel="noopener noreferrer">
-            <span data-icon="external-link" class="icon icon--sm"></span>
-            Open in new tab
+            Open in New Tab
+          </a>
+          <a href="../assets/resume-ats.txt" class="btn btn--ghost btn--sm ripple" download="Sayan-Garai-Resume-ATS.txt" id="resume-ats-download">
+            <span data-icon="download" class="icon icon--sm"></span>
+            ATS Resume
           </a>
         </div>
       </div>
     </section>
 
-    <div class="resume-page__viewer-wrap">
+    <section class="resume-page__summary" aria-labelledby="resume-summary-title">
       <div class="container">
+        <h2 class="resume-page__section-title reveal" id="resume-summary-title">Quick Summary</h2>
+        <div class="resume-summary__grid reveal">
+          <div class="resume-summary__card glass">
+            <span class="resume-summary__label">Current Role</span>
+            <span class="resume-summary__value">B.Tech IT Student</span>
+          </div>
+          <div class="resume-summary__card glass">
+            <span class="resume-summary__label">Projects Completed</span>
+            <span class="resume-summary__value">2</span>
+          </div>
+          <div class="resume-summary__card glass">
+            <span class="resume-summary__label">Primary Domains</span>
+            <span class="resume-summary__value">Machine Learning · Android · Backend</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-page__skills" aria-labelledby="resume-skills-title">
+      <div class="container">
+        <h2 class="resume-page__section-title reveal" id="resume-skills-title">Skills Snapshot</h2>
+        <div class="resume-skills__grid reveal">
+          <div class="resume-skills__card glass">
+            <h3 class="resume-skills__card-title">Programming</h3>
+            <p class="resume-skills__card-text">Python, Java, JavaScript, HTML, CSS</p>
+          </div>
+          <div class="resume-skills__card glass">
+            <h3 class="resume-skills__card-title">Machine Learning</h3>
+            <p class="resume-skills__card-text">Pandas, NumPy, Scikit-learn</p>
+          </div>
+          <div class="resume-skills__card glass">
+            <h3 class="resume-skills__card-title">Android</h3>
+            <p class="resume-skills__card-text">XML, Material Design 3, Firebase</p>
+          </div>
+          <div class="resume-skills__card glass">
+            <h3 class="resume-skills__card-title">Backend</h3>
+            <p class="resume-skills__card-text">Flask, Firebase Realtime Database</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-page__projects" aria-labelledby="resume-projects-title">
+      <div class="container">
+        <h2 class="resume-page__section-title reveal" id="resume-projects-title">Featured Projects</h2>
+        <div class="resume-projects__grid reveal">
+          <a href="temperature-predictor.html" class="resume-project-card glass">
+            <h3 class="resume-project-card__title">Temperature Predictor</h3>
+            <p class="resume-project-card__text">ML weather prediction &amp; EDA dashboard</p>
+            <span class="resume-project-card__link">View Case Study →</span>
+          </a>
+          <a href="messwise.html" class="resume-project-card glass">
+            <h3 class="resume-project-card__title">MessWise</h3>
+            <p class="resume-project-card__text">Android mess management platform</p>
+            <span class="resume-project-card__link">View Case Study →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-page__contact" aria-labelledby="resume-contact-title">
+      <div class="container">
+        <h2 class="resume-page__section-title reveal" id="resume-contact-title">Contact</h2>
+        <div class="resume-contact__grid reveal">
+          <a href="https://github.com/sayan21m" class="resume-contact__link glass" target="_blank" rel="noopener noreferrer">
+            <span data-icon="github" class="icon icon--sm"></span>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/sayan-garai-8b6246370" class="resume-contact__link glass" target="_blank" rel="noopener noreferrer">
+            <span data-icon="linkedin" class="icon icon--sm"></span>
+            LinkedIn
+          </a>
+          <a href="mailto:rebagarai83@gmail.com" class="resume-contact__link glass">
+            <span data-icon="mail" class="icon icon--sm"></span>
+            rebagarai83@gmail.com
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="resume-page__viewer-section" aria-labelledby="resume-viewer-title">
+      <div class="container">
+        <h2 class="resume-page__section-title reveal" id="resume-viewer-title">Resume PDF</h2>
+        <div class="resume-page__viewer-actions reveal">
+          <button type="button" class="btn btn--secondary btn--sm ripple" id="resume-fullscreen">
+            <span data-icon="external-link" class="icon icon--sm"></span>
+            Fullscreen Viewer
+          </button>
+        </div>
         <div class="resume-page__viewer" id="resume-viewer" aria-label="Embedded resume PDF">
           <button
             type="button"
@@ -125,7 +218,7 @@
           </object>
         </div>
       </div>
-    </div>
+    </section>
 
   </main>
 

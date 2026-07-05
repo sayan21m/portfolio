@@ -15,12 +15,16 @@
   const resumePage = ds.portfolioResume || (inPages ? 'resume.html' : 'pages/resume.html');
   const resumePdf = ds.portfolioResumePdf || (inPages ? '../assets/resume.pdf' : 'assets/resume.pdf');
   const caseStudyPage = ds.portfolioCaseStudy || (inPages ? 'temperature-predictor.html' : 'pages/temperature-predictor.html');
+  const messwiseCaseStudy = ds.portfolioMesswise || (inPages ? 'messwise.html' : 'pages/messwise.html');
+  const techStackPage = ds.portfolioTechStack || (inPages ? 'tech-stack.html' : 'pages/tech-stack.html');
 
   window.PortfolioPaths = {
     inPages,
     home,
     resumePage,
     resumePdf,
-    caseStudyPage
+    caseStudyPage,
+    messwiseCaseStudy,
+    techStackPage
   };
 })();

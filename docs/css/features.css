@@ -141,17 +141,22 @@ html.is-loading body {
 /* --------------------------------------------------------------------------
    Nav launcher buttons (Command palette pill + Terminal button)
    -------------------------------------------------------------------------- */
-/* Keep menu + tools grouped to the right when both are present on desktop */
+/* Keep menu + tools grouped and aligned on desktop */
 .nav__menu {
-  margin-left: auto;
+  margin-left: 0;
 }
 
 .nav__tools {
   display: inline-flex;
   align-items: center;
   gap: var(--space-sm);
-  margin-left: var(--space-md);
-  margin-right: 0;
+  margin-left: 0;
+  flex-shrink: 0;
+}
+
+/* Subpages: logo left, tools + CTA grouped on the right */
+.nav > .nav__tools {
+  margin-left: auto;
 }
 
 .nav__launcher {
@@ -224,11 +229,19 @@ html.is-loading body {
   justify-content: center;
   padding: clamp(4rem, 12vh, 8rem) var(--space-md) var(--space-md);
   opacity: 0;
-  transition: opacity 200ms ease;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 200ms ease, visibility 200ms ease;
 }
 
 .cmd-palette.is-open {
   opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.cmd-palette[hidden] {
+  display: none !important;
 }
 
 .cmd-palette__backdrop {
@@ -443,7 +456,13 @@ html.is-loading body {
   justify-content: center;
   padding: 0;
   opacity: 0;
-  transition: opacity 200ms ease;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 200ms ease, visibility 200ms ease;
+}
+
+.term[hidden] {
+  display: none !important;
 }
 
 @media (min-width: 768px) {
@@ -455,6 +474,8 @@ html.is-loading body {
 
 .term.is-open {
   opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
 }
 
 .term__backdrop {
@@ -684,6 +705,149 @@ html.is-loading body {
   align-items: center;
 }
 
+.resume-page__section-title {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  margin-bottom: var(--space-lg);
+}
+
+.resume-page__summary,
+.resume-page__skills,
+.resume-page__projects,
+.resume-page__contact,
+.resume-page__viewer-section {
+  padding-block: var(--space-2xl);
+}
+
+.resume-page__viewer-section {
+  padding-bottom: var(--space-3xl);
+}
+
+.resume-summary__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+}
+
+.resume-summary__card {
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.resume-summary__label {
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.resume-summary__value {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.resume-skills__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+
+.resume-skills__card {
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+}
+
+.resume-skills__card-title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+}
+
+.resume-skills__card-text {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.resume-projects__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-md);
+}
+
+.resume-project-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: inherit;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.resume-project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+  border-color: rgba(108, 140, 255, 0.3);
+}
+
+.resume-project-card__title {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.resume-project-card__text {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.resume-project-card__link {
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  color: var(--color-accent);
+}
+
+.resume-contact__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.resume-contact__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.resume-contact__link:hover {
+  color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.resume-page__viewer-actions {
+  margin-bottom: var(--space-md);
+}
+
 .resume-page__viewer-wrap {
   flex: 1;
   padding-block: var(--space-xl);
@@ -762,6 +926,7 @@ html.is-loading body {
 .case-grid__card {
   padding: var(--space-lg);
   border-radius: var(--radius-md);
+  text-align: left;
   transition: transform var(--transition-fast),
               border-color var(--transition-fast),
               box-shadow var(--transition-fast);
@@ -798,6 +963,24 @@ html.is-loading body {
   color: var(--color-text-muted);
   line-height: 1.65;
   margin: 0;
+}
+
+/* Security feature cards — consistent left-aligned layout */
+.case-grid--security {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.case-grid--security .case-grid__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.case-grid--security .case-grid__card-title,
+.case-grid--security .case-grid__card-text {
+  text-align: left;
+  width: 100%;
 }
 
 /* ML Pipeline — vertical, animated */

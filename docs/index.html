@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Sayan Garai — IT Engineering Student specializing in Machine Learning and Backend Development. Portfolio showcasing projects in data science and software engineering."
+      content="Sayan Garai — Software Engineer specializing in Machine Learning, Android, and Backend Development. Portfolio showcasing Temperature Predictor and MessWise."
     />
     <meta
       name="keywords"
@@ -15,14 +15,14 @@
     <meta name="robots" content="index, follow" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Sayan Garai | ML & Backend Developer" />
+    <meta property="og:title" content="Sayan Garai | ML, Android & Backend Developer" />
     <meta
       property="og:description"
       content="IT Engineering Student building practical software powered by data."
     />
     <meta property="og:type" content="website" />
 
-    <title>Sayan Garai | ML & Backend Developer</title>
+    <title>Sayan Garai | Software Engineer</title>
 
     <!-- Preconnect for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -76,12 +76,16 @@
           <span class="nav__toggle-bar"></span>
         </button>
 
+        <div class="nav__actions">
         <ul class="nav__menu" id="nav-menu" role="menubar">
           <li role="none">
             <a href="#about" class="nav__link" role="menuitem">About</a>
           </li>
           <li role="none">
             <a href="#skills" class="nav__link" role="menuitem">Skills</a>
+          </li>
+          <li role="none">
+            <a href="pages/tech-stack.html" class="nav__link" role="menuitem">Tech Stack</a>
           </li>
           <li role="none">
             <a href="#projects" class="nav__link" role="menuitem">Projects</a>
@@ -91,6 +95,9 @@
           </li>
           <li role="none">
             <a href="#journey" class="nav__link" role="menuitem">Journey</a>
+          </li>
+          <li role="none">
+            <a href="#experience" class="nav__link" role="menuitem">Experience</a>
           </li>
           <li role="none">
             <a href="#education" class="nav__link" role="menuitem">Education</a>
@@ -129,6 +136,7 @@
             <span data-icon="code" class="icon" aria-hidden="true"></span>
           </button>
         </div>
+        </div>
       </nav>
     </header>
     <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
@@ -162,18 +170,31 @@
               class="hero__title"
               id="typing-text"
               aria-live="polite"
-              aria-label="IT Engineering Student, Machine Learning and Backend Developer"
+              aria-label="Machine Learning, Android, and Backend Developer"
             >
               <span class="hero__cursor" aria-hidden="true">|</span>
             </p>
+          </div>
+          <div
+            class="hero__meta reveal hero__float"
+            style="--float-delay: 0.25s"
+          >
+            <span class="hero__status">
+              <span class="hero__status-dot" aria-hidden="true"></span>
+              Open to internships
+            </span>
+            <span class="hero__meta-sep" aria-hidden="true">·</span>
+            <span class="hero__location">
+              <span data-icon="map-pin" class="icon icon--sm" aria-hidden="true"></span>
+              West Bengal, India · Remote
+            </span>
           </div>
           <p
             class="hero__description reveal hero__float"
             style="--float-delay: 0.3s"
           >
-            I enjoy building practical software powered by data. My interests
-            include machine learning, backend development, and data
-            visualization.
+            I enjoy building practical software powered by data — from machine
+            learning dashboards to Android apps and backend systems.
           </p>
           <div
             class="hero__actions reveal hero__float"
@@ -209,6 +230,25 @@
           <span class="hero__scroll-text">Scroll down</span>
           <span class="hero__scroll-line"></span>
         </a>
+
+        <div class="hero__marquee" aria-hidden="true">
+          <div class="hero__marquee-track">
+            <span>Open for internships</span>
+            <span>Machine Learning</span>
+            <span>Android Development</span>
+            <span>Backend Engineering</span>
+            <span>Flask APIs</span>
+            <span>Firebase Apps</span>
+            <span>Open to collaborations</span>
+            <span>Open for internships</span>
+            <span>Machine Learning</span>
+            <span>Android Development</span>
+            <span>Backend Engineering</span>
+            <span>Flask APIs</span>
+            <span>Firebase Apps</span>
+            <span>Open to collaborations</span>
+          </div>
+        </div>
       </section>
 
       <!-- ==================== ABOUT ==================== -->
@@ -247,10 +287,22 @@
               <p>
                 Technology moves fast, and I embrace that pace. I'm always
                 learning new tools, frameworks, and techniques to sharpen my
-                skills and stay current with industry practices. I'm actively
-                seeking internship opportunities where I can contribute, grow,
-                and learn from experienced engineers.
+                skills and stay current with industry practices.
               </p>
+              <div class="about__meta">
+                <span class="about__meta-item">
+                  <span class="hero__status-dot" aria-hidden="true"></span>
+                  Available for internships
+                </span>
+                <span class="about__meta-item">
+                  <span data-icon="map-pin" class="icon icon--sm" aria-hidden="true"></span>
+                  West Bengal, India
+                </span>
+                <span class="about__meta-item">
+                  <span data-icon="github" class="icon icon--sm" aria-hidden="true"></span>
+                  github.com/sayan21m
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -276,7 +328,7 @@
               </span>
               <span
                 class="metric-card__value"
-                data-counter="1"
+                data-counter="2"
                 data-counter-suffix=""
                 >0</span
               >
@@ -284,30 +336,39 @@
             </div>
             <div class="metric-card glass reveal">
               <span class="metric-card__icon" aria-hidden="true">
-                <span data-icon="brain" class="icon icon--lg"></span>
+                <span data-icon="code" class="icon icon--lg"></span>
               </span>
-              <span class="metric-card__value metric-card__value--text"
-                >Machine Learning</span
+              <span
+                class="metric-card__value"
+                data-counter="15"
+                data-counter-suffix="+"
+                >0</span
               >
-              <span class="metric-card__label">Primary Domain</span>
+              <span class="metric-card__label">Technologies Used</span>
             </div>
             <div class="metric-card glass reveal">
               <span class="metric-card__icon" aria-hidden="true">
-                <span data-icon="server" class="icon icon--lg"></span>
+                <span data-icon="layers" class="icon icon--lg"></span>
               </span>
-              <span class="metric-card__value metric-card__value--text"
-                >Flask</span
+              <span
+                class="metric-card__value"
+                data-counter="2"
+                data-counter-suffix=""
+                >0</span
               >
-              <span class="metric-card__label">Backend</span>
+              <span class="metric-card__label">Platforms Shipped</span>
             </div>
             <div class="metric-card glass reveal">
               <span class="metric-card__icon" aria-hidden="true">
-                <span data-icon="thermometer" class="icon icon--lg"></span>
+                <span data-icon="file-text" class="icon icon--lg"></span>
               </span>
-              <span class="metric-card__value metric-card__value--text"
-                >Weather Forecasting</span
+              <span
+                class="metric-card__value"
+                data-counter="2"
+                data-counter-suffix=""
+                >0</span
               >
-              <span class="metric-card__label">Current Focus</span>
+              <span class="metric-card__label">Case Studies</span>
             </div>
           </div>
         </div>
@@ -635,7 +696,13 @@
             <p class="section__subtitle">Real projects built with purpose</p>
           </div>
 
-          <div class="projects__grid">
+          <div
+            class="projects-slider"
+            id="projects-slider"
+            aria-label="Featured projects carousel"
+          >
+            <div class="projects-slider__viewport" tabindex="0">
+              <div class="projects-slider__track">
             <!-- Temperature Predictor — Featured Project -->
             <article
               class="project-card project-card--featured glass reveal"
@@ -644,104 +711,13 @@
               <div
                 class="project-card__image-wrap project-card__image-wrap--premium"
               >
-                <div
-                  class="project-carousel"
-                  id="temp-pred-carousel"
-                  aria-label="Temperature Predictor screenshots"
-                  aria-roledescription="carousel"
-                  tabindex="0"
-                >
-                  <div class="project-carousel__track">
-                    <figure class="project-carousel__slide is-active">
-                      <img
-                        src="assets/images/temp_pred_img_1.png"
-                        alt="Temperature Predictor dashboard — overview and prediction interface"
-                        width="1280"
-                        height="720"
-                        loading="eager"
-                      />
-                    </figure>
-                    <figure class="project-carousel__slide">
-                      <img
-                        data-src="assets/images/temp_pred_img_2.png"
-                        alt="Temperature Predictor — exploratory data analysis charts"
-                        width="1280"
-                        height="720"
-                        loading="lazy"
-                      />
-                    </figure>
-                    <figure class="project-carousel__slide">
-                      <img
-                        data-src="assets/images/temp_pred_img_3.png"
-                        alt="Temperature Predictor — weather data visualization"
-                        width="1280"
-                        height="720"
-                        loading="lazy"
-                      />
-                    </figure>
-                    <figure class="project-carousel__slide">
-                      <img
-                        data-src="assets/images/temp_pred_img_4.png"
-                        alt="Temperature Predictor — forecast and statistical insights"
-                        width="1280"
-                        height="720"
-                        loading="lazy"
-                      />
-                    </figure>
-                  </div>
-                  <button
-                    type="button"
-                    class="project-carousel__btn project-carousel__btn--prev"
-                    aria-label="Previous screenshot"
-                  >
-                    <span data-icon="chevron-left" class="icon"></span>
-                  </button>
-                  <button
-                    type="button"
-                    class="project-carousel__btn project-carousel__btn--next"
-                    aria-label="Next screenshot"
-                  >
-                    <span data-icon="chevron-right" class="icon"></span>
-                  </button>
-                  <div
-                    class="project-carousel__dots"
-                    role="tablist"
-                    aria-label="Screenshot navigation"
-                  >
-                    <button
-                      type="button"
-                      class="project-carousel__dot is-active"
-                      role="tab"
-                      aria-selected="true"
-                      aria-label="Screenshot 1 of 4"
-                      data-slide="0"
-                    ></button>
-                    <button
-                      type="button"
-                      class="project-carousel__dot"
-                      role="tab"
-                      aria-selected="false"
-                      aria-label="Screenshot 2 of 4"
-                      data-slide="1"
-                    ></button>
-                    <button
-                      type="button"
-                      class="project-carousel__dot"
-                      role="tab"
-                      aria-selected="false"
-                      aria-label="Screenshot 3 of 4"
-                      data-slide="2"
-                    ></button>
-                    <button
-                      type="button"
-                      class="project-carousel__dot"
-                      role="tab"
-                      aria-selected="false"
-                      aria-label="Screenshot 4 of 4"
-                      data-slide="3"
-                    ></button>
-                  </div>
-                </div>
+                <img
+                  src="assets/images/temp_pred_img_1.png"
+                  alt="Temperature Predictor dashboard overview"
+                  width="1280"
+                  height="720"
+                  loading="eager"
+                />
                 <div class="project-card__badges" aria-label="Project status">
                   <span
                     class="project-card__badge project-card__badge--featured"
@@ -847,19 +823,221 @@
               </div>
             </article>
 
-            <!-- Placeholder for future projects -->
+            <!-- MessWise — Featured Project -->
             <article
-              class="project-card project-card--placeholder glass reveal"
-              aria-label="Future project placeholder"
+              class="project-card project-card--featured glass reveal"
+              aria-labelledby="project-messwise-title"
             >
-              <div class="project-card__placeholder-full">
-                <span data-icon="plus" class="icon icon--xl"></span>
-                <p>More projects coming soon</p>
-                <span class="project-card__placeholder-hint"
-                  >Future work will appear here</span
+              <div
+                class="project-card__image-wrap project-card__image-wrap--premium project-card__image-wrap--portrait"
+              >
+                <img
+                  src="assets/images/messWise_dashboard.jpg"
+                  alt="MessWise dashboard"
+                  width="1080"
+                  height="2280"
+                  loading="lazy"
+                />
+                <div class="project-card__badges" aria-label="Project status">
+                  <span
+                    class="project-card__badge project-card__badge--featured"
+                    >Featured</span
+                  >
+                  <span class="project-card__badge project-card__badge--status"
+                    >Completed</span
+                  >
+                  <span class="project-card__badge project-card__badge--platform"
+                    >Android</span
+                  >
+                </div>
+              </div>
+
+              <div class="project-card__body">
+                <h3 class="project-card__title" id="project-messwise-title">
+                  MessWise
+                </h3>
+                <p class="project-card__subtitle">
+                  Smart Mess &amp; Hostel Management Android Application
+                </p>
+
+                <div
+                  class="project-card__feature-badges"
+                  aria-label="Key features"
                 >
+                  <span class="feature-badge">Meal Tracking</span>
+                  <span class="feature-badge">Expense Management</span>
+                  <span class="feature-badge">Cash In</span>
+                  <span class="feature-badge">Monthly Settlement</span>
+                  <span class="feature-badge">Analytics Dashboard</span>
+                  <span class="feature-badge">Role Based Access</span>
+                  <span class="feature-badge">Firebase Sync</span>
+                  <span class="feature-badge">Security</span>
+                  <span class="feature-badge">Real-Time Updates</span>
+                  <span class="feature-badge">Report Export</span>
+                </div>
+
+                <div class="project-card__section">
+                  <h4 class="project-card__section-title">Overview</h4>
+                  <p class="project-card__text">
+                    MessWise is a professional Android application designed for
+                    student messes and hostels. It centralizes meal tracking,
+                    expense management, attendance, cash-in records, monthly
+                    settlement, analytics, and secure administration into one
+                    real-time platform.
+                  </p>
+                </div>
+
+                <div class="project-card__section">
+                  <h4 class="project-card__section-title">Technologies</h4>
+                  <div class="project-card__tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">Android XML</span>
+                    <span class="tag">Material Design 3</span>
+                    <span class="tag">Jetpack Compose (Partial)</span>
+                    <span class="tag">Firebase Realtime Database</span>
+                    <span class="tag">Firebase Authentication</span>
+                    <span class="tag">Firebase Crashlytics</span>
+                    <span class="tag">MPAndroidChart</span>
+                    <span class="tag">Lottie</span>
+                    <span class="tag">Android Security Crypto</span>
+                    <span class="tag">R8</span>
+                  </div>
+                </div>
+
+                <div class="project-card__actions">
+                  <a
+                    href="pages/messwise.html"
+                    class="btn btn--primary btn--sm ripple"
+                    aria-label="View MessWise case study"
+                  >
+                    <span data-icon="file-text" class="icon icon--sm"></span>
+                    View Case Study
+                  </a>
+                  <a
+                    href="https://github.com/sayan21m/messwise"
+                    class="btn btn--secondary btn--sm ripple"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View MessWise on GitHub"
+                  >
+                    <span data-icon="github" class="icon icon--sm"></span>
+                    GitHub
+                  </a>
+                  <a
+                    href="https://github.com/sayan21m/messwise#readme"
+                    class="btn btn--ghost btn--sm ripple"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View MessWise live demo"
+                  >
+                    <span
+                      data-icon="external-link"
+                      class="icon icon--sm"
+                    ></span>
+                    Live Demo
+                  </a>
+                  <a
+                    href="https://github.com/sayan21m/messwise/releases/latest"
+                    class="btn btn--ghost btn--sm ripple"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Download MessWise APK"
+                  >
+                    <span data-icon="download" class="icon icon--sm"></span>
+                    Download APK
+                  </a>
+                </div>
               </div>
             </article>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="projects-slider__btn projects-slider__btn--prev"
+              aria-label="Previous project"
+            >
+              <span data-icon="chevron-left" class="icon"></span>
+            </button>
+            <button
+              type="button"
+              class="projects-slider__btn projects-slider__btn--next"
+              aria-label="Next project"
+            >
+              <span data-icon="chevron-right" class="icon"></span>
+            </button>
+
+            <div
+              class="projects-slider__dots"
+              role="tablist"
+              aria-label="Project navigation"
+            >
+              <button
+                type="button"
+                class="projects-slider__dot is-active"
+                role="tab"
+                aria-selected="true"
+                aria-label="Temperature Predictor"
+                data-slide="0"
+              ></button>
+              <button
+                type="button"
+                class="projects-slider__dot"
+                role="tab"
+                aria-selected="false"
+                aria-label="MessWise"
+                data-slide="1"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== CURRENT STATUS ==================== -->
+      <section
+        class="section status-log"
+        id="status"
+        aria-labelledby="status-heading"
+      >
+        <div class="container">
+          <div class="section__header reveal">
+            <span class="section__label">Live</span>
+            <h2 class="section__title" id="status-heading">Current Status</h2>
+            <p class="section__subtitle">What I'm building and exploring right now</p>
+          </div>
+
+          <div class="status-log__panel glass reveal" role="log" aria-live="polite">
+            <div class="status-log__header">
+              <span class="status-log__live-dot" aria-hidden="true"></span>
+              <span class="status-log__filename">CURRENT_STATUS.log</span>
+              <span class="status-log__badge">SYSTEM ACTIVE</span>
+            </div>
+            <ul class="status-log__list">
+              <li class="status-log__line">
+                <span class="status-log__prompt" aria-hidden="true">&gt;</span>
+                <span class="status-log__key">building:</span>
+                advanced ML experiments and model optimization workflows
+              </li>
+              <li class="status-log__line">
+                <span class="status-log__prompt" aria-hidden="true">&gt;</span>
+                <span class="status-log__key">shipping:</span>
+                MessWise Android updates and Temperature Predictor improvements
+              </li>
+              <li class="status-log__line">
+                <span class="status-log__prompt" aria-hidden="true">&gt;</span>
+                <span class="status-log__key">exploring:</span>
+                LLMs, RAG pipelines, and transformer-based architectures
+              </li>
+              <li class="status-log__line">
+                <span class="status-log__prompt" aria-hidden="true">&gt;</span>
+                <span class="status-log__key">focus:</span>
+                real-world systems — ML dashboards, Android apps, and Flask APIs
+              </li>
+              <li class="status-log__line status-log__line--cursor">
+                <span class="status-log__prompt" aria-hidden="true">$</span>
+                <span class="status-log__cursor" aria-hidden="true">_</span>
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -880,37 +1058,51 @@
           <div class="roadmap__grid">
             <article class="roadmap-card glass reveal">
               <span class="roadmap-card__tag">Learning Goal</span>
-              <h3 class="roadmap-card__title">Backend Development</h3>
-              <p class="roadmap-card__text">
-                Deepening server-side architecture, REST APIs, and database
-                design patterns.
-              </p>
-            </article>
-            <article class="roadmap-card glass reveal">
-              <span class="roadmap-card__tag">Learning Goal</span>
               <h3 class="roadmap-card__title">Advanced Machine Learning</h3>
-              <p class="roadmap-card__text">
-                Exploring ensemble methods, model optimization, and production
-                ML workflows.
-              </p>
+              <ul class="roadmap-card__list">
+                <li>Ensemble Methods</li>
+                <li>Gradient Boosting</li>
+                <li>XGBoost</li>
+                <li>LightGBM</li>
+                <li>CatBoost</li>
+                <li>Model Optimization</li>
+              </ul>
             </article>
             <article class="roadmap-card glass reveal">
               <span class="roadmap-card__tag">Learning Goal</span>
-              <h3 class="roadmap-card__title">Data Engineering</h3>
-              <p class="roadmap-card__text">
-                Studying data pipelines, ETL processes, and large-scale data
-                processing.
-              </p>
+              <h3 class="roadmap-card__title">Deep Learning</h3>
+              <ul class="roadmap-card__list">
+                <li>Neural Networks</li>
+                <li>CNN</li>
+                <li>RNN</li>
+                <li>Transformers</li>
+                <li>PyTorch</li>
+                <li>TensorFlow</li>
+              </ul>
             </article>
             <article class="roadmap-card glass reveal">
               <span class="roadmap-card__tag">Learning Goal</span>
-              <h3 class="roadmap-card__title">
-                Software Engineering Best Practices
-              </h3>
-              <p class="roadmap-card__text">
-                Improving code quality, testing strategies, and maintainable
-                architecture.
-              </p>
+              <h3 class="roadmap-card__title">Large Language Models (LLMs)</h3>
+              <ul class="roadmap-card__list">
+                <li>Transformers</li>
+                <li>Hugging Face</li>
+                <li>Fine-tuning</li>
+                <li>Prompt Engineering</li>
+                <li>AI Agents</li>
+                <li>Model Serving</li>
+              </ul>
+            </article>
+            <article class="roadmap-card glass reveal">
+              <span class="roadmap-card__tag">Learning Goal</span>
+              <h3 class="roadmap-card__title">Retrieval-Augmented Generation (RAG)</h3>
+              <ul class="roadmap-card__list">
+                <li>Vector Databases</li>
+                <li>Embeddings</li>
+                <li>LangChain</li>
+                <li>LlamaIndex</li>
+                <li>Semantic Search</li>
+                <li>Retrieval Pipelines</li>
+              </ul>
             </article>
           </div>
         </div>
@@ -927,7 +1119,7 @@
             <span class="section__label">Learning Journey</span>
             <h2 class="section__title" id="journey-heading">My Path So Far</h2>
             <p class="section__subtitle">
-              A timeline of skills and milestones leading to my first project
+              A timeline of skills and milestones across my flagship projects
             </p>
           </div>
 
@@ -964,23 +1156,10 @@
               </div>
               <div class="journey-timeline__content glass">
                 <span class="journey-timeline__step">Step 3</span>
-                <h3 class="journey-timeline__title">Data Analysis</h3>
-                <p class="journey-timeline__text">
-                  Learned to explore, clean, and visualize datasets using Pandas
-                  and Matplotlib.
-                </p>
-              </div>
-            </div>
-            <div class="journey-timeline__item reveal" role="listitem">
-              <div class="journey-timeline__marker" aria-hidden="true">
-                <span class="journey-timeline__dot"></span>
-              </div>
-              <div class="journey-timeline__content glass">
-                <span class="journey-timeline__step">Step 4</span>
                 <h3 class="journey-timeline__title">Machine Learning</h3>
                 <p class="journey-timeline__text">
                   Built predictive models with Scikit-learn, focusing on
-                  regression and evaluation.
+                  regression, evaluation, and end-to-end ML workflows.
                 </p>
               </div>
             </div>
@@ -996,7 +1175,36 @@
                 <h3 class="journey-timeline__title">Temperature Predictor</h3>
                 <p class="journey-timeline__text">
                   Completed my first full-stack ML project — weather prediction
-                  with an EDA dashboard.
+                  with an interactive EDA dashboard.
+                </p>
+              </div>
+            </div>
+            <div class="journey-timeline__item reveal" role="listitem">
+              <div class="journey-timeline__marker" aria-hidden="true">
+                <span class="journey-timeline__dot"></span>
+              </div>
+              <div class="journey-timeline__content glass">
+                <span class="journey-timeline__step">Step 5</span>
+                <h3 class="journey-timeline__title">Android Development</h3>
+                <p class="journey-timeline__text">
+                  Moved into native Android engineering — UI, Firebase backends,
+                  real-time data, and production-grade mobile architecture.
+                </p>
+              </div>
+            </div>
+            <div
+              class="journey-timeline__item reveal journey-timeline__item--milestone"
+              role="listitem"
+            >
+              <div class="journey-timeline__marker" aria-hidden="true">
+                <span class="journey-timeline__dot"></span>
+              </div>
+              <div class="journey-timeline__content glass">
+                <span class="journey-timeline__step">Milestone</span>
+                <h3 class="journey-timeline__title">MessWise</h3>
+                <p class="journey-timeline__text">
+                  Shipped a full Android mess management platform with Firebase
+                  sync, analytics, role-based access, and enterprise security.
                 </p>
               </div>
             </div>
@@ -1012,14 +1220,78 @@
               <div class="journey-timeline__content glass">
                 <span class="journey-timeline__step">Now</span>
                 <h3 class="journey-timeline__title">
-                  Currently Learning Backend Development
+                  Advanced ML, Deep Learning, LLMs &amp; RAG
                 </h3>
                 <p class="journey-timeline__text">
-                  Expanding beyond Flask basics into deeper backend engineering
-                  concepts.
+                  Currently exploring ensemble methods, neural networks,
+                  transformer-based models, and retrieval-augmented generation
+                  pipelines.
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== EXPERIENCE ==================== -->
+      <section
+        class="section experience"
+        id="experience"
+        aria-labelledby="experience-heading"
+      >
+        <div class="container">
+          <div class="section__header reveal">
+            <span class="section__label">Experience</span>
+            <h2 class="section__title" id="experience-heading">Experience Log</h2>
+            <p class="section__subtitle">
+              Project work, academics, and hands-on engineering
+            </p>
+          </div>
+
+          <div class="experience__list">
+            <article class="experience-card glass reveal">
+              <header class="experience-card__header">
+                <div>
+                  <h3 class="experience-card__title">Independent Project Developer</h3>
+                  <p class="experience-card__org">Personal / Open Source</p>
+                </div>
+                <span class="experience-card__period">2024 — Present</span>
+              </header>
+              <ul class="experience-card__list">
+                <li>
+                  Built <strong>Temperature Predictor</strong> — end-to-end ML weather
+                  prediction with Flask API and interactive EDA dashboard
+                </li>
+                <li>
+                  Shipped <strong>MessWise</strong> — production Android mess management
+                  app with Firebase sync, analytics, and role-based access
+                </li>
+                <li>
+                  Published case studies, live demos, and open-source repositories on GitHub
+                </li>
+              </ul>
+            </article>
+
+            <article class="experience-card glass reveal">
+              <header class="experience-card__header">
+                <div>
+                  <h3 class="experience-card__title">B.Tech Information Technology</h3>
+                  <p class="experience-card__org">Undergraduate Studies</p>
+                </div>
+                <span class="experience-card__period">Pursuing</span>
+              </header>
+              <ul class="experience-card__list">
+                <li>
+                  Studying software engineering, data structures, algorithms, and core IT subjects
+                </li>
+                <li>
+                  Applying coursework through practical ML, Android, and backend projects
+                </li>
+                <li>
+                  Building portfolio-ready systems with documentation and deployment
+                </li>
+              </ul>
+            </article>
           </div>
         </div>
       </section>
@@ -1036,6 +1308,9 @@
             <h2 class="section__title" id="education-heading">
               Academic Background
             </h2>
+            <p class="section__subtitle">
+              Degree progress, performance, and academic focus
+            </p>
           </div>
 
           <div class="education__card glass reveal">
@@ -1044,18 +1319,147 @@
             </div>
             <div class="education__content">
               <h3 class="education__degree">
-                B.Tech in Information Technology
+                Bachelor of Technology (B.Tech)
               </h3>
-              <p class="education__detail">
-                Pursuing undergraduate degree focused on software engineering,
-                data systems, and emerging technologies.
-              </p>
+              <p class="education__branch">Information Technology</p>
+              <dl class="education__meta">
+                <div class="education__meta-item">
+                  <dt class="education__meta-label">Degree</dt>
+                  <dd class="education__meta-value">Bachelor of Technology (B.Tech)</dd>
+                </div>
+                <div class="education__meta-item">
+                  <dt class="education__meta-label">Branch</dt>
+                  <dd class="education__meta-value">Information Technology</dd>
+                </div>
+                <div class="education__meta-item">
+                  <dt class="education__meta-label">Current Year</dt>
+                  <dd class="education__meta-value">Third Year</dd>
+                </div>
+                <div class="education__meta-item">
+                  <dt class="education__meta-label">Current Semester</dt>
+                  <dd class="education__meta-value">Fifth Semester (Current)</dd>
+                </div>
+                <div class="education__meta-item">
+                  <dt class="education__meta-label">Expected Graduation</dt>
+                  <dd class="education__meta-value">2028</dd>
+                </div>
+              </dl>
             </div>
             <div class="education__timeline-marker" aria-hidden="true">
               <span class="education__dot"></span>
               <span class="education__line"></span>
             </div>
           </div>
+
+          <div
+            class="education__stats"
+            aria-label="Academic performance statistics"
+          >
+            <article class="education-stat glass reveal">
+              <h4 class="education-stat__title">Semester I SGPA</h4>
+              <p class="education-stat__value">
+                <span
+                  data-counter="8.76"
+                  data-counter-decimals="2"
+                  data-counter-suffix=" / 10"
+                  aria-label="8.76 out of 10"
+                  >0</span
+                >
+              </p>
+              <p class="education-stat__desc">First Semester</p>
+            </article>
+            <article class="education-stat glass reveal">
+              <h4 class="education-stat__title">Semester II SGPA</h4>
+              <p class="education-stat__value">
+                <span
+                  data-counter="9.20"
+                  data-counter-decimals="2"
+                  data-counter-suffix=" / 10"
+                  aria-label="9.20 out of 10"
+                  >0</span
+                >
+              </p>
+              <p class="education-stat__desc">Second Semester</p>
+            </article>
+            <article class="education-stat glass reveal">
+              <h4 class="education-stat__title">First Year YGPA</h4>
+              <p class="education-stat__value">
+                <span
+                  data-counter="8.97"
+                  data-counter-decimals="2"
+                  data-counter-suffix=" / 10"
+                  aria-label="8.97 out of 10"
+                  >0</span
+                >
+              </p>
+              <p class="education-stat__desc">Overall First Year Performance</p>
+            </article>
+            <article
+              class="education-stat education-stat--latest glass reveal"
+            >
+              <span class="education-stat__badge">Latest</span>
+              <h4 class="education-stat__title">Semester III SGPA</h4>
+              <p class="education-stat__value">
+                <span
+                  data-counter="9.78"
+                  data-counter-decimals="2"
+                  data-counter-suffix=" / 10"
+                  aria-label="9.78 out of 10"
+                  >0</span
+                >
+              </p>
+              <p class="education-stat__desc">Latest Semester</p>
+            </article>
+          </div>
+
+          <div class="education__trend glass reveal">
+            <div class="education-trend__header">
+              <h3 class="education-trend__title">Performance Trend</h3>
+              <span class="education-trend__indicator">
+                <span data-icon="line-chart" class="icon icon--sm" aria-hidden="true"></span>
+                Continuous academic improvement
+              </span>
+            </div>
+            <ol class="education-trend__flow" aria-label="Academic progress timeline">
+              <li class="education-trend__step reveal">
+                <span class="education-trend__label">Semester I</span>
+                <span class="education-trend__score">8.76</span>
+              </li>
+              <li class="education-trend__arrow" aria-hidden="true">↓</li>
+              <li class="education-trend__step reveal">
+                <span class="education-trend__label">Semester II</span>
+                <span class="education-trend__score">9.20</span>
+              </li>
+              <li class="education-trend__arrow" aria-hidden="true">↓</li>
+              <li class="education-trend__step reveal">
+                <span class="education-trend__label">First Year YGPA</span>
+                <span class="education-trend__score">8.97</span>
+              </li>
+              <li class="education-trend__arrow" aria-hidden="true">↓</li>
+              <li class="education-trend__step education-trend__step--latest reveal">
+                <span class="education-trend__label">Semester III</span>
+                <span class="education-trend__score">9.78</span>
+              </li>
+            </ol>
+          </div>
+
+          <div
+            class="education__highlights reveal"
+            aria-label="Academic highlights"
+          >
+            <span class="feature-badge">B.Tech Information Technology</span>
+            <span class="feature-badge">Third Year</span>
+            <span class="feature-badge">Strong Academic Performance</span>
+            <span class="feature-badge">Consistent Improvement</span>
+            <span class="feature-badge">Project-Based Learning</span>
+          </div>
+
+          <p class="education__summary glass reveal">
+            I maintain a strong academic record while actively building real-world
+            software projects in Machine Learning, Android Development, and Backend
+            Engineering. My focus is on applying classroom concepts to practical
+            engineering problems through hands-on projects.
+          </p>
         </div>
       </section>
 
@@ -1268,6 +1672,7 @@
           &copy; <span id="footer-year"></span> Sayan Garai. All rights
           reserved.
         </p>
+        <p class="footer__privacy">No cookies. No trackers. Just code.</p>
       </div>
     </footer>
 
@@ -1310,7 +1715,8 @@
     <script src="js/loader.js"></script>
     <script src="js/paths.js"></script>
     <script src="js/icons.js" defer></script>
-    <script src="js/features.js" defer></script>
-    <script src="js/script.js?v=2" defer></script>
+    <script src="js/features.js?v=2" defer></script>
+    <script src="js/gallery.js" defer></script>
+    <script src="js/script.js?v=6" defer></script>
   </body>
 </html>

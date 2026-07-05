@@ -368,6 +368,104 @@
   display: block;
 }
 
+.case-gallery__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(108, 140, 255, 0.1), transparent 55%),
+    var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.case-gallery__placeholder .icon {
+  color: var(--color-accent);
+  opacity: 0.75;
+}
+
+.case-gallery--dense {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* Vertical architecture stack */
+.architecture--vertical .architecture__flow {
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+.architecture--vertical .architecture__connector {
+  width: auto;
+  height: 28px;
+  transform: rotate(90deg);
+}
+
+.architecture--vertical .architecture__node {
+  max-width: 320px;
+  width: 100%;
+}
+
+/* Premium security cards */
+.case-grid__card--security {
+  border-color: rgba(108, 140, 255, 0.2);
+  background: linear-gradient(
+    145deg,
+    rgba(108, 140, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
+  text-align: left;
+}
+
+.case-grid__card--security .case-grid__card-icon {
+  align-self: flex-start;
+}
+
+.case-grid__card--security:hover {
+  border-color: rgba(108, 140, 255, 0.4);
+  box-shadow: var(--shadow-glow);
+}
+
+/* Mobile app screenshot gallery */
+.case-gallery--mobile {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  justify-items: center;
+}
+
+.case-gallery--mobile .case-gallery__item {
+  aspect-ratio: 9 / 16;
+  max-width: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.case-gallery--mobile .case-gallery__item img {
+  flex: 1;
+  min-height: 0;
+  object-fit: contain;
+  object-position: top center;
+  background: var(--color-bg);
+}
+
+.case-gallery__caption {
+  flex-shrink: 0;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid var(--color-border);
+}
+
 /* --------------------------------------------------------------------------
    Case Study Footer
    -------------------------------------------------------------------------- */
@@ -398,6 +496,16 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: var(--space-sm);
+  }
+
+  .architecture--vertical .architecture__flow {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+  .architecture--vertical .architecture__connector {
+    display: flex;
+    transform: rotate(90deg);
   }
 
   .architecture__node {
@@ -483,6 +591,24 @@
     gap: var(--space-md);
   }
 
+  .case-gallery--mobile {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-sm);
+  }
+
+  .case-gallery--mobile .case-gallery__item {
+    max-width: none;
+  }
+
+  .case-grid--security {
+    grid-template-columns: 1fr;
+  }
+
+  .architecture--vertical .architecture__connector {
+    display: flex;
+    height: 20px;
+  }
+
   .case-study-page .footer__inner {
     flex-direction: column;
     align-items: center;
@@ -508,5 +634,13 @@
 
   .case-study-page .nav__logo {
     font-size: var(--text-lg);
+  }
+
+  .case-gallery--mobile {
+    grid-template-columns: 1fr;
+  }
+
+  .case-hero__badges {
+    gap: var(--space-xs);
   }
 }
