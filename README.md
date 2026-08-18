@@ -1,14 +1,16 @@
 # Sayan Garai — Personal Portfolio
 
-A modern, responsive personal portfolio built with vanilla HTML, CSS, and JavaScript. Designed for internship applications in Machine Learning, Software Engineering, Backend Engineering, and Data Engineering roles.
+A modern, responsive personal portfolio built with Express, EJS, CSS, and JavaScript. Designed for internship applications in Machine Learning, Software Engineering, Backend Engineering, and Data Engineering roles.
 
-**Live Demo:** _Deploy to GitHub Pages and add your URL here._
+**Live Demo:** _Deploy the Node server (Render, Railway, or a VPS) and add your URL here._
 
 ---
 
 ## Overview
 
 This portfolio showcases skills, projects, and learning journey as an IT Engineering student. The design is minimal, professional, and premium — optimized for recruiters reviewing internship applications.
+
+Pages are rendered on the server with EJS. CSS, JS, and images are still sent to the browser (required to display the site). Keep the GitHub repository private if you do not want the templates cloned.
 
 Two flagship projects are featured: **Temperature Predictor** (ML & full-stack web) and **MessWise** (Android mess management). All content is truthful with no invented experience.
 
@@ -19,24 +21,36 @@ Two flagship projects are featured: **Temperature Predictor** (ML & full-stack w
 ```
 portfolio/
 │
-├── docs/
-│   ├── index.html                  # Main portfolio page (GitHub Pages entry)
-├── 404.html                        # Custom 404 error page
-├── css/
-│   ├── style.css                   # Main stylesheet
-│   └── case-study.css              # Case study page styles
-├── js/
-│   └── script.js                   # All interactions & animations
-├── pages/
-│   ├── temperature-predictor.html  # ML weather prediction case study
-│   └── messwise.html               # Android mess management case study
-├── assets/
-│   ├── images/                     # Project screenshots
-│   ├── icons/
-│   │   └── favicon.svg
-│   └── resume.pdf
+├── backend/
+│   ├── server.js                   # Express app, routes, 404
+│   ├── views/
+│   │   ├── layouts/main.ejs        # Shared HTML shell
+│   │   ├── partials/               # Head, nav, footer, scripts
+│   │   ├── home.ejs
+│   │   ├── resume.ejs
+│   │   ├── tech-stack.ejs
+│   │   ├── messwise.ejs
+│   │   ├── temperature-predictor.ejs
+│   │   └── 404.ejs
+│   └── public/
+│       ├── css/
+│       ├── js/
+│       └── assets/                 # Images, favicon, resume
+├── package.json
 └── README.md
 ```
+
+---
+
+## Routes
+
+| URL | Page |
+| --- | --- |
+| `/` | Home |
+| `/resume` | Resume |
+| `/tech-stack` | Tech stack |
+| `/projects/temperature-predictor` | Temperature Predictor case study |
+| `/projects/messwise` | MessWise case study |
 
 ---
 
@@ -62,15 +76,14 @@ portfolio/
 
 ### Projects
 - Two featured project cards: Temperature Predictor and MessWise
-- Image carousels with placeholder or screenshot slides
 - Status badges (Completed, Platform)
 - Feature badges and technology tags
 - GitHub, Live Demo, Case Study, and APK download links
 - Premium hover animations
 
 ### Case Study Pages
-- **Temperature Predictor** — `pages/temperature-predictor.html`
-- **MessWise** — `pages/messwise.html`
+- **Temperature Predictor** — `/projects/temperature-predictor`
+- **MessWise** — `/projects/messwise`
 - Problem, solution, workflow, architecture diagram
 - Security features, challenges, lessons, future improvements
 - Project screenshot gallery
@@ -102,24 +115,30 @@ portfolio/
 
 ## Technologies
 
+- **Node.js + Express** — Server-rendered pages
+- **EJS** — Templates and shared layout/partials
 - **HTML5** — Semantic markup, accessibility, SEO
 - **CSS3** — Custom properties, Grid, Flexbox, animations, glassmorphism
 - **JavaScript (ES6+)** — Intersection Observer, Canvas API, modular functions
 - **Google Fonts** — Inter, JetBrains Mono
 
-No frameworks or build tools required.
-
 ---
 
 ## Getting Started
 
-```bash
-# Clone or download the repository
-cd portfolio
+Requires Node.js 18 or later.
 
-# Serve locally
-python3 -m http.server 8000
-# Visit http://localhost:8000
+```bash
+cd portfolio
+npm install
+npm start
+# Visit http://localhost:3000
+```
+
+For auto-reload during edits:
+
+```bash
+npm run dev
 ```
 
 ---
@@ -127,19 +146,19 @@ python3 -m http.server 8000
 ## Customization Guide
 
 ### Personal Information
-Update contact details, social links, and meta tags in `docs/index.html`.
+Update contact details, social links, and meta tags in `backend/views/home.ejs` and `backend/views/partials/`.
 
 ### Resume
-Replace `assets/resume.pdf` with your actual resume.
+Replace `backend/public/assets/resume.pdf` with your actual resume.
 
 ### Project Links
-Update GitHub and Live Demo URLs in the Projects section and case study page.
+Update GitHub and Live Demo URLs in the Projects section and case study templates.
 
 ### Adding Future Projects
 
-1. **Project card** — Duplicate the featured project `<article>` in `docs/index.html` inside `.projects__grid`
-2. **Screenshots** — Add images to `assets/images/`
-3. **Case study** — Copy `pages/temperature-predictor.html` as a template
+1. **Project card** — Duplicate the featured project `<article>` in `backend/views/home.ejs`
+2. **Screenshots** — Add images to `backend/public/assets/images/`
+3. **Case study** — Copy a case-study EJS template and add a route in `backend/server.js`
 4. **Skills** — Add skill cards only for technologies used in the new project
 5. **Metrics** — Update the Projects Completed counter in the metrics section
 
@@ -149,30 +168,19 @@ Update GitHub and Live Demo URLs in the Projects section and case study page.
 ```
 
 ### Colors & Theme
-Edit CSS custom properties in `:root` at the top of `css/style.css`.
+Edit CSS custom properties in `:root` at the top of `backend/public/css/style.css`.
 
 ---
 
-## Deployment — GitHub Pages
+## Deployment
 
-### Standard Deployment
+GitHub Pages cannot run this app. Host the Node server on Render, Railway, Fly.io, or a VPS.
 
-1. Push code to a GitHub repository
-2. Go to **Settings → Pages**
-3. Source: **Deploy from branch** → `main` → `/docs`
-4. Site live at `https://YOUR_USERNAME.github.io/REPO_NAME/`
+1. Set the start command to `npm start`
+2. Use `PORT` from the host (the server already reads `process.env.PORT`)
+3. Site live at your host URL
 
-### Custom 404 Page
-
-GitHub Pages automatically serves `404.html` for missing routes when deployed from root.
-
-### Case Study URLs
-
-Case study pages are accessible at:
-- `https://YOUR_USERNAME.github.io/REPO_NAME/pages/temperature-predictor.html`
-- `https://YOUR_USERNAME.github.io/REPO_NAME/pages/messwise.html`
-
-For GitHub Pages deployed from `/docs`, use `docs/pages/` paths instead.
+Make the GitHub repository **private** if you do not want the EJS templates cloned.
 
 ---
 

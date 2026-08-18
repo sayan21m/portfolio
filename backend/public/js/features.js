@@ -28,18 +28,20 @@
 
   /** Resolved paths — see paths.js */
   const P = window.PortfolioPaths || {
-    inPages: /\/pages\//.test(window.location.pathname),
-    home: 'index.html',
-    resumePage: 'pages/resume.html',
-    resumePdf: 'assets/resume.pdf',
-    caseStudyPage: 'pages/temperature-predictor.html',
-    techStackPage: 'pages/tech-stack.html'
+    inPages: window.location.pathname !== '/',
+    home: '/',
+    resumePage: '/resume',
+    resumePdf: '/assets/resume.pdf',
+    caseStudyPage: '/projects/temperature-predictor',
+    messwiseCaseStudy: '/projects/messwise',
+    techStackPage: '/tech-stack'
   };
   const HOME = P.home;
   const RESUME_PAGE = P.resumePage;
   const RESUME_PDF = P.resumePdf;
   const CASE_STUDY_PAGE = P.caseStudyPage;
-  const TECH_STACK_PAGE = P.techStackPage || 'pages/tech-stack.html';
+  const MESSWISE_PAGE = P.messwiseCaseStudy || '/projects/messwise';
+  const TECH_STACK_PAGE = P.techStackPage || '/tech-stack';
   const isSubpage = P.inPages;
 
   /** True when the user is typing inside an editable element. */
@@ -170,7 +172,7 @@
       keywords: ['tech', 'stack', 'tools', 'technologies', 'tech stack'],
       icon: 'layers',
       run: () => {
-        window.location.href = isSubpage ? 'tech-stack.html' : TECH_STACK_PAGE;
+        window.location.href = TECH_STACK_PAGE;
       }
     },
     {
@@ -312,7 +314,7 @@
       keywords: ['case', 'study', 'messwise', 'android', 'mess'],
       icon: 'file-text',
       run: () => {
-        window.location.href = isSubpage ? 'messwise.html' : 'pages/messwise.html';
+        window.location.href = MESSWISE_PAGE;
       }
     },
     {
@@ -663,7 +665,7 @@
         ]);
         setTimeout(() => {
           close();
-          window.location.href = isSubpage ? 'tech-stack.html' : TECH_STACK_PAGE;
+          window.location.href = TECH_STACK_PAGE;
         }, 400);
       },
       tech: () => HANDLERS.stack(),

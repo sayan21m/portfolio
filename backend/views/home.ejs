@@ -1,147 +1,4 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Sayan Garai — Software Engineer specializing in Machine Learning, Android, and Backend Development. Portfolio showcasing Temperature Predictor and MessWise."
-    />
-    <meta
-      name="keywords"
-      content="Sayan Garai, Machine Learning, Backend Developer, Python, Flask, Portfolio"
-    />
-    <meta name="author" content="Sayan Garai" />
-    <meta name="robots" content="index, follow" />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Sayan Garai | ML, Android & Backend Developer" />
-    <meta
-      property="og:description"
-      content="IT Engineering Student building practical software powered by data."
-    />
-    <meta property="og:type" content="website" />
-
-    <title>Sayan Garai | Software Engineer</title>
-
-    <!-- Preconnect for faster font loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/icons.css" />
-    <link rel="stylesheet" href="css/features.css" />
-    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
-  </head>
-  <body>
-    <!-- Skip to main content — accessibility -->
-    <a href="#main" class="skip-link">Skip to main content</a>
-
-    <!-- Scroll progress indicator -->
-    <div
-      class="scroll-progress"
-      id="scroll-progress"
-      role="progressbar"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      aria-valuenow="0"
-      aria-label="Page scroll progress"
-    >
-      <div class="scroll-progress__bar" id="scroll-progress-bar"></div>
-    </div>
-
-    <!-- ==================== NAVBAR ==================== -->
-    <header class="header" id="header" role="banner">
-      <nav class="nav container" aria-label="Primary navigation">
-        <a href="#hero" class="nav__logo" aria-label="Sayan Garai — Home">
-          <span class="nav__logo-bracket">&lt;</span>SG<span
-            class="nav__logo-bracket"
-            >/&gt;</span
-          >
-        </a>
-
-        <button
-          class="nav__toggle"
-          id="nav-toggle"
-          aria-label="Toggle navigation menu"
-          aria-expanded="false"
-          aria-controls="nav-menu"
-        >
-          <span class="nav__toggle-bar"></span>
-          <span class="nav__toggle-bar"></span>
-          <span class="nav__toggle-bar"></span>
-        </button>
-
-        <div class="nav__actions">
-        <ul class="nav__menu" id="nav-menu" role="menubar">
-          <li role="none">
-            <a href="#about" class="nav__link" role="menuitem">About</a>
-          </li>
-          <li role="none">
-            <a href="#skills" class="nav__link" role="menuitem">Skills</a>
-          </li>
-          <li role="none">
-            <a href="pages/tech-stack.html" class="nav__link" role="menuitem">Tech Stack</a>
-          </li>
-          <li role="none">
-            <a href="#projects" class="nav__link" role="menuitem">Projects</a>
-          </li>
-          <li role="none">
-            <a href="#focus" class="nav__link" role="menuitem">Focus</a>
-          </li>
-          <li role="none">
-            <a href="#journey" class="nav__link" role="menuitem">Journey</a>
-          </li>
-          <li role="none">
-            <a href="#experience" class="nav__link" role="menuitem">Experience</a>
-          </li>
-          <li role="none">
-            <a href="#education" class="nav__link" role="menuitem">Education</a>
-          </li>
-          <li role="none">
-            <a href="pages/resume.html" class="nav__link" role="menuitem"
-              >Resume</a
-            >
-          </li>
-          <li role="none">
-            <a href="#contact" class="nav__link nav__link--cta" role="menuitem"
-              >Contact</a
-            >
-          </li>
-        </ul>
-
-        <div class="nav__tools" role="group" aria-label="Portfolio tools">
-          <button
-            type="button"
-            class="nav__launcher nav__launcher--pill"
-            id="open-command-palette"
-            aria-label="Open command palette"
-            aria-keyshortcuts="Control+K Meta+K"
-          >
-            <span data-icon="search" class="icon" aria-hidden="true"></span>
-            <span class="nav__launcher-label">Search</span>
-            <span class="nav__launcher-kbd" data-palette-kbd>Ctrl K</span>
-          </button>
-          <button
-            type="button"
-            class="nav__launcher nav__launcher--icon"
-            id="open-terminal"
-            aria-label="Open developer terminal"
-            title="Developer terminal"
-          >
-            <span data-icon="code" class="icon" aria-hidden="true"></span>
-          </button>
-        </div>
-        </div>
-      </nav>
-    </header>
-    <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
-
-    <main id="main">
+<main id="main">
       <!-- ==================== HERO ==================== -->
       <section class="hero" id="hero" aria-label="Introduction">
         <canvas
@@ -205,7 +62,7 @@
               View Projects
             </a>
             <a
-              href="pages/resume.html"
+              href="/resume"
               class="btn btn--secondary ripple"
               aria-label="View embedded resume"
             >
@@ -712,7 +569,7 @@
                 class="project-card__image-wrap project-card__image-wrap--premium"
               >
                 <img
-                  src="assets/images/temp_pred_img_1.png"
+                  src="/assets/images/temp_pred_img_1.png"
                   alt="Temperature Predictor dashboard overview"
                   width="1280"
                   height="720"
@@ -812,7 +669,7 @@
                     Live Demo
                   </a>
                   <a
-                    href="pages/temperature-predictor.html"
+                    href="/projects/temperature-predictor"
                     class="btn btn--ghost btn--sm ripple"
                     aria-label="Read Temperature Predictor case study"
                   >
@@ -832,7 +689,7 @@
                 class="project-card__image-wrap project-card__image-wrap--premium project-card__image-wrap--portrait"
               >
                 <img
-                  src="assets/images/messWise_dashboard.jpg"
+                  src="/assets/images/messWise_dashboard.jpg"
                   alt="MessWise dashboard"
                   width="1080"
                   height="2280"
@@ -906,7 +763,7 @@
 
                 <div class="project-card__actions">
                   <a
-                    href="pages/messwise.html"
+                    href="/projects/messwise"
                     class="btn btn--primary btn--sm ripple"
                     aria-label="View MessWise case study"
                   >
@@ -1625,107 +1482,3 @@
         </div>
       </section>
     </main>
-
-    <!-- ==================== FOOTER ==================== -->
-    <footer class="footer" role="contentinfo">
-      <div class="container footer__inner">
-        <div class="footer__brand">
-          <a href="#hero" class="footer__logo" aria-label="Back to top">
-            <span class="nav__logo-bracket">&lt;</span>SG<span
-              class="nav__logo-bracket"
-              >/&gt;</span
-            >
-          </a>
-          <p class="footer__tagline">Building software powered by data.</p>
-        </div>
-
-        <div class="footer__social" aria-label="Social links">
-          <a
-            href="https://github.com/sayan21m"
-            class="footer__social-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <span data-icon="github" class="icon"></span>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/sayan-garai-8b6246370"
-            class="footer__social-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <span data-icon="linkedin" class="icon"></span>
-          </a>
-          <a
-            href="mailto:rebagarai83@gmail.com"
-            class="footer__social-link"
-            aria-label="Email"
-          >
-            <span data-icon="mail" class="icon"></span>
-          </a>
-        </div>
-
-        <p class="footer__copyright">
-          &copy; <span id="footer-year"></span> Sayan Garai. All rights
-          reserved.
-        </p>
-        <p class="footer__privacy">No cookies. No trackers. Just code.</p>
-      </div>
-    </footer>
-
-    <!-- Back to Top Button with scroll progress ring -->
-    <button
-      class="back-to-top"
-      id="back-to-top"
-      aria-label="Back to top"
-      hidden
-    >
-      <svg class="back-to-top__ring" viewBox="0 0 52 52" aria-hidden="true">
-        <circle
-          class="back-to-top__ring-bg"
-          cx="26"
-          cy="26"
-          r="22"
-          fill="none"
-          stroke-width="3"
-        />
-        <circle
-          class="back-to-top__ring-progress"
-          id="back-to-top-progress"
-          cx="26"
-          cy="26"
-          r="22"
-          fill="none"
-          stroke-width="3"
-          stroke-linecap="round"
-          transform="rotate(-90 26 26)"
-        />
-      </svg>
-      <span data-icon="chevron-up" class="icon back-to-top__icon"></span>
-    </button>
-
-    <div
-      id="download-toast"
-      class="download-toast"
-      role="status"
-      aria-live="polite"
-      aria-atomic="true"
-    >
-      Download started — check your browser downloads.
-    </div>
-
-    <script>
-      window.CONTACT_CONFIG = {
-        formSubmitEmail: 'srtechfly85@gmail.com'
-      };
-    </script>
-    <script src="js/loader.js"></script>
-    <script src="js/paths.js"></script>
-    <script src="js/icons.js" defer></script>
-    <script src="js/features.js?v=2" defer></script>
-    <script src="js/gallery.js" defer></script>
-    <script src="js/script.js?v=7" defer></script>
-  </body>
-</html>

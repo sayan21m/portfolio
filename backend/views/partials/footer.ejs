@@ -1,0 +1,59 @@
+<% if (footerVariant === 'home') { %>
+<footer class="footer" role="contentinfo">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <a href="#hero" class="footer__logo" aria-label="Back to top">
+        <span class="nav__logo-bracket">&lt;</span>SG<span
+          class="nav__logo-bracket"
+          >/&gt;</span
+        >
+      </a>
+      <p class="footer__tagline">Building software powered by data.</p>
+    </div>
+
+    <div class="footer__social" aria-label="Social links">
+      <a
+        href="https://github.com/sayan21m"
+        class="footer__social-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+      >
+        <span data-icon="github" class="icon"></span>
+      </a>
+      <a
+        href="https://www.linkedin.com/in/sayan-garai-8b6246370"
+        class="footer__social-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="LinkedIn"
+      >
+        <span data-icon="linkedin" class="icon"></span>
+      </a>
+      <a
+        href="mailto:rebagarai83@gmail.com"
+        class="footer__social-link"
+        aria-label="Email"
+      >
+        <span data-icon="mail" class="icon"></span>
+      </a>
+    </div>
+
+    <p class="footer__copyright">
+      &copy; <span id="footer-year"></span> Sayan Garai. All rights
+      reserved.
+    </p>
+    <p class="footer__privacy">No cookies. No trackers. Just code.</p>
+  </div>
+</footer>
+<% } else { %>
+<footer class="footer" role="contentinfo">
+  <div class="container footer__inner">
+    <p class="footer__copyright">&copy; <span id="footer-year"></span> Sayan Garai<% if (footerLabel) { %> — <%= footerLabel %><% } %></p>
+    <a href="/" class="btn btn--ghost btn--sm ripple">
+      <span data-icon="arrow-left" class="icon icon--sm"></span>
+      Back to Portfolio
+    </a>
+  </div>
+</footer>
+<% } %>

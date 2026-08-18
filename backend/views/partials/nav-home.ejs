@@ -1,0 +1,85 @@
+<header class="header" id="header" role="banner">
+  <nav class="nav container" aria-label="Primary navigation">
+    <a href="#hero" class="nav__logo" aria-label="Sayan Garai — Home">
+      <span class="nav__logo-bracket">&lt;</span>SG<span
+        class="nav__logo-bracket"
+        >/&gt;</span
+      >
+    </a>
+
+    <button
+      class="nav__toggle"
+      id="nav-toggle"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-controls="nav-menu"
+    >
+      <span class="nav__toggle-bar"></span>
+      <span class="nav__toggle-bar"></span>
+      <span class="nav__toggle-bar"></span>
+    </button>
+
+    <div class="nav__actions">
+    <ul class="nav__menu" id="nav-menu" role="menubar">
+      <li role="none">
+        <a href="#about" class="nav__link" role="menuitem">About</a>
+      </li>
+      <li role="none">
+        <a href="#skills" class="nav__link" role="menuitem">Skills</a>
+      </li>
+      <li role="none">
+        <a href="/tech-stack" class="nav__link" role="menuitem">Tech Stack</a>
+      </li>
+      <li role="none">
+        <a href="#projects" class="nav__link" role="menuitem">Projects</a>
+      </li>
+      <li role="none">
+        <a href="#focus" class="nav__link" role="menuitem">Focus</a>
+      </li>
+      <li role="none">
+        <a href="#journey" class="nav__link" role="menuitem">Journey</a>
+      </li>
+      <li role="none">
+        <a href="#experience" class="nav__link" role="menuitem">Experience</a>
+      </li>
+      <li role="none">
+        <a href="#education" class="nav__link" role="menuitem">Education</a>
+      </li>
+      <li role="none">
+        <a href="/resume" class="nav__link" role="menuitem">Resume</a>
+      </li>
+      <li role="none">
+        <a href="#contact" class="nav__link nav__link--cta" role="menuitem"
+          >Contact</a
+        >
+      </li>
+    </ul>
+
+    <div class="nav__tools" role="group" aria-label="Portfolio tools">
+      <button
+        type="button"
+        class="nav__launcher nav__launcher--pill"
+        id="open-command-palette"
+        aria-label="Open command palette"
+        aria-keyshortcuts="Control+K Meta+K"
+      >
+        <span data-icon="search" class="icon" aria-hidden="true"></span>
+        <span class="nav__launcher-label">Search</span>
+        <span class="nav__launcher-kbd" data-palette-kbd>Ctrl K</span>
+      </button>
+      <button
+        type="button"
+        class="nav__launcher nav__launcher--icon"
+        id="open-terminal"
+        aria-label="Open developer terminal"
+        title="Developer terminal"
+      >
+        <span data-icon="code" class="icon" aria-hidden="true"></span>
+      </button>
+    </div>
+    </div>
+  </nav>
+</header>
+<% if (showNavOverlay) { %>
+<div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+<% } %>
