@@ -2,7 +2,7 @@
 
 A modern, responsive personal portfolio built with Express, EJS, CSS, and JavaScript. Designed for internship applications in Machine Learning, Software Engineering, Backend Engineering, and Data Engineering roles.
 
-**Live Demo:** _Deploy the Node server (Render, Railway, or a VPS) and add your URL here._
+**Live Demo:** [https://portfolio-dvey.onrender.com](https://portfolio-dvey.onrender.com)
 
 ---
 
