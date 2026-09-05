@@ -12,7 +12,7 @@ This portfolio showcases skills, projects, and learning journey as an IT Enginee
 
 Pages are rendered on the server with EJS. CSS, JS, and images are still sent to the browser (required to display the site). Keep the GitHub repository private if you do not want the templates cloned.
 
-Two flagship projects are featured: **Temperature Predictor** (ML & full-stack web) and **MessWise** (Android mess management). All content is truthful with no invented experience.
+Two flagship projects are featured: **Temperature Predictor** (ML & full-stack web), **MessWise** (Android mess management), and **Fire Before Fire** (ESP32 early electrical fire-risk detection). All content is truthful with no invented experience.
 
 ---
 
@@ -51,6 +51,7 @@ portfolio/
 | `/tech-stack` | Tech stack |
 | `/projects/temperature-predictor` | Temperature Predictor case study |
 | `/projects/messwise` | MessWise case study |
+| `/projects/fire-before-fire` | Fire Before Fire case study |
 
 ---
 

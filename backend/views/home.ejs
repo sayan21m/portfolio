@@ -185,7 +185,7 @@
               </span>
               <span
                 class="metric-card__value"
-                data-counter="2"
+                data-counter="3"
                 data-counter-suffix=""
                 >0</span
               >
@@ -197,7 +197,7 @@
               </span>
               <span
                 class="metric-card__value"
-                data-counter="15"
+                data-counter="18"
                 data-counter-suffix="+"
                 >0</span
               >
@@ -209,7 +209,7 @@
               </span>
               <span
                 class="metric-card__value"
-                data-counter="2"
+                data-counter="3"
                 data-counter-suffix=""
                 >0</span
               >
@@ -221,7 +221,7 @@
               </span>
               <span
                 class="metric-card__value"
-                data-counter="2"
+                data-counter="3"
                 data-counter-suffix=""
                 >0</span
               >
@@ -292,7 +292,7 @@
                   <div class="skill-card__info">
                     <span class="skill-card__name">JavaScript</span>
                     <span class="skill-card__used-in"
-                      >Used in Temperature Predictor</span
+                      >Used in Temperature Predictor &amp; Fire Before Fire</span
                     >
                   </div>
                 </div>
@@ -481,6 +481,75 @@
                     <span class="skill-card__name">Flask</span>
                     <span class="skill-card__used-in"
                       >Used in Temperature Predictor</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="skill-card"
+                  tabindex="0"
+                  data-tooltip="Cloud ingest, model refit, and Web Push API for Fire Before Fire"
+                  data-used-in="Fire Before Fire"
+                >
+                  <span
+                    class="skill-card__icon skill-card__icon--js"
+                    aria-hidden="true"
+                  >
+                    <span data-icon="server" class="icon"></span>
+                  </span>
+                  <div class="skill-card__info">
+                    <span class="skill-card__name">Node.js / Express</span>
+                    <span class="skill-card__used-in"
+                      >Used in Fire Before Fire</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Embedded / IoT -->
+            <div class="skill-category glass reveal">
+              <h3 class="skill-category__title">
+                <span class="skill-category__icon" aria-hidden="true">
+                  <span data-icon="zap" class="icon"></span>
+                </span>
+                Embedded / IoT
+              </h3>
+              <div class="skill-category__cards">
+                <div
+                  class="skill-card"
+                  tabindex="0"
+                  data-tooltip="Firmware, SoftAP dashboard, on-device ML, and sensor fusion"
+                  data-used-in="Fire Before Fire"
+                >
+                  <span
+                    class="skill-card__icon skill-card__icon--js"
+                    aria-hidden="true"
+                  >
+                    <span data-icon="code" class="icon"></span>
+                  </span>
+                  <div class="skill-card__info">
+                    <span class="skill-card__name">ESP32 / C++</span>
+                    <span class="skill-card__used-in"
+                      >Used in Fire Before Fire</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="skill-card"
+                  tabindex="0"
+                  data-tooltip="ACS712 current and DS18B20 temperature sensing with RMS sampling"
+                  data-used-in="Fire Before Fire"
+                >
+                  <span
+                    class="skill-card__icon skill-card__icon--js"
+                    aria-hidden="true"
+                  >
+                    <span data-icon="thermometer" class="icon"></span>
+                  </span>
+                  <div class="skill-card__info">
+                    <span class="skill-card__name">Sensor Fusion</span>
+                    <span class="skill-card__used-in"
+                      >Used in Fire Before Fire</span
                     >
                   </div>
                 </div>
@@ -805,6 +874,122 @@
                 </div>
               </div>
             </article>
+
+            <!-- Fire Before Fire — Featured Project -->
+            <article
+              class="project-card project-card--featured glass reveal"
+              aria-labelledby="project-fbf-title"
+            >
+              <div
+                class="project-card__image-wrap project-card__image-wrap--premium project-card__image-wrap--portrait"
+              >
+                <img
+                  src="/assets/images/fbf_hardware_1.jpg"
+                  alt="ESP32 Fire Before Fire hardware prototype with sensors"
+                  width="629"
+                  height="875"
+                  loading="lazy"
+                />
+                <div class="project-card__badges" aria-label="Project status">
+                  <span
+                    class="project-card__badge project-card__badge--featured"
+                    >Featured</span
+                  >
+                  <span class="project-card__badge project-card__badge--status"
+                    >Completed</span
+                  >
+                  <span class="project-card__badge project-card__badge--platform"
+                    >ESP32 / IoT</span
+                  >
+                </div>
+              </div>
+
+              <div class="project-card__body">
+                <h3 class="project-card__title" id="project-fbf-title">
+                  Fire Before Fire
+                </h3>
+                <p class="project-card__subtitle">
+                  ESP32 Early Electrical Heating &amp; Fire-Risk Detection
+                </p>
+
+                <div
+                  class="project-card__feature-badges"
+                  aria-label="Key features"
+                >
+                  <span class="feature-badge">Current Sensing</span>
+                  <span class="feature-badge">Temperature Monitoring</span>
+                  <span class="feature-badge">On-Device ML</span>
+                  <span class="feature-badge">Rule Engine</span>
+                  <span class="feature-badge">SoftAP Dashboard</span>
+                  <span class="feature-badge">Cloud Model Sync</span>
+                  <span class="feature-badge">Web Push Alerts</span>
+                  <span class="feature-badge">Bayesian Ensemble</span>
+                </div>
+
+                <div class="project-card__section">
+                  <h4 class="project-card__section-title">Overview</h4>
+                  <p class="project-card__text">
+                    An ESP32-based intelligent fire prevention system that
+                    predicts hazardous electrical heating before ignition using
+                    ACS712 current and DS18B20 temperature sensing, physics-based
+                    features, threshold rules, and an on-device GNB + logistic
+                    regression ensemble with cloud refit on Render.
+                  </p>
+                </div>
+
+                <div class="project-card__section">
+                  <h4 class="project-card__section-title">Technologies</h4>
+                  <div class="project-card__tags">
+                    <span class="tag">ESP32</span>
+                    <span class="tag">C++</span>
+                    <span class="tag">PlatformIO</span>
+                    <span class="tag">ACS712</span>
+                    <span class="tag">DS18B20</span>
+                    <span class="tag">LittleFS</span>
+                    <span class="tag">Gaussian NB</span>
+                    <span class="tag">Softmax LR</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Express</span>
+                    <span class="tag">Web Push</span>
+                    <span class="tag">PWA</span>
+                  </div>
+                </div>
+
+                <div class="project-card__actions">
+                  <a
+                    href="/projects/fire-before-fire"
+                    class="btn btn--primary btn--sm ripple"
+                    aria-label="View Fire Before Fire case study"
+                  >
+                    <span data-icon="file-text" class="icon icon--sm"></span>
+                    View Case Study
+                  </a>
+                  <a
+                    href="https://github.com/sayan21m/fire-before-fire"
+                    class="btn btn--secondary btn--sm ripple"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View Fire Before Fire on GitHub"
+                  >
+                    <span data-icon="github" class="icon icon--sm"></span>
+                    GitHub
+                  </a>
+                  <a
+                    href="https://fire-before-fire.onrender.com"
+                    class="btn btn--ghost btn--sm ripple"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Fire Before Fire cloud dashboard"
+                  >
+                    <span
+                      data-icon="external-link"
+                      class="icon icon--sm"
+                    ></span>
+                    Cloud Demo
+                  </a>
+                </div>
+              </div>
+            </article>
               </div>
             </div>
 
@@ -844,6 +1029,14 @@
                 aria-label="MessWise"
                 data-slide="1"
               ></button>
+              <button
+                type="button"
+                class="projects-slider__dot"
+                role="tab"
+                aria-selected="false"
+                aria-label="Fire Before Fire"
+                data-slide="2"
+              ></button>
             </div>
           </div>
         </div>
@@ -877,7 +1070,7 @@
               <li class="status-log__line">
                 <span class="status-log__prompt" aria-hidden="true">&gt;</span>
                 <span class="status-log__key">shipping:</span>
-                MessWise Android updates and Temperature Predictor improvements
+                Fire Before Fire ESP32 updates, MessWise, and Temperature Predictor improvements
               </li>
               <li class="status-log__line">
                 <span class="status-log__prompt" aria-hidden="true">&gt;</span>
@@ -887,7 +1080,7 @@
               <li class="status-log__line">
                 <span class="status-log__prompt" aria-hidden="true">&gt;</span>
                 <span class="status-log__key">focus:</span>
-                real-world systems — ML dashboards, Android apps, and Flask APIs
+                real-world systems — ML, Android, IoT edge ML, and cloud APIs
               </li>
               <li class="status-log__line status-log__line--cursor">
                 <span class="status-log__prompt" aria-hidden="true">$</span>
@@ -1064,6 +1257,35 @@
                 </p>
               </div>
             </div>
+            <div class="journey-timeline__item reveal" role="listitem">
+              <div class="journey-timeline__marker" aria-hidden="true">
+                <span class="journey-timeline__dot"></span>
+              </div>
+              <div class="journey-timeline__content glass">
+                <span class="journey-timeline__step">Step 7</span>
+                <h3 class="journey-timeline__title">Embedded Systems &amp; Edge ML</h3>
+                <p class="journey-timeline__text">
+                  Expanded into ESP32 firmware, sensor fusion, on-device Bayesian
+                  models, and cloud-synced edge intelligence.
+                </p>
+              </div>
+            </div>
+            <div
+              class="journey-timeline__item reveal journey-timeline__item--milestone"
+              role="listitem"
+            >
+              <div class="journey-timeline__marker" aria-hidden="true">
+                <span class="journey-timeline__dot"></span>
+              </div>
+              <div class="journey-timeline__content glass">
+                <span class="journey-timeline__step">Milestone</span>
+                <h3 class="journey-timeline__title">Fire Before Fire</h3>
+                <p class="journey-timeline__text">
+                  Built an ESP32 early electrical fire-risk system with SoftAP
+                  dashboard, GNB + logistic regression ensemble, and Render cloud sync.
+                </p>
+              </div>
+            </div>
             <div
               class="journey-timeline__item reveal journey-timeline__item--current"
               role="listitem"
@@ -1121,6 +1343,10 @@
                 <li>
                   Shipped <strong>MessWise</strong> — production Android mess management
                   app with Firebase sync, analytics, and role-based access
+                </li>
+                <li>
+                  Built <strong>Fire Before Fire</strong> — ESP32 early fire-risk detection
+                  with on-device ML ensemble, SoftAP dashboard, and cloud model sync
                 </li>
                 <li>
                   Published case studies, live demos, and open-source repositories on GitHub

@@ -8,7 +8,7 @@
           <h1 class="tech-stack-hero__title" id="tech-stack-title">Tech Stack</h1>
           <p class="tech-stack-hero__subtitle">
             Technologies I have actually used in completed portfolio projects — not a wish list.
-            Every item below maps to real work in Temperature Predictor or MessWise.
+            Every item below maps to real work in Temperature Predictor, MessWise, or Fire Before Fire.
           </p>
         </div>
       </div>
@@ -42,14 +42,24 @@
               <span class="tech-card__project">MessWise</span>
             </div>
           </a>
+          <a href="/projects/fire-before-fire" class="tech-card reveal">
+            <div class="tech-card__head">
+              <span class="tech-card__icon" data-icon="code" aria-hidden="true"></span>
+              <span class="tech-card__name">C++</span>
+            </div>
+            <p class="tech-card__desc">ESP32 firmware for sensors, SoftAP APIs, on-device GNB/LR ensemble, and cloud sync.</p>
+            <div class="tech-card__meta">
+              <span class="tech-card__project">Fire Before Fire</span>
+            </div>
+          </a>
           <a href="/projects/temperature-predictor" class="tech-card reveal">
             <div class="tech-card__head">
               <span class="tech-card__icon" data-icon="javascript" aria-hidden="true"></span>
               <span class="tech-card__name">JavaScript</span>
             </div>
-            <p class="tech-card__desc">Client-side logic for the prediction dashboard, chart interactions, and API calls.</p>
+            <p class="tech-card__desc">Client-side dashboards, SoftAP UI, and the Fire Before Fire cloud / Web Push pipeline.</p>
             <div class="tech-card__meta">
-              <span class="tech-card__project">Temperature Predictor</span>
+              <span class="tech-card__project">Temperature Predictor · Fire Before Fire</span>
             </div>
           </a>
           <a href="/projects/temperature-predictor" class="tech-card reveal">
@@ -136,6 +146,16 @@
               <span class="tech-card__project">Temperature Predictor</span>
             </div>
           </a>
+          <a href="/projects/fire-before-fire" class="tech-card reveal">
+            <div class="tech-card__head">
+              <span class="tech-card__icon" data-icon="server" aria-hidden="true"></span>
+              <span class="tech-card__name">Node.js / Express</span>
+            </div>
+            <p class="tech-card__desc">Cloud ingest, online GNB/LR refit, and Web Push notifications for Fire Before Fire.</p>
+            <div class="tech-card__meta">
+              <span class="tech-card__project">Fire Before Fire</span>
+            </div>
+          </a>
           <a href="/projects/messwise" class="tech-card reveal">
             <div class="tech-card__head">
               <span class="tech-card__icon" data-icon="database" aria-hidden="true"></span>
@@ -154,6 +174,48 @@
             <p class="tech-card__desc">User sign-in with role-based access control for admin and student workflows.</p>
             <div class="tech-card__meta">
               <span class="tech-card__project">MessWise</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Embedded / IoT -->
+    <section class="tech-stack-section" aria-labelledby="iot-title">
+      <div class="container">
+        <h2 class="tech-stack-section__title reveal" id="iot-title">
+          <span class="tech-stack-section__icon" data-icon="zap" aria-hidden="true"></span>
+          Embedded / IoT
+        </h2>
+        <div class="tech-stack-grid">
+          <a href="/projects/fire-before-fire" class="tech-card reveal">
+            <div class="tech-card__head">
+              <span class="tech-card__icon" data-icon="code" aria-hidden="true"></span>
+              <span class="tech-card__name">ESP32</span>
+            </div>
+            <p class="tech-card__desc">Firmware MCU with SoftAP dashboard, LittleFS storage, and AP+STA cloud sync.</p>
+            <div class="tech-card__meta">
+              <span class="tech-card__project">Fire Before Fire</span>
+            </div>
+          </a>
+          <a href="/projects/fire-before-fire" class="tech-card reveal">
+            <div class="tech-card__head">
+              <span class="tech-card__icon" data-icon="zap" aria-hidden="true"></span>
+              <span class="tech-card__name">ACS712 + DS18B20</span>
+            </div>
+            <p class="tech-card__desc">True-RMS current and 1-Wire temperature sensing for early heating risk features.</p>
+            <div class="tech-card__meta">
+              <span class="tech-card__project">Fire Before Fire</span>
+            </div>
+          </a>
+          <a href="/projects/fire-before-fire" class="tech-card reveal">
+            <div class="tech-card__head">
+              <span class="tech-card__icon" data-icon="brain" aria-hidden="true"></span>
+              <span class="tech-card__name">On-Device GNB / Softmax LR</span>
+            </div>
+            <p class="tech-card__desc">Edge Bayesian + logistic models with confidence-weighted ensemble override.</p>
+            <div class="tech-card__meta">
+              <span class="tech-card__project">Fire Before Fire</span>
             </div>
           </a>
         </div>

@@ -1,0 +1,404 @@
+<main id="main">
+
+    <section class="case-hero" aria-labelledby="case-title">
+      <div class="container">
+        <div class="case-hero__content reveal">
+          <span class="case-hero__tag">Project Case Study</span>
+          <h1 class="case-hero__title" id="case-title">Fire Before Fire</h1>
+          <p class="case-hero__subtitle">ESP32 Early Electrical Heating &amp; Fire-Risk Detection</p>
+
+          <div class="case-hero__badges" aria-label="Technology badges">
+            <span class="tag">ESP32</span>
+            <span class="tag">C++</span>
+            <span class="tag">PlatformIO</span>
+            <span class="tag">Gaussian NB</span>
+            <span class="tag">Softmax LR</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Web Push</span>
+          </div>
+
+          <div class="case-hero__actions">
+            <a href="https://github.com/sayan21m/fire-before-fire" class="btn btn--primary btn--sm ripple" target="_blank" rel="noopener noreferrer" aria-label="View source code on GitHub">
+              <span data-icon="github" class="icon icon--sm"></span>
+              GitHub
+            </a>
+            <a href="https://fire-before-fire.onrender.com" class="btn btn--secondary btn--sm ripple" target="_blank" rel="noopener noreferrer" aria-label="Open cloud demo">
+              <span data-icon="external-link" class="icon icon--sm"></span>
+              Cloud Demo
+            </a>
+            <a href="/#projects" class="btn btn--ghost btn--sm ripple" aria-label="Back to portfolio projects">
+              <span data-icon="arrow-left" class="icon icon--sm"></span>
+              Back to Portfolio
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section" aria-labelledby="overview-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="overview-title">Project Overview</h2>
+        <p class="case-section__text reveal">
+          <strong>What it is.</strong> Fire Before Fire is an ESP32-based early-warning
+          system that monitors electrical load current and temperature to flag hazardous
+          heating <em>before</em> ignition — combining physics-derived features, a live
+          threshold rule engine, and an on-device ML ensemble.
+        </p>
+        <p class="case-section__text reveal">
+          <strong>Who it is for.</strong> Prototype research and educational demos around
+          electrical fire-risk sensing — not a certified fire-safety product. Useful for
+          exploring edge ML, sensor fusion, and cloud-synced model updates on constrained hardware.
+        </p>
+        <p class="case-section__text reveal">
+          <strong>Overall goal.</strong> Ship a working SoftAP dashboard + optional cloud
+          pipeline where the board can alert locally (buzzer/relay, in-app WebSocket) and
+          sync labeled batches to Render for GNB + softmax logistic regression refit.
+        </p>
+      </div>
+    </section>
+
+    <section class="case-section case-section--alt" aria-labelledby="problem-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="problem-title">Problem Statement</h2>
+        <p class="case-section__text reveal">
+          Electrical fires often build from abnormal heating and current draw before flames
+          appear. Many consumer detectors only react after smoke or heat thresholds are
+          crossed. An edge device that scores risk from live current/temperature features —
+          with clear local alerts and optional phone notifications — can surface caution
+          earlier in the failure curve.
+        </p>
+        <ul class="case-list reveal">
+          <li><strong>AC current sensing</strong> — naive ADC averages collapse toward DC bias; true RMS sampling is required</li>
+          <li><strong>Sensor drift</strong> — ACS712 zero-point shifts over time and needs idle re-zeroing</li>
+          <li><strong>Label leakage</strong> — adaptive alert thresholds must not rewrite training labels</li>
+          <li><strong>Edge constraints</strong> — models must fit on ESP32 flash while still syncing with cloud refits</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="case-section" aria-labelledby="solution-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="solution-title">Solution</h2>
+        <p class="case-section__text reveal">
+          The firmware reads an ACS712 on GPIO 34 (true RMS over ≥1 mains cycle) and a
+          DS18B20 on GPIO 4, derives heating features (slopes, variance, power estimate,
+          temperature acceleration), and scores risk with:
+        </p>
+        <ul class="case-list reveal">
+          <li>A <strong>threshold rule engine</strong> for live alerts (always on)</li>
+          <li>On-device <strong>Gaussian Naive Bayes</strong> when the labeled dataset is sufficient</li>
+          <li><strong>Softmax logistic regression</strong> weights from LittleFS / cloud online refit</li>
+          <li>A <strong>confidence-weighted ensemble</strong> that can override rules when confident</li>
+        </ul>
+        <p class="case-section__text reveal">
+          A SoftAP dashboard (`FireBeforeFire`) is served from LittleFS. With home Wi‑Fi and
+          an API key saved once, the node uploads batches to Render, which refits GNB + LR;
+          the ESP pulls updated models and can trigger OS Web Push notifications.
+        </p>
+      </div>
+    </section>
+
+    <section class="case-section case-section--alt" aria-labelledby="hardware-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="hardware-title">Hardware</h2>
+        <div class="case-grid reveal">
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="code" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">ESP32 Dev Module</h3>
+            <p class="case-grid__card-text">MCU + SoftAP web server (AP+STA for cloud sync).</p>
+          </div>
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="zap" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">ACS712</h3>
+            <p class="case-grid__card-text">Load current on GPIO 34 (ADC) with boot + idle re-zero calibration.</p>
+          </div>
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="thermometer" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">DS18B20</h3>
+            <p class="case-grid__card-text">Conductor / ambient temperature on GPIO 4 (1-Wire + pull-up).</p>
+          </div>
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="alert-circle" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">Buzzer / Relay</h3>
+            <p class="case-grid__card-text">Optional local alarm on GPIO 27 — works without phone or internet.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section" aria-labelledby="features-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="features-title">Key Features</h2>
+        <div class="case-grid reveal">
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="monitor" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">SoftAP Dashboard</h3>
+            <p class="case-grid__card-text">Live KPIs, sparklines, alerts, history, CSV/JSON export, and installable PWA shell.</p>
+          </div>
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="shield" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">Random SoftAP Security</h3>
+            <p class="case-grid__card-text">HW-RNG password + admin token persisted to flash; state-changing POSTs require X-Admin-Token.</p>
+          </div>
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="brain" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">On-Device Ensemble</h3>
+            <p class="case-grid__card-text">GNB + softmax LR with confidence-weighted override when ensemble confidence ≥ 55%.</p>
+          </div>
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="database" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">Dataset Persistence</h3>
+            <p class="case-grid__card-text">Labeled batch rows saved to LittleFS (/dataset.bin) and reloaded across power cycles.</p>
+          </div>
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="server" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">Cloud Model Sync</h3>
+            <p class="case-grid__card-text">HTTPS ingest to Render refits GNB + LR; ESP auto-pulls weights with CA-verified TLS.</p>
+          </div>
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="smartphone" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">Web Push Alerts</h3>
+            <p class="case-grid__card-text">OS notifications via Render /notify — SoftAP HTTP alone cannot grant OS permission.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section case-section--alt" aria-labelledby="pipeline-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="pipeline-title">Prediction Pipeline</h2>
+        <ol class="ml-pipeline reveal" aria-label="Fire Before Fire pipeline stages">
+          <li class="ml-pipeline__step">
+            <span class="ml-pipeline__step-num">1</span>
+            <span class="ml-pipeline__step-icon" aria-hidden="true">
+              <span data-icon="thermometer" class="icon icon--sm"></span>
+            </span>
+            <span class="ml-pipeline__step-label">Sense</span>
+          </li>
+          <li class="ml-pipeline__connector" aria-hidden="true"></li>
+          <li class="ml-pipeline__step">
+            <span class="ml-pipeline__step-num">2</span>
+            <span class="ml-pipeline__step-icon" aria-hidden="true">
+              <span data-icon="layers" class="icon icon--sm"></span>
+            </span>
+            <span class="ml-pipeline__step-label">Features</span>
+          </li>
+          <li class="ml-pipeline__connector" aria-hidden="true"></li>
+          <li class="ml-pipeline__step">
+            <span class="ml-pipeline__step-num">3</span>
+            <span class="ml-pipeline__step-icon" aria-hidden="true">
+              <span data-icon="alert-circle" class="icon icon--sm"></span>
+            </span>
+            <span class="ml-pipeline__step-label">Rules</span>
+          </li>
+          <li class="ml-pipeline__connector" aria-hidden="true"></li>
+          <li class="ml-pipeline__step">
+            <span class="ml-pipeline__step-num">4</span>
+            <span class="ml-pipeline__step-icon" aria-hidden="true">
+              <span data-icon="brain" class="icon icon--sm"></span>
+            </span>
+            <span class="ml-pipeline__step-label">GNB + LR</span>
+          </li>
+          <li class="ml-pipeline__connector" aria-hidden="true"></li>
+          <li class="ml-pipeline__step">
+            <span class="ml-pipeline__step-num">5</span>
+            <span class="ml-pipeline__step-icon" aria-hidden="true">
+              <span data-icon="git-branch" class="icon icon--sm"></span>
+            </span>
+            <span class="ml-pipeline__step-label">Ensemble</span>
+          </li>
+          <li class="ml-pipeline__connector" aria-hidden="true"></li>
+          <li class="ml-pipeline__step">
+            <span class="ml-pipeline__step-num">6</span>
+            <span class="ml-pipeline__step-icon" aria-hidden="true">
+              <span data-icon="server" class="icon icon--sm"></span>
+            </span>
+            <span class="ml-pipeline__step-label">Cloud Sync</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="case-section" aria-labelledby="tech-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="tech-title">Tech Stack</h2>
+        <div class="case-grid reveal">
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="code" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">Firmware</h3>
+            <p class="case-grid__card-text">C++ · PlatformIO · LittleFS · SoftAP HTTP API</p>
+          </div>
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="brain" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">On-Device ML</h3>
+            <p class="case-grid__card-text">Gaussian NB · Softmax logistic regression · confidence ensemble</p>
+          </div>
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="monitor" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">Edge UI</h3>
+            <p class="case-grid__card-text">HTML/CSS/JS dashboard · PWA · WebSocket alerts</p>
+          </div>
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="server" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">Cloud</h3>
+            <p class="case-grid__card-text">Node.js · Express · online GNB/LR refit · Web Push · Render</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section case-section--alt" aria-labelledby="challenges-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="challenges-title">Challenges Faced</h2>
+        <div class="case-grid reveal">
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="zap" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">True RMS Current</h3>
+            <p class="case-grid__card-text">Sampling ≥1 full mains cycle so AC magnitude does not collapse to DC bias.</p>
+          </div>
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="git-branch" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">Train vs Alert Labels</h3>
+            <p class="case-grid__card-text">Keeping fixed training bands independent of adaptive live thresholds to avoid leakage.</p>
+          </div>
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="brain" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">Small-Class GNB Variance</h3>
+            <p class="case-grid__card-text">Variance shrinkage toward the pooled distribution so rare critical rows stay well-behaved.</p>
+          </div>
+          <div class="case-grid__card glass">
+            <span class="case-grid__card-icon" aria-hidden="true">
+              <span data-icon="lock" class="icon icon--sm"></span>
+            </span>
+            <h3 class="case-grid__card-title">TLS on ESP32</h3>
+            <p class="case-grid__card-text">CA-verified HTTPS to Render (GTS Root R4 + ISRG X1) instead of setInsecure().</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section" aria-labelledby="lessons-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="lessons-title">Lessons Learned</h2>
+        <p class="case-section__text reveal">
+          Edge ML is as much about sensing honesty and label hygiene as it is about model
+          choice. Separating live alert thresholds from training labels kept the dataset
+          usable while still letting Settings adapt the rule engine. Confidence-weighted
+          ensembles need explicit floors — otherwise a overconfident tiny GNB class can
+          drown out safer rules.
+        </p>
+        <p class="case-section__text reveal">
+          SoftAP UX and cloud sync are complementary: phones join the device network for
+          setup and live charts, while OS push and model refit require a real HTTPS host.
+          Designing both paths up front avoided painting the project into a SoftAP-only corner.
+        </p>
+      </div>
+    </section>
+
+    <section class="case-section case-section--alt" aria-labelledby="future-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="future-title">Future Improvements</h2>
+        <ul class="case-list reveal">
+          <li>ML / RL policies for adaptive sampling and alert hysteresis</li>
+          <li>Smoke and flame sensor fusion alongside current/temperature</li>
+          <li>Stronger offline corpus seeding and durable cloud storage beyond free-tier disks</li>
+          <li>Hardened multi-tenant auth for shared cloud deploys</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="case-section" aria-labelledby="gallery-title">
+      <div class="container">
+        <h2 class="case-section__title reveal" id="gallery-title">App &amp; Hardware Gallery</h2>
+        <div class="case-gallery case-gallery--mobile case-gallery--dense reveal">
+          <figure class="case-gallery__item">
+            <img src="/assets/images/fbf_dashboard_risk.jpg" alt="Dashboard risk level, confidence, and operating phase" width="462" height="868" loading="lazy" decoding="async">
+            <figcaption class="case-gallery__caption">Risk Dashboard</figcaption>
+          </figure>
+          <figure class="case-gallery__item">
+            <img src="/assets/images/fbf_overview_warning.jpg" alt="Live system snapshot with ensemble warning banner" width="462" height="868" loading="lazy" decoding="async">
+            <figcaption class="case-gallery__caption">Live Overview</figcaption>
+          </figure>
+          <figure class="case-gallery__item">
+            <img src="/assets/images/fbf_dashboard_metrics.jpg" alt="Current, temperature, power, and slope metric cards with sparklines" width="462" height="868" loading="lazy" decoding="async">
+            <figcaption class="case-gallery__caption">Live Metrics</figcaption>
+          </figure>
+          <figure class="case-gallery__item">
+            <img src="/assets/images/fbf_overview_snapshot.jpg" alt="Live system snapshot with adaptive and ML status badges" width="462" height="868" loading="lazy" decoding="async">
+            <figcaption class="case-gallery__caption">System Snapshot</figcaption>
+          </figure>
+          <figure class="case-gallery__item">
+            <img src="/assets/images/fbf_monitoring_trends.jpg" alt="Waveform and trend analysis charts for current and temperature" width="462" height="868" loading="lazy" decoding="async">
+            <figcaption class="case-gallery__caption">Monitoring Trends</figcaption>
+          </figure>
+          <figure class="case-gallery__item">
+            <img src="/assets/images/fbf_monitoring_slopes.jpg" alt="Current and temperature slope derivative charts" width="462" height="868" loading="lazy" decoding="async">
+            <figcaption class="case-gallery__caption">Slope Analysis</figcaption>
+          </figure>
+          <figure class="case-gallery__item">
+            <img src="/assets/images/fbf_statistics_kpi.jpg" alt="Live signal analytics KPI cards and current distribution histogram" width="462" height="868" loading="lazy" decoding="async">
+            <figcaption class="case-gallery__caption">Statistics</figcaption>
+          </figure>
+          <figure class="case-gallery__item">
+            <img src="/assets/images/fbf_statistics_charts.jpg" alt="Gaussian fit and current-temperature trend charts" width="462" height="868" loading="lazy" decoding="async">
+            <figcaption class="case-gallery__caption">Distributions</figcaption>
+          </figure>
+          <figure class="case-gallery__item">
+            <img src="/assets/images/fbf_alerts.jpg" alt="Alerts feed with ensemble warning history" width="462" height="868" loading="lazy" decoding="async">
+            <figcaption class="case-gallery__caption">Alerts</figcaption>
+          </figure>
+          <figure class="case-gallery__item">
+            <img src="/assets/images/fbf_event_history.jpg" alt="Event history table with export and filters" width="462" height="868" loading="lazy" decoding="async">
+            <figcaption class="case-gallery__caption">Event History</figcaption>
+          </figure>
+          <figure class="case-gallery__item">
+            <img src="/assets/images/fbf_settings_thresholds.jpg" alt="Adaptive fire prediction parameter thresholds settings" width="462" height="868" loading="lazy" decoding="async">
+            <figcaption class="case-gallery__caption">Thresholds</figcaption>
+          </figure>
+          <figure class="case-gallery__item">
+            <img src="/assets/images/fbf_hardware_1.jpg" alt="ESP32 breadboard prototype with DS18B20 probe and sensor module" width="629" height="875" loading="lazy" decoding="async">
+            <figcaption class="case-gallery__caption">Hardware Prototype</figcaption>
+          </figure>
+          <figure class="case-gallery__item">
+            <img src="/assets/images/fbf_hardware_2.jpg" alt="Alternate angle of ESP32 Fire Before Fire hardware setup" width="628" height="875" loading="lazy" decoding="async">
+            <figcaption class="case-gallery__caption">Hardware Setup</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+  </main>

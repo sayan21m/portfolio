@@ -34,6 +34,7 @@
     resumePdf: '/assets/resume.pdf',
     caseStudyPage: '/projects/temperature-predictor',
     messwiseCaseStudy: '/projects/messwise',
+    fireBeforeFireCaseStudy: '/projects/fire-before-fire',
     techStackPage: '/tech-stack'
   };
   const HOME = P.home;
@@ -41,6 +42,7 @@
   const RESUME_PDF = P.resumePdf;
   const CASE_STUDY_PAGE = P.caseStudyPage;
   const MESSWISE_PAGE = P.messwiseCaseStudy || '/projects/messwise';
+  const FBF_PAGE = P.fireBeforeFireCaseStudy || '/projects/fire-before-fire';
   const TECH_STACK_PAGE = P.techStackPage || '/tech-stack';
   const isSubpage = P.inPages;
 
@@ -334,6 +336,35 @@
       keywords: ['messwise', 'demo', 'live', 'web', 'app'],
       icon: 'external-link',
       run: () => openExternal('https://mess-wise.web.app')
+    },
+    {
+      id: 'link.case.fbf',
+      name: 'Read Fire Before Fire Case Study',
+      hint: 'ESP32 early fire-risk detection write-up',
+      section: 'Links',
+      keywords: ['case', 'study', 'fire', 'before', 'esp32', 'iot', 'edge'],
+      icon: 'file-text',
+      run: () => {
+        window.location.href = FBF_PAGE;
+      }
+    },
+    {
+      id: 'link.project.fbf',
+      name: 'Open Fire Before Fire (GitHub)',
+      hint: 'ESP32 fire-risk detection firmware + cloud',
+      section: 'Links',
+      keywords: ['fire', 'before', 'esp32', 'iot', 'github', 'project'],
+      icon: 'external-link',
+      run: () => openExternal('https://github.com/sayan21m/fire-before-fire')
+    },
+    {
+      id: 'link.demo.fbf',
+      name: 'Open Fire Before Fire Cloud',
+      hint: 'fire-before-fire.onrender.com',
+      section: 'Links',
+      keywords: ['fire', 'before', 'cloud', 'demo', 'render', 'push'],
+      icon: 'external-link',
+      run: () => openExternal('https://fire-before-fire.onrender.com')
     },
     {
       id: 'link.case.temp',
@@ -651,11 +682,11 @@
       ]),
       skills: () => printBlock([
         { label: 'Skills', class: 'term-line--title' },
-        { text: '• Programming: Python, Java, JavaScript, HTML, CSS' },
-        { text: '• Machine Learning: Pandas, NumPy, Scikit-learn' },
+        { text: '• Programming: Python, Java, JavaScript, C++, HTML, CSS' },
+        { text: '• Machine Learning: Pandas, NumPy, Scikit-learn, on-device GNB/LR' },
         { text: '• Android: XML, Material Design 3, Firebase' },
-        { text: '• Backend: Flask, Firebase Realtime Database' },
-        { text: '• Tools: Git, GitHub, Android Studio, VS Code' },
+        { text: '• Backend / IoT: Flask, Node.js, ESP32, Firebase' },
+        { text: '• Tools: Git, GitHub, Android Studio, VS Code, PlatformIO' },
         { text: 'Type "stack" for the full tech stack page.' }
       ]),
       stack: () => {
@@ -675,6 +706,7 @@
           { label: 'Projects', class: 'term-line--title' },
           { text: '1. Temperature Predictor — ML weather forecasting & EDA dashboard' },
           { text: '2. MessWise — Android mess management with Firebase sync' },
+          { text: '3. Fire Before Fire — ESP32 early electrical fire-risk detection' },
           { text: '   → Navigating to project section…' }
         ]);
         setTimeout(() => { close(); goToHash('#projects'); }, 500);

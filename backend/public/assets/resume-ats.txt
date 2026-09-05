@@ -5,16 +5,17 @@ GitHub: github.com/sayan21m
 LinkedIn: linkedin.com/in/sayan-garai-8b6246370
 
 SUMMARY
-B.Tech Information Technology student and software engineer focused on machine learning, Android development, and backend engineering. Built two completed flagship projects: Temperature Predictor (ML web application) and MessWise (Android mess management app).
+B.Tech Information Technology student and software engineer focused on machine learning, Android development, backend engineering, and IoT / edge ML. Built three completed flagship projects: Temperature Predictor (ML web application), MessWise (Android mess management app), and Fire Before Fire (ESP32 early electrical fire-risk detection).
 
 EDUCATION
 B.Tech in Information Technology — Pursuing
 
 TECHNICAL SKILLS
-Programming: Python, Java, JavaScript, HTML, CSS
-Machine Learning: Pandas, NumPy, Scikit-learn
-Backend: Flask, Firebase Realtime Database, Firebase Authentication
+Programming: Python, Java, JavaScript, C++, HTML, CSS
+Machine Learning: Pandas, NumPy, Scikit-learn, On-device Gaussian NB, Softmax Logistic Regression
+Backend: Flask, Node.js, Express, Firebase Realtime Database, Firebase Authentication
 Android: Android XML, Material Design 3, Jetpack Compose (partial), Android Security Crypto, R8
+Embedded / IoT: ESP32, PlatformIO, ACS712, DS18B20, LittleFS, SoftAP, Web Push
 Visualization: Plotly, Matplotlib, MPAndroidChart
 Tools: Git, GitHub, Android Studio, VS Code
 
@@ -30,6 +31,12 @@ Android application for student mess and hostel management with real-time Fireba
 Technologies: Java, Android XML, Material Design 3, Firebase, MPAndroidChart, Lottie, Android Security Crypto
 GitHub: github.com/sayan21m/mess-wise
 Live: mess-wise.web.app
+
+Fire Before Fire
+ESP32 early electrical heating and fire-risk detection with on-device ML ensemble and cloud model sync.
+Technologies: ESP32, C++, PlatformIO, ACS712, DS18B20, Gaussian NB, Softmax LR, Node.js, Express, Web Push
+GitHub: github.com/sayan21m/fire-before-fire
+Cloud: fire-before-fire.onrender.com
 
 CURRENTLY LEARNING
 Advanced Machine Learning, Deep Learning, Large Language Models, Retrieval-Augmented Generation

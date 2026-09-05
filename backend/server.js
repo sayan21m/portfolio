@@ -47,7 +47,7 @@ app.get('/', (_req, res) => {
   renderPage(res, 'home', {
     title: 'Sayan Garai | Software Engineer',
     description:
-      'Sayan Garai — Software Engineer specializing in Machine Learning, Android, and Backend Development. Portfolio showcasing Temperature Predictor and MessWise.',
+      'Sayan Garai — Software Engineer specializing in Machine Learning, Android, IoT, and Backend Development. Portfolio showcasing Temperature Predictor, MessWise, and Fire Before Fire.',
     keywords:
       'Sayan Garai, Machine Learning, Backend Developer, Python, Flask, Portfolio',
     ogTitle: 'Sayan Garai | ML, Android & Backend Developer',
@@ -139,7 +139,7 @@ app.get('/tech-stack', (_req, res) => {
   renderPage(res, 'tech-stack', {
     title: 'Tech Stack | Sayan Garai',
     description:
-      "Tech stack used in Sayan Garai's completed portfolio projects — Temperature Predictor and MessWise.",
+      "Tech stack used in Sayan Garai's completed portfolio projects — Temperature Predictor, MessWise, and Fire Before Fire.",
     bodyClass: 'tech-stack-page',
     navLabel: 'Tech stack navigation',
     footerLabel: 'Tech Stack',
@@ -169,6 +169,18 @@ app.get('/projects/messwise', (_req, res) => {
     footerLabel: 'MessWise Case Study',
     extraCss: ['/css/case-study.css'],
     showDownloadToast: true,
+  });
+});
+
+app.get('/projects/fire-before-fire', (_req, res) => {
+  renderPage(res, 'fire-before-fire', {
+    title: 'Fire Before Fire Case Study | Sayan Garai',
+    description:
+      'Case study: Fire Before Fire — ESP32 early electrical heating and fire-risk detection with on-device ML by Sayan Garai.',
+    bodyClass: 'case-study-page',
+    navLabel: 'Case study navigation',
+    footerLabel: 'Fire Before Fire Case Study',
+    extraCss: ['/css/case-study.css'],
   });
 });
 

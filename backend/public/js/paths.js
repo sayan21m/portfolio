@@ -12,6 +12,7 @@
     resumePdf: '/assets/resume.pdf',
     caseStudyPage: '/projects/temperature-predictor',
     messwiseCaseStudy: '/projects/messwise',
+    fireBeforeFireCaseStudy: '/projects/fire-before-fire',
     techStackPage: '/tech-stack'
   };
 })();
