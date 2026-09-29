@@ -174,11 +174,23 @@ Edit CSS custom properties in `:root` at the top of `backend/public/css/style.cs
 
 ## Deployment
 
-GitHub Pages cannot run this app. Host the Node server on Render, Railway, Fly.io, or a VPS.
+This is a **Node.js / Express** app (server-rendered EJS). It is **not** a static site.
 
+### Render / Railway / Fly.io / VPS
 1. Set the start command to `npm start`
 2. Use `PORT` from the host (the server already reads `process.env.PORT`)
 3. Site live at your host URL
+
+### Vercel
+Vercel Project Settings must not treat this like a static export:
+
+1. **Framework Preset:** Other (or leave auto)
+2. **Build Command:** leave empty / do not override to `npm run build` (there is no build step)
+3. **Output Directory:** leave empty — do not use `public`
+4. **Install Command:** `npm install`
+5. Commit `vercel.json` + `api/index.js` (routes all traffic to the Express serverless function and includes `backend/**` views & assets)
+
+Redeploy after pushing these files. If the old deployment was a blank page, trigger a new Production deployment.
 
 Make the GitHub repository **private** if you do not want the EJS templates cloned.
 
