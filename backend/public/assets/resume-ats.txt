@@ -3,6 +3,7 @@ West Bengal, India
 Email: rebagarai83@gmail.com
 GitHub: github.com/sayan21m
 LinkedIn: linkedin.com/in/sayan-garai-8b6246370
+Portfolio: portfolio-backend-seven-azure.vercel.app
 
 SUMMARY
 B.Tech Information Technology student and software engineer focused on machine learning, Android development, backend engineering, and IoT / edge ML. Built three completed flagship projects: Temperature Predictor (ML web application), MessWise (Android mess management app), and Fire Before Fire (ESP32 early electrical fire-risk detection).
