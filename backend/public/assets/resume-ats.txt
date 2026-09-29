@@ -9,6 +9,8 @@ B.Tech Information Technology student and software engineer focused on machine l
 
 EDUCATION
 B.Tech in Information Technology — Pursuing
+Semester 1 SGPA: 8.76 | Semester 2 SGPA: 9.20 | YGPA 1: 8.97
+Semester 3 SGPA: 9.78 | Semester 4 SGPA: 9.73 | YGPA 2: 9.75
 
 TECHNICAL SKILLS
 Programming: Python, Java, JavaScript, C++, HTML, CSS
@@ -37,6 +39,3 @@ ESP32 early electrical heating and fire-risk detection with on-device ML ensembl
 Technologies: ESP32, C++, PlatformIO, ACS712, DS18B20, Gaussian NB, Softmax LR, Node.js, Express, Web Push
 GitHub: github.com/sayan21m/fire-before-fire
 Cloud: fire-before-fire.onrender.com
-
-CURRENTLY LEARNING
-Advanced Machine Learning, Deep Learning, Large Language Models, Retrieval-Augmented Generation

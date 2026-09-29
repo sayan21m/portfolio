@@ -187,15 +187,6 @@
       run: () => goToHash('#projects')
     },
     {
-      id: 'nav.focus',
-      name: 'Go to Currently Learning',
-      hint: 'What I\'m studying now',
-      section: 'Navigation',
-      keywords: ['focus', 'learning', 'now', 'current'],
-      icon: 'brain',
-      run: () => goToHash('#focus')
-    },
-    {
       id: 'nav.status',
       name: 'Go to Current Status',
       hint: 'What I\'m building now',

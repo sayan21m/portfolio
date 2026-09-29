@@ -90,7 +90,6 @@ portfolio/
 - Project screenshot gallery
 
 ### Learning Sections
-- **Currently Learning** — roadmap cards (learning goals only)
 - **Learning Journey** — animated vertical timeline through Python, ML, Android, and flagship projects
 
 ### Navigation
